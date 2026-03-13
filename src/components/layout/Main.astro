@@ -1,0 +1,11 @@
+---
+interface Props {
+    id?: string;
+}
+const { id } = Astro.props;
+---
+<main id={id} >
+    <slot>
+        <p>No content provided. This is the default content.</p>
+    </slot>
+</main>

@@ -1,0 +1,22 @@
+---
+const links = [
+    { name: "Home", href: "/", icon: null },
+    { name: "Contact", href: "/contact.html", icon: null },
+];
+---
+
+<nav id="main-nav">
+    <ul>
+        {
+            links.map((link) => (
+                <li><a href={link.href}>{link.name}{link.icon && <link.icon />}</a></li>
+            ))
+        }
+    </ul>
+</nav>
+
+<style is:global>
+    @media (max-width: 769px) {
+        nav#main-nav {display: none !important;}
+    }
+</style>
