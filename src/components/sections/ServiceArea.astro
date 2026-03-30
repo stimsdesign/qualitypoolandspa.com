@@ -1,0 +1,180 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Components
+import Button from "../elements/Button.astro";
+import TextTicker from "../elements/TextTicker.astro";
+import GoogleMap from "../elements/GoogleMap.astro";
+// Images
+import ServiceAreaImage from "../../assets/images/service-area.png"
+import ServiceAreaImageFuzzy from "../../assets/images/service-area-fuzzy.png"
+---
+
+<section id="service-area">
+
+
+        <div id="service-area__image">
+            <div id="service-area__aspect-wrapper" class="fuzzy-load" style={`--background: url('${ServiceAreaImageFuzzy.src}')`}>
+                <Image src={ServiceAreaImage} alt="Service Area" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+        </div>
+
+        <div id="service-area__wrapper">
+            <div id="service-area__content">
+                <h2 id="service-area__title">Proudly Serving <span>the Wasatch Front</span></h2>
+                <p>
+                    We proudly serve the entire state of Utah, including Salt Lake City, Provo, Ogden, and all surrounding areas.</p>
+                <TextTicker>
+                    <span>Salt Lake City</span>
+                    <span>Provo</span>
+                    <span>Ogden</span>
+                    <span>Park City</span>
+                    <span>Sandy</span>
+                    <span>Draper</span>
+                    <span>Lehi</span>
+                    <span>Orem</span>
+                    <span>Provo</span>
+                    <span>Ogden</span>
+                    <span>Park City</span>
+                    <span>Sandy</span>
+                    <span>Draper</span>
+                    <span>Lehi</span>
+                    <span>Orem</span>
+                </TextTicker>
+                <Button href="/contact.html" class="wave">Schedule Now</Button>
+            </div>
+            <div id="service-area__map">
+                <GoogleMap />
+            </div>
+        </div>
+</section>
+
+<style is:global>
+    #service-area {
+        width: 100%;
+        aspect-ratio: 2.37 / 1;
+        border-radius: 10cqi;
+        background-color: var(--color-primary);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: var(--color-foreground);
+        border: solid 4px var(--color-secondary);
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3), inset 0 3px 0 rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    @media (max-width: 769px) {
+        #service-area {
+            aspect-ratio: inherit;
+        }
+    }
+
+    #service-area__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-position: center;
+        container-type: size;
+        overflow: hidden;
+    }
+
+    @media (max-width: 769px) {
+        #service-area__image {
+            display: none;
+        }
+    }
+
+    #service-area__aspect-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: max(100cqw, 100cqh * 2.37);
+        height: max(100cqh, 100cqw / 2.37);
+    }
+
+
+
+    #service-area__aspect-wrapper > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #service-area__wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (max-width: 769px) {
+        #service-area__wrapper {
+            position: relative;
+            flex-direction: column;
+        }
+    }
+
+    #service-area__content {
+        width: 60%;
+        height: 100%;
+        padding: 2cqi;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: var(--size-lg);
+        color: var(--color-foreground-lighter);
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 769px) {
+        #service-area__content {
+            width: 100%;
+            padding: 5cqi;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    #service-area__title {
+        color: var(--color-foreground-lighter);
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    #service-area__title span {
+        display: block;
+        color: var(--color-secondary);
+    }
+
+    #service-area__content .text-ticker {
+        margin: 0 0 2rem 0;
+        font-weight: 900;
+    }
+
+    #service-area__map {
+        width: 40%;
+        height: 100%;
+    }
+
+    @media (max-width: 769px) {
+        #service-area__map {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+</style>

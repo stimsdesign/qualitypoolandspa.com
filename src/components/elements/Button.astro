@@ -5,30 +5,42 @@ interface Props {
     margin?: string;
     bookmark?: boolean;
     type?: string;
-    alt?: string;
+    class?: string;
 }
 
-const { href = "#", id = "", margin = "", bookmark = false, type = "anchor", alt } = Astro.props;
+const { 
+    href = "#", 
+    id, 
+    margin, 
+    bookmark = false, 
+    type = "anchor", 
+    class: className = "" 
+} = Astro.props;
 
 const resolvedHref = href.trim() === "" ? "#" : href;
+const trimmedClass = className.trim();
+const isWave = trimmedClass.split(/\s+/).includes('wave');
 
-const altClass = alt?.trim() ? ` ${alt.trim()}` : "";
+const slotHtml = await Astro.slots.render('default');
+
+// Prepare attributes to avoid empty ones
+const attributes = {
+    id: id || undefined,
+    class: `button${bookmark ? " bookmark-button" : ""}${trimmedClass ? ` ${trimmedClass}` : ""}`,
+    style: margin ? `margin: ${margin};` : undefined,
+};
 ---
 
 {
     type === "anchor" ? (
-        bookmark ? (
-            <a href={resolvedHref} id={id} class={`button bookmark-button${altClass}`} style={margin ? `margin: ${margin};` : ""}>
-                <slot />
-            </a>
-        ) : (
-            <a href={resolvedHref} id={id} class={`button${altClass}`} style={margin ? `margin: ${margin};` : ""}>
-                <slot />
-            </a>
-        )
+        <a href={resolvedHref} {...attributes}>
+            <Fragment set:html={slotHtml} />
+            {isWave && <span><Fragment set:html={slotHtml} /></span>}
+        </a>
     ) : (
-        <button type={type === "submit" ? "submit" : "button"} class={`button${altClass}`}>
-            <slot />
+        <button type={type === "submit" ? "submit" : "button"} {...attributes}>
+            <Fragment set:html={slotHtml} />
+            {isWave && <Fragment set:html={slotHtml} />}
         </button>
     )
 }

@@ -7,6 +7,7 @@ interface Props {
     headers?: string[];
     continuous?: boolean;
     autoplay?: boolean;
+    id?: string;
 }
 
 const {
@@ -16,10 +17,11 @@ const {
     bulletColor = "white",
     continuous = false,
     autoplay = false,
+    id = "",
 } = Astro.props;
 ---
 
-<div class:list={["slider", { continuous }, { autoplay: autoplay }]}>
+<div id={id} class:list={["slider", { continuous }, { autoplay: autoplay }]}>
     {
         continuous ? (
             <div class="track">
@@ -32,8 +34,8 @@ const {
     {
         arrows && (
             <div class="slider-navigation">
-                <span class="slider-arrow left-arrow" />
-                <span class="slider-arrow right-arrow" />
+                <span class="slider-arrow left-arrow"></span>
+                <span class="slider-arrow right-arrow"></span>
             </div>
         )
     }
@@ -48,21 +50,19 @@ const {
     }
 </div>
 
-<style is:global>
+<style is:inline>
     .slider {
         position: relative;
         user-select: none;
-        display: grid;
         height: auto;
         width: 100%;
     }
 
     .slide {
+        position: absolute;
         opacity: 0;
         width: 100%;
         height: 100%;
-        grid-area: 2 / 1;
-        position: relative;
         top: 0;
         left: 0;
         z-index: 0;
@@ -79,17 +79,18 @@ const {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        transform: translateY(calc(-50% - 40px));
+        transform: translateY(-50%);
         transition: opacity 0.3s ease;
         z-index: 100;
         user-select: none;
     }
     .slider-arrow {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        background-color: color-mix(in srgb, var(--color-accent) 85%, transparent);
         border-radius: 50%;
-        width: 70px;
-        height: 70px;
+        width: 3.5cqi;
+        height: 3.5cqi;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -99,11 +100,16 @@ const {
             fill 0.3s,
             transform 0.3s ease;
     }
+
+    .slider-arrow:hover {
+        background-color: var(--color-secondary-dark);
+    }
+
     .slider .left-arrow {
         transform: translateX(10px);
     }
     .slider .right-arrow {
-        transform: translateX(-10px);
+        transform: translateX(-20px);
     }
 
     .slider .left-arrow {
@@ -131,7 +137,7 @@ const {
 
     .slider-pagination {
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         width: 100%;
         display: flex;
         justify-content: center;

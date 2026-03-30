@@ -1,11 +1,30 @@
 ---
+// Import Config
 import { siteConfig } from "../siteConfig";
+// Import Assets
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+// Import Styles
 import "../assets/css/styles.css";
+// Import Components
 import HomeHeader from "../components/layout/HomeHeader.astro";
 import Footer from "../components/layout/Footer.astro";
 import MobileNav from "../components/navigation/MobileNav.astro";
-import { Font } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
+// Imports Symbols > HomeNav.astro
+const navLogoFiles = import.meta.glob("../assets/images/logo/DarkIcon.astro", { eager: true });
+const navLogoComponents = Object.values(navLogoFiles).map((module: any) => module.default);
+const iconFiles = import.meta.glob("../icons/{Whistle,Skimmer,Swimmer,Umbrella}.astro", { eager: true });
+const iconComponents = Object.values(iconFiles).map((module: any) => module.default);
+
+// Imports Symbols > ServiceArea.astro
+const brandFiles = import.meta.glob("../assets/images/brands/*.astro", { eager: true });
+const brandComponents = Object.values(brandFiles).map((module: any) => module.default);
+
+const svgSymbols = [
+    ...navLogoComponents,
+    ...iconComponents,
+    ...brandComponents
+];
 
 interface Props {
     title?: string;
@@ -22,7 +41,7 @@ const {
     keywords = siteConfig.keywords,
     author = siteConfig.author,
     ogImage = siteConfig.ogImage,
-    favicon = "/favicon.ico",
+    favicon = "/favicon.svg",
 } = Astro.props;
 ---
 <!doctype html>
@@ -41,8 +60,9 @@ const {
         <meta property="og:url" content="https://www.stimsdesign.com" />
         <title>{title}</title>
         <link rel="icon" href={favicon} type="image/x-icon" />
-        <Font cssVariable="--font-inter" preload />
+        <Font cssVariable="--font-raleway" preload />
         <Font cssVariable="--font-quicksand" preload />
+        <Font cssVariable="--font-roboto-condensed" preload />
         <ClientRouter />
     </head>
     <body>
@@ -50,6 +70,52 @@ const {
         <slot />
         <Footer />
         <MobileNav />
+        <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+            {svgSymbols.map((Symbol) => (
+                <Symbol />
+            ))}
+        </svg>
         <script is:inline src="/js/scripts.js" defer></script>
+        <script>
+            import { functionFuzzyLoad } from "../assets/scripts/FuzzyLoad.js";
+            
+            // Run instantly upon script load (which is safely deferred by Astro)
+            functionFuzzyLoad();
+
+            function initFonts() {
+                // Prevent FOUT (Flash of Unstyled Text) Layout Shift Animations
+                // We use explicit load() calls because document.fonts.ready is notoriously unreliable in Chromium on throttled connections
+                Promise.all([
+                    document.fonts.load("900 1em 'Roboto Condensed'"),
+                    document.fonts.load("900 1em 'Raleway'"),
+                    document.fonts.load("400 1em 'Quicksand'")
+                ]).then(() => {
+                    document.documentElement.classList.add('fonts-loaded');
+                }).catch(() => {
+                    document.documentElement.classList.add('fonts-loaded');
+                });
+            }
+
+            initFonts();
+
+            // Re-run on client-side routing transitions
+            document.addEventListener("astro:after-swap", () => {
+                functionFuzzyLoad();
+                initFonts();
+            });
+
+            document.addEventListener("astro:page-load", () => {
+                document.querySelectorAll("svg use").forEach((use) => {
+                    const targetId = use.getAttribute("href") || use.getAttribute("xlink:href");
+                    if (targetId && targetId.startsWith("#")) {
+                        const symbol = document.querySelector(targetId);
+                        if (symbol && symbol.hasAttribute("viewBox")) {
+                            use.parentElement.setAttribute("viewBox", symbol.getAttribute("viewBox"));
+                        }
+                    }
+                });
+            });
+
+        </script>
     </body>
 </html>

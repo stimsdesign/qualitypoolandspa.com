@@ -38,3 +38,13 @@ export class FuzzyLoad {
         this.root.classList.add('loaded');
     }
 }
+
+/**
+ * Initialize FuzzyLoad for all elements matching the selector.
+ * @param {string} selector 
+ */
+export function functionFuzzyLoad(selector = '.fuzzy-load') {
+    document.querySelectorAll(selector).forEach((el) => {
+        new FuzzyLoad(el);
+    });
+}

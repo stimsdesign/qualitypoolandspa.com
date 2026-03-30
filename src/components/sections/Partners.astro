@@ -1,0 +1,65 @@
+---
+// Components
+import Button from "../elements/Button.astro";
+import ImageTicker from "../elements/ImageTicker.astro";
+---
+
+<section id="partners">
+    <div id="partners__content">
+        <h2 id="partners__title">Our <span>Quality</span> Brand Partners</h2>
+        <p>We proudly serve the entire state of Utah, including Salt Lake City, Provo, Ogden, and all surrounding areas.</p>
+        <ImageTicker>
+            <svg><use xlink:href="#jandy" /></svg>
+            <svg><use xlink:href="#pentair" /></svg>
+            <svg><use xlink:href="#hayward" /></svg>
+            <svg><use xlink:href="#aquastar" /></svg>
+            <svg><use xlink:href="#raypak" /></svg>
+            <svg><use xlink:href="#lochinvar" /></svg>
+            <svg><use xlink:href="#hasa" /></svg>
+            <svg><use xlink:href="#orenda" /></svg>
+            <svg><use xlink:href="#balboa" /></svg>
+            <svg><use xlink:href="#gecko" /></svg>
+            <svg><use xlink:href="#waterway" /></svg>
+        </ImageTicker>
+        <Button href="/contact.html" class="wave">Ask About Our Brands</Button>
+    </div>
+</section>
+
+<style>
+    #partners {
+        background-color: var(--color-primary-lighter);
+        padding: 2rem 0;
+        overflow: hidden;
+    }
+
+    #partners__content {
+        width: calc(100% - 3cqi);
+        margin: 0 auto;
+        padding: 3cqi 0;
+        background-color: var(--color-background);
+        border-radius: 2cqi;
+        text-align: center;
+        gap: 2cqi;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+        color: var(--color-foreground-darker);
+    }
+
+    @media (max-width: 769px) {
+        #partners__content {
+
+        }
+    }
+
+    #partners__title {
+        color: var(--color-primary);
+        text-align: center;
+    }
+
+    #partners__title span {
+        color: var(--color-secondary);
+    }
+</style>
+
+<style is:global>
+    .image-ticker {margin: 2cqi 0 4cqi;}
+</style>   

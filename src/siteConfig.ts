@@ -1,47 +1,47 @@
-import { fontProviders } from "astro/config";
+// import { fontProviders } from "astro/config";
 /* Icon Imports */
-import LinkedInIcon from "./icons/linkedin.svg"
 import FacebookIcon from "./icons/facebook.svg"
 import InstagramIcon from "./icons/instagram.svg"
-import YouTubeIcon from "./icons/youtube.svg"
-import TwitterIcon from "./icons/twitterx.svg"
+import TwitterXIcon from "./icons/twitterx.svg"
 
-const baseUrl = "https://www.stimsdesign.com";
+const baseUrl = "https://www.qualitypoolandspa.com";
 
 export const siteConfig = {
     url: baseUrl,
-    prettyUrl: "stimsdesign.com",
-    logo: "/stimsdesign-logo.svg", /* Path relative to the public directory */
-    logoAlt: "/stimsdesign-logo-alt.svg", /* Path relative to the public directory */
-    title: "STIMS Design",
-    titleStinger: "Bootstrap-based Astro Starter",
-    description: "A professional bootstrap-based Astro site.",
+    prettyUrl: "qualitypoolandspa.com",
+    logo: "/images/logo/quality-pool-and-spa-logo.svg", /* Path relative to the public directory */
+    logoDark: "/images/logo/quality-pool-and-spa-logo-dark.svg", /* Path relative to the public directory */
+    logoLight: "/images/logo/quality-pool-and-spa-logo-light.svg", /* Path relative to the public directory */
+    title: "Quality Pool & Spa",
+    titleStinger: "Quality is Our Specialty",
+    description: "Quality Pool and Spa is a leader in the premiere pool and spa industry across Salt Lake Valley & Park City.",
     keywords: "Astro, Bootstrap, Starter, Template, Web Design",
-    mission: "Merging high-performance engineering with world-class aesthetics. Transcending standard web development to engineer digital assets that accelerate business growth.",
-    author: "Stephen Tims",
-    brand: "STIMS Design",
-    company: "STIMS Design LLC.",
-    telephone: "+14807085204",
-    prettyTelephone: "(480) 708-5204",
+    mission: "Quality Pool and Spa is a leader in the premiere pool and spa industry across Salt Lake Valley & Park City.",
+    author: "STIMS Design",
+    brand: "Quality Pool & Spa",
+    company: "Quality Pool & Spa",
+    telephone: "+18014741089",
+    prettyTelephone: "(801) 474-1089",
+    email: "office@qualitypoolandspa.com",
+    addressLine1: "2970 S West Temple",
+    addressLine2: "Unit A",
+    city: "South Salt Lake",
+    state: "UT",
+    postalCode: "84115",
+    country: "USA",
+    hoursOfOperation: "Mon-Fri: 9:00AM - 6:00PM",
+    hoursOfOperationWeekend: "Sat-Sun: 8:00AM - 4:00PM",
     ogImage: `${baseUrl}/og-image.jpg`, /* Path relative to the public directory */
-    fonts: [
-        {
-            provider: fontProviders.google(),
-            name: 'Inter',
-            cssVariable: '--font-inter',
-        },
-        {
-            provider: fontProviders.google(),
-            name: 'Quicksand',
-            cssVariable: '--font-quicksand',
-        }
-    ],
+    // fontHeadings: [
+    //     { name: 'Raleway', cssVariable: '--font-raleway', weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] },
+    // ],
+    // fontBase: [
+    //     { name: 'Quicksand', cssVariable: '--font-quicksand', weight: ['300', '400', '500', '600', '700'] },
+    // ],
     socialLinks: [
-        { name: 'Facebook', url: 'https://facebook.com/', icon: FacebookIcon },
-        { name: 'Instagram', url: 'https://instagram.com/', icon: InstagramIcon },
-        { name: 'YouTube', url: 'https://youtube.com/', icon: YouTubeIcon },
-        { name: 'LinkedIn', url: 'https://linkedin.com/', icon: LinkedInIcon },
-        { name: 'Twitter/X', url: 'https://x.com/', icon: TwitterIcon },
+        { name: 'Facebook', url: 'https://www.facebook.com/Qualitypoolandspaslc/', icon: FacebookIcon },
+        { name: 'Instagram', url: 'https://www.instagram.com/qualitypoolandspa/', icon: InstagramIcon },
+        { name: 'Twitter/X', url: 'https://twitter.com/qualitypoolslc', icon: TwitterXIcon },
     ],
     // Add other configurable values here
 };

@@ -1,0 +1,128 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Components
+import Button from "../elements/Button.astro";
+import GoogleReviews from "../elements/GoogleReviews.astro";
+// Images
+import PoolKid from "../../assets/images/pool-kid-floaties.jpg"
+import PoolKidFuzzy from "../../assets/images/pool-kid-floaties-fuzzy.png"
+---
+
+<section id="why-choose">
+    <div id="why-choose__wrapper">
+        <div id="why-choose__pitch">
+            <h2>Why Choose Quality?</h2>
+            <div class="fuzzy-load" style={`--background: url('${PoolKidFuzzy.src}')`}>
+                <Image src={PoolKid} alt="A happy kid in a pool" />
+            </div>
+            <p>As a Salt Lake area business, we understand the unique needs of the <strong>Pools and Spas</strong> in our community. We're proud to serve our neighbors with the same care and attention to detail that we'd give our own families.</p>
+            <p>We take pride in our work and stand behind every job we do. Our commitment to excellence is reflected in the satisfaction of our customers.</p>
+            <Button href="/contact.html" class="wave">Book with Us</Button> <Button href="/about.html" class="wave">About Us</Button>
+        </div>
+        <div id="why-choose__reviews">
+            <h3>What Our Customers Say&hellip;</h3>
+            <GoogleReviews />
+        </div>
+    </div>
+</section>
+
+<style is:global>
+    #why-choose {
+        background-color: var(--color-primary-lighter);
+        padding: 2rem 0;
+        overflow: hidden;
+    }
+
+    #why-choose__wrapper {
+        width: calc(100% - 3cqi);
+        margin: 0 auto;
+        padding: 3cqi 2cqi;
+        background-color: var(--color-background);
+        border-radius: 2cqi;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 2cqi;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    #why-choose__pitch {
+        color: var(--color-foreground-darker);
+    }
+
+    #why-choose__pitch h2 {
+        color: var(--color-primary);
+    }
+
+    #why-choose__pitch a.button {
+        margin-right: 1rem;
+    }
+
+    #why-choose__pitch .fuzzy-load {
+        float: right;
+        border-radius: 6cqi;
+        border: solid .15cqi var(--color-accent);
+        overflow: hidden;
+        margin: 0 0 2rem 2rem;
+    }
+
+    #why-choose__pitch img {
+        width: 12cqi;
+        height: auto;
+    }
+
+    #why-choose__pitch p {
+        max-width: 60ch;
+    }
+
+
+    @media (max-width: 768px) {
+        #why-choose {
+            background-image: linear-gradient(to bottom,
+                var(--color-primary),
+                var(--color-primary-lighter));
+        }
+
+        #why-choose__wrapper {
+            grid-template-columns: 1fr;
+            border-radius: 10cqi;
+            padding: 5cqi;
+        }
+
+        #why-choose__pitch {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #why-choose__pitch h2 {
+            font-size: 12cqi;
+            margin-bottom: 1rem;
+        }
+
+        #why-choose__pitch .fuzzy-load {
+            float: none;
+            margin: 0 auto 2rem auto;
+            border-radius: 40cqi;
+        }
+
+        #why-choose__pitch a.button {
+            margin: 1rem;
+            width: 80cqi;
+        }
+
+        #why-choose__pitch img {
+            width: 80cqi;
+        }
+
+        #why-choose__reviews {
+            text-align: center;
+        }
+
+        #why-choose__reviews h3 {
+            font-size: 8cqi;
+            margin: 1rem 0;
+        }
+    }
+
+</style>

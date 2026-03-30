@@ -1,0 +1,113 @@
+---
+// Images
+// import LogoNav from "../../assets/images/logo/quality-pool-and-spa-logo-dark-icon.svg";
+// Links
+const links = [
+    { name: "Our Services", href: "/", icon: '#icon-skimmer', viewBox: '0 0 800 800' },
+    { name: "Request an Opening", href: "/", icon: '#icon-umbrella', viewBox: '0 0 800 800' },
+    { name: "Join Our Team", href: "/", icon: '#icon-swimmer', viewBox: '0 0 128 128' },
+    { name: "Contact Us", href: "/contact.html", icon: '#icon-whistle', viewBox: '0 0 512 512' },
+    // { name: "Client Portal", href: "/client-portal.html", icon: null },
+];
+---
+
+<nav id="main-nav">
+    <a href="/"><svg viewBox="0 0 417 531.01"><use href="#quality-pool-and-spa-dark-icon" /></svg></a>
+    <ul>
+        {
+            links.map((link) => (
+                <li><a href={link.href}>{link.name}{link.icon && <svg viewBox={link.viewBox}><use href={link.icon} /></svg>}</a></li>
+            ))
+        }
+    </ul>
+</nav>
+
+<style is:global>
+
+    #main-nav {
+        width: 100%;
+        height: 70px;
+        padding: 0 5px;
+        background: linear-gradient(to top, var(--color-secondary), var(--color-secondary-light));
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        user-select: none;
+    }
+
+    #main-nav svg {
+        width: auto;
+        height: 70px;
+    }
+
+    @media (max-width: 769px) {
+        #main-nav, #main-nav svg {
+            height: 50px;
+        }
+    }
+
+    #main-nav ul {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 20px;
+        background-size: contain;
+    }
+
+    #main-nav li {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #main-nav li a {
+        display: inline-flex;
+        white-space: nowrap;
+        align-items: center;
+        justify-content: center;
+        height: 80%;
+        padding: 0 1cqi;
+        font-family: var(--font-roboto-condensed);
+        font-weight: 900;
+        color: white;
+        text-decoration: none;
+        font-size: var(--size-lg);
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+        text-shadow: 1px 1px 0 var(--color-secondary-dark);
+        box-shadow: 1px 1px 0 var(--color-secondary-lighter), inset 1px 1px 0 var(--color-secondary);
+        border-radius: 15px;
+        transition: background-color 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease;
+    }   #main-nav li svg {
+        display: inline-block;
+        width: auto;
+        height: 30px;
+        filter: drop-shadow(1px 1px 0 var(--color-secondary-dark));
+        margin-left: .25rem;
+
+    }   #main-nav li a:hover {
+        background-color: var(--color-primary-light);
+        text-shadow: 0 0 3px var(--color-primary-lighter);
+        box-shadow: none;
+    }   #main-nav li:nth-last-child(1) {
+        margin-left: auto;
+    }
+
+    @media (max-width: 769px) {
+        nav#main-nav {
+            position: fixed;
+            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+        }
+        nav#main-nav > * {display: none !important;}
+    }
+</style>

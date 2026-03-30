@@ -22,7 +22,7 @@ const {
     keywords = siteConfig.keywords,
     author = siteConfig.author,
     ogImage = siteConfig.ogImage,
-    favicon = "/favicon.ico",
+    favicon = "/favicon.svg",
 } = Astro.props;
 ---
 <!doctype html>
@@ -41,8 +41,7 @@ const {
         <meta property="og:url" content="https://www.stimsdesign.com" />
         <title>{title}</title>
         <link rel="icon" href={favicon} type="image/x-icon" />
-        <Font cssVariable="--font-inter" preload />
-        <Font cssVariable="--font-quicksand" preload />
+        <Font cssVariable="--font-raleway" preload />
         <ClientRouter />
     </head>
     <body>

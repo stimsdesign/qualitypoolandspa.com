@@ -1,0 +1,45 @@
+---
+interface Props {
+    widgetId?: string;
+}
+
+const { widgetId = "5ac11a78-4723-4049-aae4-d0ba9a2f8305" } = Astro.props;
+---
+
+<elfsight-wrapper data-id={widgetId}></elfsight-wrapper>
+
+<script>
+    class ElfsightWrapper extends HTMLElement {
+        connectedCallback() {
+            const id = this.dataset.id;
+            
+            // Insert the expected target div for Elfsight
+            this.innerHTML = `<div class="elfsight-app-${id}" data-elfsight-app-lazy></div>`;
+
+            // Delay initialization slightly to ensure Astro's document head swap is fully complete
+            setTimeout(() => {
+                // Clear out Elfsight's global flags so it believes this is a fresh page load
+                if ((window as any).eapps) delete (window as any).eapps;
+                
+                // Remove any previously injected platform.js scripts from previous navigations
+                document.querySelectorAll('script[src*="elfsightcdn.com"]').forEach(s => s.remove());
+                
+                // Inject a fresh script to re-trigger the widget parsing and CSS injection
+                const script = document.createElement('script');
+                script.src = 'https://elfsightcdn.com/platform.js';
+                script.async = true;
+                document.body.appendChild(script);
+            }, 50);
+        }
+
+        disconnectedCallback() {
+            // Clean up the DOM when navigating away to prevent memory leaks or duplicate rendering
+            this.innerHTML = '';
+        }
+    }
+    
+    // Register the custom element once
+    if (!customElements.get('elfsight-wrapper')) {
+        customElements.define('elfsight-wrapper', ElfsightWrapper);
+    }
+</script>

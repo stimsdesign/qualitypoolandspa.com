@@ -1,19 +1,16 @@
 ---
+// Components
 import Template from "../layouts/HomePage.astro";
-import Main from "../components/layout/Main.astro";
-import HomeHero from "../components/sections/HomeHero.astro";
-import Button from "../components/elements/Button.astro";
-import Slider from "../components/elements/Slider.astro";
+import SeasonalServices from "../components/sections/SeasonalServices.astro";
+import WhyChoose from "../components/sections/WhyChoose.astro";
+import ServiceArea from "../components/sections/ServiceArea.astro";
+import Partners from "../components/sections/Partners.astro";
+import FooterContact from "../components/sections/FooterContact.astro";
 ---
 <Template>
-	<HomeHero />
-	<Main>
-		Home Page Content
-        <Button href="/contact.html">Contact Us</Button>
-        <Slider autoplay>
-            <div class="slide">Slide 1</div>
-            <div class="slide">Slide 2</div>
-            <div class="slide">Slide 3</div>
-        </Slider>
-	</Main>
+    <!-- <SeasonalServices /> -->
+    <WhyChoose />
+    <ServiceArea />
+    <Partners />
+    <!-- <FooterContact /> -->
 </Template>

@@ -1,19 +1,33 @@
 ---
+// Assets
 import { siteConfig } from "../../siteConfig";
+// Images
+import Logo from "../../assets/images/logo/quality-pool-and-spa-logo-light.svg";
+// Icons
 import CrossIcon from "../../icons/cross.svg"
 import HamburgerIcon from "../../icons/hamburger.svg"
+import MobilePhone from "../../icons/mobilephone.svg";
+import Whistle from "../../icons/whistle.svg";
+import Skimmer from "../../icons/skimmer.svg";
+import Swimmer from "../../icons/swimmer.svg";
+import Umbrella from "../../icons/umbrella.svg";
+// Links
 const links = [
-    { name: "Home", href: "/" },
-    { name: "Contact", href: "/contact.html", icon: null },
+    { name: "Our Services", href: "/", icon: Skimmer },
+    { name: "Request an Opening", href: "/", icon: Umbrella },
+    { name: "Join Our Team", href: "/", icon: Swimmer },
+    { name: "Contact Us", href: "/contact.html", icon: Whistle },
 ];
 ---
 <div class="mobile-nav-container">
+    <a id="mobile-nav__telephone" href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone} <MobilePhone /></a>
     <input type="checkbox" id="mobile-toggle" hidden aria-hidden="true" />
     <label for="mobile-toggle" id="mobile-hamburger" aria-label="Open Menu">
         <HamburgerIcon />
     </label>
     <div id="mobile-menu-drawer" class="menu-drawer">
         <div class="drawer-header">
+            <Logo class="drawer-logo" />
             <label for="mobile-toggle" id="mobile-menu-close" aria-label="Close Menu">
                 <CrossIcon />
             </label>
@@ -22,13 +36,14 @@ const links = [
             <ul>
                 {
                     links.map((link) => (
-                        <li><a href={link.href}>{link.name}{link.icon && <link.icon />}</a></li>
+                        <li><a href={link.href}>{link.icon && <link.icon />}<span>{link.name}</span></a></li>
                     ))
                 }
             </ul>
         </nav>
         <div class="drawer-footer">
-            <p>&copy; {new Date().getFullYear()} {siteConfig.company}</p>
+            <span>&copy; {new Date().getFullYear()} {siteConfig.company}</span>
+            <span><a href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone}</a></span>
         </div>
     </div>
     <label for="mobile-toggle" id="mobile-menu-overlay" class="menu-overlay"></label>
@@ -41,15 +56,57 @@ const links = [
         pointer-events: none; /* Let clicks pass through unless on specific buttons */
     }
 
+    #mobile-nav__telephone {
+        pointer-events: auto;
+        position: fixed;
+        height: 56px;
+        top: 7px;
+        right: 1cqi;
+        z-index: 2000;
+        display: inline-flex;
+        white-space: nowrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1.5cqi;
+        font-family: var(--font-roboto-condensed);
+        font-weight: 900;
+        background-color: var(--color-primary-light);
+        color: white;
+        text-decoration: none;
+        font-size: var(--size-xl);
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+        text-shadow: 1px 1px 0 var(--color-secondary-dark);
+        border-radius: 15px;
+        visibility: hidden;
+        opacity: 0;
+        transition: background-color 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease;
+    }   #mobile-nav__telephone:hover {
+        background-color: var(--color-primary);
+    }   #mobile-nav__telephone svg {
+        display: inline-block;
+        width: auto;
+        height: 30px;
+        filter: drop-shadow(1px 1px 0 var(--color-secondary-dark));
+        margin-left: .25rem;
+    }
+
+    @media (max-width: 769px) {
+        #mobile-nav__telephone {
+            height: 36px;
+            border-radius: 10px;
+        }
+    }
+
     #mobile-hamburger {
         pointer-events: auto;
         position: fixed;
-        top: 1.25rem;
-        left: 1.25rem;
         z-index: 2000;
-        width: 50px;
-        height: 50px;
-        background-color: var(--color-foreground);
+        width: 56px;
+        height: 56px;
+        top: 7px;
+        left: 1cqi;
+        background-color: var(--color-primary-light);
         color: var(--color-background);
         border-radius: 50%;
         cursor: pointer;
@@ -65,8 +122,15 @@ const links = [
         visibility: hidden;
     }
 
+    @media (max-width: 769px) {
+        #mobile-hamburger {
+            width: 36px;
+            height: 36px;
+        }
+    }
+
     #mobile-hamburger:hover {
-        background-color: var(--color-foreground-lighter);
+        background-color: var(--color-primary);
     }
 
     #mobile-hamburger.is-visible {
@@ -75,11 +139,9 @@ const links = [
     }
 
     @media (max-width: 768px) {
-        #mobile-hamburger {
+        #mobile-hamburger, #mobile-nav__telephone {
             opacity: 1;
             visibility: visible;
-            top: 0.5rem;
-            left: 0.5rem;
         }
     }
 
@@ -103,6 +165,7 @@ const links = [
     /* Menu Drawer Styles */
 
     .menu-drawer {
+        container-type: inline-size;
         pointer-events: auto;
         position: fixed;
         top: 0;
@@ -111,12 +174,30 @@ const links = [
         height: 100dvh;
         z-index: 2100;
         display: flex;
-        background-color: var(--color-background);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        background-color: color-mix(in srgb, var(--color-primary-dark) 85%, transparent);
         flex-direction: column;
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         transform: translateX(-100%);
         container-type: inline-size;
         overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary-light) transparent;
+    }
+
+    .menu-drawer::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .menu-drawer::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .menu-drawer::-webkit-scrollbar-thumb {
+        background: var(--color-primary-light);
+        border-radius: 10px;
     }
 
     @media (min-width: 769px) {
@@ -133,15 +214,24 @@ const links = [
     }
 
     .drawer-header {
-        padding: 1.5rem;
-        display: flex;
-        justify-content: flex-end;
+        padding: 8cqi;
+        position: relative;
+    }
+
+    .drawer-logo {
+        width: auto;
+        height: auto;
+        max-height: 100cqi;
+        margin: 1rem auto;
     }
 
     #mobile-menu-close {
+        position: absolute;
+        top: 1cqi;
+        right: 1cqi;
         background: none;
         border: none;
-        color: var(--color-foreground);
+        color: var(--color-accent);
         cursor: pointer;
         padding: 0.5rem;
         transition: transform 0.3s ease;
@@ -152,13 +242,13 @@ const links = [
     }
 
     #mobile-menu-close svg {
-        width: 24px;
-        height: 24px;
+        width: 5cqi;
+        height: 5cqi;
     }
 
     .drawer-nav {
         flex: 1;
-        padding: 0 1.5rem;
+        padding: 0 6cqi;
     }
 
     .drawer-nav ul {
@@ -168,9 +258,9 @@ const links = [
     }
 
     .drawer-nav li {
-        margin-bottom: 1rem;
+        margin-bottom: 10cqi;
         opacity: 0;
-        transform: translateX(-20px);
+        transform: translateX(-20cqi);
         transition:
             opacity 0.3s ease,
             transform 0.3s ease;
@@ -197,15 +287,16 @@ const links = [
     }
 
     .drawer-nav a {
-        font-family: var(--family-heading);
+        display: flex;
+        align-items: center;
+        gap: 3cqi;
+        font-family: var(--font-roboto-condensed);
         white-space: nowrap;
-        font-size: var(--size-2xl);
-        font-weight: var(--weight-bold);
+        font-size: 8cqi;
+        font-weight: 900;
         color: var(--color-foreground);
         text-decoration: none;
         text-transform: uppercase;
-        display: block;
-        padding: 0.5rem 0;
         transition:
             color 0.3s ease,
             padding-left 0.3s ease;
@@ -213,19 +304,42 @@ const links = [
 
     .drawer-nav a:hover {
         color: var(--color-accent);
-        padding-left: 0.5rem;
+        padding-left: 1cqi;
         text-decoration: none;
     }
 
-    .drawer-footer {
-        padding: 2rem 1.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    .drawer-nav a svg {
+        flex-shrink: 0;
+        width: 8cqi;
+        height: 8cqi;
     }
 
-    .drawer-footer p {
-        font-size: var(--size-xs);
-        color: var(--color-foreground-dark);
+    .drawer-nav a span {
+        flex: 1;
+        line-height: 1;
+    }
+
+    .drawer-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 2cqi 1.5cqi;
+        border-top: 1px solid var(--color-primary);
+    }
+
+    .drawer-footer span {
+        font-size: 3cqi;
+        color: var(--color-foreground);
         margin: 0;
+    }
+
+    .drawer-footer a {
+        color: var(--color-foreground);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .drawer-footer a:hover {
+        color: var(--color-accent);
     }
 
     /* Overlay */
@@ -236,7 +350,6 @@ const links = [
         width: 100vw;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
         z-index: 2050;
         opacity: 0;
         visibility: hidden;

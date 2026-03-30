@@ -1,11 +1,17 @@
 ---
-import { siteConfig } from "../../siteConfig";
-import MainNav from '../navigation/MainNav.astro';
-import Logo from "../elements/Logo.astro";
+// Assets
+import HomeNav from '../navigation/HomeNav.astro';
+import HomeHero from "../sections/HomeHero.astro";
 ---
 
 <header>
-    <MainNav />
-    <a href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone}</a>
-    <Logo height="100px" maxWidth="calc(100% - 2rem)" margin="0 0 0 0" />
+    <HomeNav />
+    <HomeHero />
 </header>
+
+<style is:inline>
+    header {
+        container-type: inline-size;
+        width: 100%;
+    }
+</style>

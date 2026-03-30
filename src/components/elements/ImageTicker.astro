@@ -1,7 +1,7 @@
-<div class="ticker-wrapper">
-    <div class="ticker">
-        <div class="ticker-runner">
-            <div class="ticker__item">
+<div class="image-ticker__wrapper">
+    <div class="image-ticker">
+        <div class="image-ticker__runner">
+            <div class="image-ticker__img">
                 <slot />
             </div>
         </div>
@@ -9,15 +9,14 @@
 </div>
 
 <style is:global>
-    div.ticker-wrapper {
+    .image-ticker__wrapper {
+        container-type: inline-size;
         position: relative;
         width: 100%;
     }
-    .ticker {
+    .image-ticker {
         overflow: hidden;
-        width: clamp(94%, 100% - 10cqi, 1440px);
         margin: 0 auto 0;
-        border-radius: 6px;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -28,39 +27,23 @@
     }
 
 
-    .ticker .ticker-runner {
+    .image-ticker .image-ticker__runner {
         display: flex;
         width: max-content;
-        animation: ticker-scroll 90s linear infinite;
+        animation: image-ticker-scroll 90s linear infinite;
     }
 
-    .ticker__item {
-        white-space: nowrap;
-    }
-
-    .ticker__item span {
+    .image-ticker__img > * {
         display: inline-block;
-        margin: 0 1rem;
-        padding: 1rem 0 1rem calc(0.5rem + 40px);
-        font-size: var(--size-lg);
-        font-weight: var(--weight-medium);
+        margin: 0 .5ch;
         position: relative;
-    }
-
-    .ticker__item span::before {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        background-size: contain;
+        height: 5cqi;
+        width: auto;
+        margin: 0 2cqi;
     }
 
 
-    @keyframes ticker-scroll {
+    @keyframes image-ticker-scroll {
         0% {
             transform: translateX(0);
         }
@@ -71,13 +54,13 @@
 </style>
 
 <script>
-    class Ticker {
+    class ImageTickerAnim {
         runner: HTMLElement | null;
         item: HTMLElement | null;
 
         constructor(root: Element) {
-            this.runner = root.querySelector(".ticker-runner");
-            this.item = this.runner?.querySelector(".ticker__item") || null;
+            this.runner = root.querySelector(".image-ticker__runner");
+            this.item = this.runner?.querySelector(".image-ticker__img") || null;
             if (!this.runner || !this.item) return;
             this.cloneItems();
         }
@@ -92,8 +75,8 @@
     document.addEventListener(
         "astro:page-load",
         () => {
-            const tickers = document.querySelectorAll(".ticker");
-            tickers.forEach((ticker) => new Ticker(ticker));
+            const Imagetickers = document.querySelectorAll(".image-ticker");
+            Imagetickers.forEach((Imageticker) => new ImageTickerAnim(Imageticker));
         },
         { passive: true },
     );
