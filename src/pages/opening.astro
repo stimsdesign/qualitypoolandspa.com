@@ -1,0 +1,13 @@
+---
+import { siteConfig } from "../siteConfig";
+import Template from "../layouts/ContentPage.astro";
+import Main from '../components/layout/Main.astro';
+import PageHeading from '../components/elements/PageHeading.astro';
+import Button from '../components/elements/Button.astro';
+---
+
+<Template title={`Pool Openings | ${siteConfig.title}`} description={`Sorry, the page you are looking for does not exist on ${siteConfig.brand}. Please check the URL or return to the homepage.`}>
+	<Main id="opening-page">
+		<PageHeading color="dark" background="https://placehold.net/5-800x600.png">Pool Openings</PageHeading>
+	</Main>
+</Template>

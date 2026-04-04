@@ -1,42 +1,37 @@
 ---
 // Assets
 import { siteConfig } from "../../siteConfig";
-// Images
-import Logo from "../../assets/images/logo/quality-pool-and-spa-logo-light.svg";
-// Icons
-import CrossIcon from "../../icons/cross.svg"
-import HamburgerIcon from "../../icons/hamburger.svg"
-import MobilePhone from "../../icons/mobilephone.svg";
-import Whistle from "../../icons/whistle.svg";
-import Skimmer from "../../icons/skimmer.svg";
-import Swimmer from "../../icons/swimmer.svg";
-import Umbrella from "../../icons/umbrella.svg";
 // Links
 const links = [
-    { name: "Our Services", href: "/", icon: Skimmer },
-    { name: "Request an Opening", href: "/", icon: Umbrella },
-    { name: "Join Our Team", href: "/", icon: Swimmer },
-    { name: "Contact Us", href: "/contact.html", icon: Whistle },
+    { name: "Our Services", href: "/services.html", icon: '#icon-skimmer', viewBox: '0 0 800 800' },
+    { name: "Request an Opening", href: "/opening.html", icon: '#icon-umbrella', viewBox: '0 0 800 800' },
+    { name: "Join Our Team", href: "/jobs.html", icon: '#icon-swimmer', viewBox: '0 0 128 128' },
+    { name: "Contact Us", href: "/contact.html", icon: '#icon-whistle', viewBox: '0 0 512 512' },
 ];
 ---
 <div class="mobile-nav-container">
-    <a id="mobile-nav__telephone" href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone} <MobilePhone /></a>
+    <a id="mobile-nav__icon" href="/"><svg viewBox="0 0 417 531.01"><use href="#quality-pool-and-spa-dark-icon" /></svg></a>
+    <a id="mobile-nav__telephone" href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>
+        {siteConfig.prettyTelephone} <svg viewBox="0 0 16 16"><use href="#icon-mobilephone" /></svg>
+    </a>
     <input type="checkbox" id="mobile-toggle" hidden aria-hidden="true" />
     <label for="mobile-toggle" id="mobile-hamburger" aria-label="Open Menu">
-        <HamburgerIcon />
+        <svg viewBox="0 0 24 24"><use href="#icon-hamburger" /></svg>
     </label>
     <div id="mobile-menu-drawer" class="menu-drawer">
         <div class="drawer-header">
-            <Logo class="drawer-logo" />
+            <a href="/">
+                <svg class="drawer-logo" viewBox="0 0 1184.82 543.66"><use href="#quality-pool-and-spa-light-logo" /></svg>
+            </a>
             <label for="mobile-toggle" id="mobile-menu-close" aria-label="Close Menu">
-                <CrossIcon />
+                <svg viewBox="0 0 95.939 95.939"><use href="#icon-cross" /></svg>
             </label>
         </div>
         <nav class="drawer-nav">
             <ul>
                 {
                     links.map((link) => (
-                        <li><a href={link.href}>{link.icon && <link.icon />}<span>{link.name}</span></a></li>
+                <li><a href={link.href}>{link.icon && <svg viewBox={link.viewBox}><use href={link.icon} /></svg>} {link.name}</a></li>
                     ))
                 }
             </ul>
@@ -62,21 +57,22 @@ const links = [
         height: 56px;
         top: 7px;
         right: 1cqi;
-        z-index: 2000;
+        z-index: 9999;
         display: inline-flex;
         white-space: nowrap;
         align-items: center;
         justify-content: center;
         padding: 0 1.5cqi;
         font-family: var(--font-roboto-condensed);
-        font-weight: 900;
-        background-color: var(--color-primary-light);
+        font-weight: 500;
+        background: linear-gradient(to right, var(--color-secondary), var(--color-secondary-light));
         color: white;
         text-decoration: none;
         font-size: var(--size-xl);
         text-transform: uppercase;
         transition: color 0.3s ease;
         text-shadow: 1px 1px 0 var(--color-secondary-dark);
+        box-shadow: 1px 1px 0 var(--color-secondary-lighter), inset 1px 1px 0 var(--color-secondary-dark);
         border-radius: 15px;
         visibility: hidden;
         opacity: 0;
@@ -101,23 +97,19 @@ const links = [
     #mobile-hamburger {
         pointer-events: auto;
         position: fixed;
-        z-index: 2000;
+        z-index: 9999;
         width: 56px;
         height: 56px;
         top: 7px;
         left: 1cqi;
-        background-color: var(--color-primary-light);
-        color: var(--color-background);
+        /* background: linear-gradient(to right, var(--color-secondary), var(--color-secondary-light)); */
+        /* box-shadow: 1px 1px 0 var(--color-secondary-lighter), inset 1px 1px 0 var(--color-secondary-dark); */
+        color: var(--color-primary-dark);
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition:
-            transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-            background-color 0.3s ease,
-            opacity 0.5s ease,
-            visibility 0.5s ease;
         opacity: 0;
         visibility: hidden;
     }
@@ -129,8 +121,32 @@ const links = [
         }
     }
 
-    #mobile-hamburger:hover {
-        background-color: var(--color-primary);
+    #mobile-nav__icon {
+        pointer-events: auto;
+        position: fixed;
+        z-index: 9999;
+        width: 56px;
+        height: 56px;
+        top: 7px;
+        left: 45px;
+        color: var(--color-primary-dark);
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    @media (max-width: 769px) {
+        #mobile-nav__icon {
+            display: flex;
+            width: 36px;
+            height: 36px;
+            left: 45px;
+        }
     }
 
     #mobile-hamburger.is-visible {
@@ -138,8 +154,8 @@ const links = [
         visibility: visible;
     }
 
-    @media (max-width: 768px) {
-        #mobile-hamburger, #mobile-nav__telephone {
+    @media (max-width: 769px) {
+        #mobile-hamburger, #mobile-nav__telephone, #mobile-nav__icon {
             opacity: 1;
             visibility: visible;
         }
@@ -172,7 +188,7 @@ const links = [
         left: 0;
         width: 80vw;
         height: 100dvh;
-        z-index: 2100;
+        z-index: 9999;
         display: flex;
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
@@ -183,9 +199,15 @@ const links = [
         container-type: inline-size;
         overflow-x: hidden;
         overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: var(--color-primary-light) transparent;
     }
+
+    /* Firefox Fallback */
+    @supports (-moz-appearance: none) {
+        .menu-drawer {
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-primary-light) transparent;
+        }
+	}
 
     .menu-drawer::-webkit-scrollbar {
         width: 4px;
@@ -199,6 +221,10 @@ const links = [
         background: var(--color-primary-light);
         border-radius: 10px;
     }
+
+    .menu-drawer::-webkit-scrollbar-button {
+		display: none;
+	}
 
     @media (min-width: 769px) {
         .menu-drawer {
@@ -293,8 +319,8 @@ const links = [
         font-family: var(--font-roboto-condensed);
         white-space: nowrap;
         font-size: 8cqi;
-        font-weight: 900;
-        color: var(--color-foreground);
+        font-weight: 500;
+        color: var(--color-foreground-lighter);
         text-decoration: none;
         text-transform: uppercase;
         transition:
@@ -360,10 +386,12 @@ const links = [
 </style>
 
 <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
+    function initMobileNav() {
         const toggle = document.getElementById("mobile-toggle");
         const hamburger = document.getElementById("mobile-hamburger");
         const drawer = document.getElementById("mobile-menu-drawer");
+
+        if (!hamburger) return;
 
         // Body scroll lock
         toggle?.addEventListener("change", () => {
@@ -383,16 +411,18 @@ const links = [
         // Interaction Observer for Desktop Sticky Hamburger
         const mainNav =
             document.getElementById("main-nav-observer") ||
-            document.getElementById("portal-nav-observer");
+            document.getElementById("portal-nav-observer") ||
+            document.getElementById("main-nav");
+
         if (mainNav) {
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
                         if (!entry.isIntersecting) {
-                            hamburger?.classList.add("is-visible");
+                            hamburger.classList.add("is-visible");
                             mainNav.classList.add("is-hidden");
                         } else {
-                            hamburger?.classList.remove("is-visible");
+                            hamburger.classList.remove("is-visible");
                             mainNav.classList.remove("is-hidden");
                         }
                     });
@@ -405,5 +435,8 @@ const links = [
 
             observer.observe(mainNav);
         }
-    });
+    }
+
+    document.addEventListener("DOMContentLoaded", initMobileNav);
+    document.addEventListener("astro:page-load", initMobileNav);
 </script>

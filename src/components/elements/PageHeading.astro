@@ -1,0 +1,134 @@
+---
+// Assets
+import { Image } from 'astro:assets';
+// Props
+interface Props {
+    background?: string;
+    color?: string;
+}
+const { background, color = "dark" } = Astro.props;
+---
+
+
+<div id="page-heading">
+    <div id="page-heading__text" class="fuzzy-load" style=`--background: url(${background})`>
+        <img src={`${background}`} alt="" />
+        <h1 class={color}><slot /></h1>
+    </div>
+    <a href="/">
+        <svg id="page-logo" viewBox="0 0 1006.15 468.32"><use href="#quality-pool-and-spa-logo" /></svg>
+    </a>
+</div>
+
+<style>
+    #page-heading {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2cqi;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    #page-heading__text {
+        position: relative;
+        width: 100%;
+        height: 14cqi;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+    #page-heading__text img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    :global(#page-heading__text h1) {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: left;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--color-primary);
+        font-size: 5cqi;
+        line-height: 1em;
+        padding: 0 1cqi;
+        color: transparent;
+    }
+
+    :global(#page-heading__text h1.dark) {
+        background-image: linear-gradient(to bottom,
+            var(--color-primary-lighter),
+            var(--color-primary));
+        background-clip: text;
+        filter: drop-shadow(1px 1px 0 var(--color-secondary-lighter));
+    }
+
+    :global(#page-heading__text h1.light) {
+        background-image: linear-gradient(to bottom,
+            var(--color-secondary-lighter),
+            var(--color-secondary));
+        background-clip: text;
+        filter: drop-shadow(1px 1px 0 var(--color-primary-dark));
+    }
+
+    #page-logo {
+        width: auto;
+        height: 14cqi;
+    }
+
+     @media (max-width: 769px) {
+
+        #page-heading {
+            flex-direction: column-reverse;
+            margin-bottom: 0;
+        }
+
+        #page-heading__text h1 {
+            text-shadow: none !important;
+        }
+
+        #page-logo {
+            width: 100%;
+            height: auto;
+        }
+
+        #page-heading__text.fuzzy-load {
+            background-image: none !important;
+            height: initial;
+            transition: none !important;
+        }
+
+        #page-heading__text.fuzzy-load::before {
+            display: none !important;
+        }
+
+        #page-heading__text.fuzzy-load > * {
+            opacity: 1 !important;
+            transition: none !important;
+        }
+
+        #page-heading__text h1 {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: none;
+            margin: 1rem 0;
+            justify-content: center;
+            font-size: 10cqi;
+            text-align: center;
+        }
+
+        #page-heading__text img {
+            display: none;
+        }
+     }
+</style>

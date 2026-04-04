@@ -1,11 +1,28 @@
 ---
+// Import Config
 import { siteConfig } from "../siteConfig";
+// Import Assets
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+// Import Styles
 import "../assets/css/styles.css";
+// Import Components
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import MobileNav from "../components/navigation/MobileNav.astro";
-import { Font } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
+
+// Import Symbols > Icons
+const iconFiles = import.meta.glob("../icons/{Whistle,Skimmer,Swimmer,Umbrella,Cross,Hamburger,MobilePhone,ArrowLeft,ArrowRight,Mail}.astro", { eager: true });
+const iconComponents = Object.values(iconFiles).map((module: any) => module.default);
+
+// Import Symbols > Logos
+const logoFiles = import.meta.glob("../assets/images/logo/*.astro", { eager: true });
+const logoComponents = Object.values(logoFiles).map((module: any) => module.default);
+
+const svgSymbols = [
+    ...iconComponents,
+    ...logoComponents,
+];
 
 interface Props {
     title?: string;
@@ -38,10 +55,12 @@ const {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.stimsdesign.com" />
+        <meta property="og:url" content="https://www.qualitypoolandspa.com" />
         <title>{title}</title>
         <link rel="icon" href={favicon} type="image/x-icon" />
         <Font cssVariable="--font-raleway" preload />
+        <Font cssVariable="--font-quicksand" preload />
+        <Font cssVariable="--font-roboto-condensed" preload />
         <ClientRouter />
     </head>
     <body>
@@ -49,6 +68,22 @@ const {
         <slot />
         <Footer />
         <MobileNav />
+        <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+            {svgSymbols.map((Symbol) => (
+                <Symbol />
+            ))}
+        </svg>
         <script is:inline src="/js/scripts.js" defer></script>
+        <script>
+            import { functionFuzzyLoad } from "../assets/scripts/FuzzyLoad.js";
+            
+            // Run instantly upon script load (which is safely deferred by Astro)
+            functionFuzzyLoad();
+
+            // Re-run on client-side routing transitions
+            document.addEventListener("astro:after-swap", () => {
+                functionFuzzyLoad();
+            });
+        </script>
     </body>
 </html>

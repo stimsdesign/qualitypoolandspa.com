@@ -1,0 +1,81 @@
+<label id="seasonal-switch" class="switch" for="seasonal-checkbox">
+    <input type="checkbox" id="seasonal-checkbox" />
+    <div class="switch-slider"></div>
+</label>
+
+<style>
+
+    :global(.winter-season) {
+        display: none;
+        opacity: 0;
+    }
+
+    :global(.summer-season) {
+        display: none;
+        opacity: 0;
+    }
+
+    :global(.winter-season.active) {
+        display: block;
+        opacity: 1;
+    }
+
+    :global(.summer-season.active) {
+        display: block;
+        opacity: 1;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .switch-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .switch-slider {
+        background-color: var(--color-accent);
+    }
+
+    .switch-slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input#seasonal-checkbox:checked+.switch-slider {
+        background-color: var(--color-secondary-light);
+    }
+
+    input#seasonal-checkbox:checked+.switch-slider:before {
+        background-color: var(--color-primary);
+    }
+
+    input#seasonal-checkbox:checked+.switch-slider:before {
+        transform: translateX(26px);
+    }
+
+</style>

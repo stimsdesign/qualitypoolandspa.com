@@ -6,26 +6,27 @@ import { siteConfig } from "../../siteConfig";
 import Button from "../elements/Button.astro";
 import Slider from "../elements/Slider.astro";
 // Images
-import HeroSummerScene from "../../assets/images/summer-hero.jpg";
+import HeroSummerScene from "../../assets/images/summer-hero.webp";
 import HeroSummerSceneFuzzy from "../../assets/images/summer-hero-fuzzy.png";
-import HeroLogo from "../../assets/images/logo/quality-pool-and-spa-logo-stroked.svg";
-import GoogleReviewBadge from "../../assets/images/google-review-badge.svg";
-import BBBbadge from "../../assets/images/bbb-badge.svg";
-import LocalBadge from "../../assets/images/local-badge.svg";
+import HeroWinterScene from "../../assets/images/winter-hero.webp";
+import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
 ---
-
 
 <section id="hero-wrapper">
     <div id="hero" class="summer">
         <div id="hero__image">
-            <div id="hero__aspect-wrapper" class="fuzzy-load" style={`--background: url('${HeroSummerSceneFuzzy.src}')`}>
+            <div class="hero__aspect-wrapper summer-season active fuzzy-load" style={`--background: url('${HeroSummerSceneFuzzy.src}')`}>
                 <Image src={HeroSummerScene} alt="Summer Hero" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                <div id="hero__water"><div class="caustics"></div></div>
+            </div>
+            <div class="hero__aspect-wrapper winter-season fuzzy-load" style={`--background: url('${HeroWinterSceneFuzzy.src}')`}>
+                <Image src={HeroWinterScene} alt="Winter Hero" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div id="hero__water"><div class="caustics"></div></div>
             </div>
         </div>
         <div id="hero__overlay">
             <div id="hero__content">
-                <HeroLogo id="hero__logo" />
+                <svg id="hero__logo" viewBox="0 0 1006.15 468.32"><use href="#quality-pool-and-spa-stroked-logo" /></svg>
                 <Slider autoplay arrows pagination id="hero__slider">
                     <div class="slide">Slide 1</div>
                     <div class="slide">Slide 2</div>
@@ -36,9 +37,9 @@ import LocalBadge from "../../assets/images/local-badge.svg";
                 <h2><span>New Customers</span> <span>Receive</span> <span class="fire">20% Off</span> <span>First Service</span></h2>
                 <Button href="/contact.html" class="wave">Schedule Now</Button>
                 <div id="hero__trust-badges">
-                    <a href="#why-choose"><GoogleReviewBadge /></a>
-                    <a href="https://www.bbb.org/us/ut/south-salt-lake/profile/pool-maintenance/quality-pool-spa-1166-2007823" target="_blank"><BBBbadge /></a>
-                    <LocalBadge />
+                    <a href="#why-choose"><svg viewBox="0 0 813.09 813.09"><use href="#google-reviews-badge" /></svg></a>
+                    <a href="https://www.bbb.org/us/ut/south-salt-lake/profile/pool-maintenance/quality-pool-spa-1166-2007823" target="_blank"><svg viewBox="0 0 612.09 741.88"><use href="#bbb-badge" /></svg></a>
+                    <svg viewBox="0 0 615.36 597.8"><use href="#utah-local-business-badge" /></svg>
                 </div>
                 <a id="hero__phone" href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone}</a>
             </div>
@@ -57,7 +58,7 @@ import LocalBadge from "../../assets/images/local-badge.svg";
 <style is:global>
     #hero-wrapper {
         overflow: hidden;
-        padding: 70px 0 3px;
+        padding: 70px 0 0;
     }
 
     @media (max-width: 769px) {
@@ -72,22 +73,20 @@ import LocalBadge from "../../assets/images/local-badge.svg";
         max-height: 1080px;
         height: 100%;
         margin: 0 auto;
-        border-radius: 0 0 10cqi 10cqi;
+        /* border-radius: 0 0 5cqi 5cqi; */
         background-color: var(--color-primary-light);
         color: var(--color-foreground);
         position: relative;
         overflow: hidden;
-        border-left: solid 4px var(--color-secondary);
-        border-right: solid 4px var(--color-secondary);
-        border-bottom: solid 4px var(--color-secondary);
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3), inset 0 3px 0 rgba(0, 0, 0, 0.2);
         user-select: none;
     }
 
     @media (max-width: 769px) {
         #hero {
             width: 100%;
-            min-height: calc(100dvh - 50px);
+            max-height: initial;
+            min-height: initial;
+            height: initial;
             box-shadow: none;
             border-left:none;
             border-right:none;
@@ -112,16 +111,18 @@ import LocalBadge from "../../assets/images/local-badge.svg";
         }
     }
 
-    #hero__aspect-wrapper {
+    .hero__aspect-wrapper {
+        display: block !important;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: max(100cqw, 100cqh * 2.37);
         height: max(100cqh, 100cqw / 2.37);
+        transition: opacity .5s ease-in-out;
     }
 
-    #hero__aspect-wrapper > img {
+    .hero__aspect-wrapper > img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -182,9 +183,10 @@ import LocalBadge from "../../assets/images/local-badge.svg";
         --logo-tx: -50%;
         transform: translateX(var(--logo-tx)) scale(0.6);
         opacity: 0;
-        height: 45%;
+        height: 40%;
         width: auto;
-        filter: drop-shadow(.5cqi .5cqi 0 rgba(10, 80, 129, 0.3));
+        max-width: 80%;
+        /* filter:  drop-shadow(.1cqi .1cqi rgba(255, 255, 255, .6)) drop-shadow(.3cqi .3cqi 0 rgba(10, 80, 129, 0.3)); */
     }
 
     @media (max-width: 769px) {
@@ -192,10 +194,11 @@ import LocalBadge from "../../assets/images/local-badge.svg";
             position: static;
             --logo-tx: 0;
             transform: translateX(var(--logo-tx));
-            max-width: 85%;
+            max-width: 90%;
             height: auto;
-            max-height: 175px;
+            max-height: 200px;
             margin: 0 auto;
+            /* filter:  drop-shadow(2px 2px 0 rgba(255, 255, 255, .6)) drop-shadow(4px 4px 0 rgba(10, 80, 129, 0.3)); */
         }
     }
 
@@ -231,6 +234,13 @@ import LocalBadge from "../../assets/images/local-badge.svg";
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        font-size: 5cqi;
+        font-weight: bold;
+        color: var(--color-foreground-lighter);
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+
+
     }
 
     @media (max-width: 769px) {
@@ -251,8 +261,7 @@ import LocalBadge from "../../assets/images/local-badge.svg";
         justify-content: space-between;
         align-items: center;
         z-index: 5;
-                box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
-
+        box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
     }
 
     @media (max-width: 769px) {
@@ -309,6 +318,7 @@ import LocalBadge from "../../assets/images/local-badge.svg";
         word-spacing: 0px;
         text-indent: 0px;
         margin-bottom: 10cqi;
+        color: var(--color-foreground-lighter);
         text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
     }
     #hero__side-panel h2 span {

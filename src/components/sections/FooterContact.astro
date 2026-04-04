@@ -1,0 +1,475 @@
+---
+// Assets
+import { siteConfig } from "../../siteConfig";
+// Components
+import Button from "../elements/Button.astro";
+---
+
+<section id="contact">
+    <div class="contact-container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <hgroup>
+                    <h1><span>Questions?</span> Contact<br>Quality Pool & Spa</h1>
+                    <p>Don't let endless maintenance or unexpected equipment failures keep you from enjoying your backyard oasis. At Quality Pool & Spa, we are the Wasatch Front's trusted experts for reliable weekly pool cleaning, precise hot tub diagnostics, and comprehensive seasonal winterizations. Whether you need a rapid spa repair in Salt Lake City or a consultation for a new high-efficiency pool heater, our dedicated Utah team is here to help.</p>
+                </hgroup>
+
+                <div class="contact-cards">
+                    <div class="info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 16 16"><use href="#icon-mobilephone" /></svg>
+                        </div>
+                        <div class="text">
+                            <span>Call or Text</span>
+                            <a href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone}</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24"><use href="#icon-mail" /></svg>
+                        </div>
+                        <div class="text">
+                            <span>Email</span>
+                            <a href={`mailto:${siteConfig.email}`} aria-label={`Email Today ${siteConfig.email}`}>{siteConfig.email}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <div class="form-card">
+                    <form id="intake-form" class="contact-form" name="Home Contact Form" data-netlify="true" netlify-honeypot="question-field">
+                        <input type="hidden" name="form-name" value="Home Contact Form" />
+                        <input type="hidden" name="subject" value="Home Contact Submission from stimsdesign.com" />
+                        <input type="text" id="question-field" name="question-field" />
+                        <div class="form-row">
+                            <div class="input-group">
+                                <input type="text" id="name" name="name" placeholder=" " required />
+                                <label for="name">Your Name</label>
+                                <div class="focus-line"></div>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" placeholder=" " required />
+                                <label for="email">Email Address</label>
+                                <div class="focus-line"></div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="phone" name="phone" placeholder=" " />
+                            <label for="phone">Phone Number (Optional)</label>
+                            <div class="focus-line"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <textarea id="message" name="message" placeholder=" " required rows="4"></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="focus-line"></div>
+                        </div>
+                        <Button type="submit" id="submit-btn" class="wave">Send Message</Button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- THANK YOU MODAL -->
+<div class="form-modal-overlay">
+    <div class="form-modal-content">
+        <div class="form-modal-inner">
+            <h2>Message Received</h2>
+            <p>Keep an eye on your inbox for a reply within <strong>48 hours</strong>.</p>
+            <Button class="close-modal wave">Click to Return</Button>
+        </div>
+    </div>
+</div>
+
+<style>
+    #contact {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        background: var(--color-primary);
+        color: var(--color-foreground-lighter);
+    }
+
+    @media (max-width: 769px) {
+        #contact {
+            padding-bottom: 10cqi;
+        }
+    }
+
+    .contact-container {
+        width: 100%;
+        z-index: 2;
+        padding: 4cqi;
+        overflow: hidden;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2cqi;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 769px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+            justify-content: center;
+            gap:0;
+        }
+    }
+
+    .contact-info {
+        /* grid-column: span 2; */
+        max-width: 45cqi;
+    }
+
+
+    .contact-info h1 {
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-info h1 span {
+        color: var(--color-secondary);
+    }
+
+
+    .contact-info p {
+        font-size: var(--size-lg);
+        color: var(--color-foreground-lighter);
+        margin-bottom: 3cqi;
+    }
+
+        
+     @media (max-width: 769px) {
+        .contact-info {
+            max-width: 100%;
+            text-align: center;
+            padding-top: 5cqi;
+        }
+
+        .contact-info h1 {
+            font-size: 8cqi;
+        }
+
+        .contact-info p {
+            font-size: var(--size-md);
+
+        }
+     }
+
+
+    /* Contact Cards */
+    .contact-cards {
+        display: flex;
+        flex-direction: row;
+        gap: 2cqi;
+    }
+
+    
+    @media (max-width: 769px) {
+        .contact-cards {
+            flex-direction: row;
+            margin-bottom: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+    }    
+    @media (max-width: 480px) {
+        .contact-cards {
+            flex-direction: column;
+            margin-bottom: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .info-card {
+        display: flex;
+        align-items: center;
+        gap: 1cqi;
+        padding: 2cqi;
+        transition: all 0.3s ease;
+    }
+
+
+    .info-card:hover {
+        transform: translateX(10px);
+    }
+
+    
+    @media (max-width: 769px) {
+        .info-card {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info-card:hover {
+            transform: none;
+        }
+    }
+
+    .info-card .icon {
+        width: 50px;
+        height: 50px;
+        color: var(--color-primary-dark);
+    }
+
+    .info-card .text span {
+        display: block;
+        font-size: var(--size-sm);
+        color: var(--color-secondary-light);
+        margin-bottom: 0.25rem;
+    }
+
+
+    .info-card .text a {
+        font-size: var(--size-xl);
+        font-family: var(--font-roboto-condensed);
+        font-weight: 500;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 769px) {
+        .info-card .icon {
+            width: 70px;
+            height: 70px;
+        }
+
+        .info-card .text span {
+            display: none;
+        }
+
+        .info-card .text a {
+            font-size: var(--size-lg);
+        }
+    }
+
+    .info-card .text a:hover {
+        color: var(--color-accent);
+    }
+
+    /* Glass Form Card */
+    .contact-form-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: right;
+    }
+
+    .form-card {
+        background: var(--color-primary-dark);
+        border-radius: 24px;
+        padding: 1cqi 2cqi;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+        max-width: 40cqi;
+        width: 100%;
+    }
+
+    @media (max-width: 769px) {
+        .form-card {
+            padding: 5cqi 6cqi;
+            max-width: 100%;
+            margin-bottom: 5cqi;
+        }
+    }
+
+    :global(#submit-btn) {
+        display: block;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 769px) {
+        .form-label {
+            left: 0;
+        }
+
+    }
+
+    /* Form Elements */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    @media (max-width: 769px) {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        width: 100%;
+        padding: 1cqi;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--color-primary-light);
+        color: var(--color-text);
+        font-size: var(--size-med);
+        transition: all 0.3s ease;
+        border-radius: 0;
+    }
+
+    /* Autofill Styling Overrides */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px var(--color-primary-dark) inset !important;
+        -webkit-text-fill-color: white !important;
+        color: white !important;
+        border: none !important;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .input-group select {
+        padding-top: 1.5rem;
+        cursor: pointer;
+        appearance: none;
+        background-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+
+    .input-group select option {
+        color: black;
+    }
+
+    .input-group label {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--color-foreground-light);
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus,
+    .input-group select:focus {
+        outline: none;
+    }
+
+    .input-group input:focus ~ label,
+    .input-group textarea:focus ~ label,
+    .input-group input:not(:placeholder-shown) ~ label,
+    .input-group textarea:not(:placeholder-shown) ~ label {
+        top: 0;
+        font-size: var(--size-xs);
+        color: var(--color-secondary-light);
+        font-weight: var(--weight-bold);
+    }
+
+    .focus-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-accent);
+        transition: all 0.3s ease;
+    }
+
+    .input-group input:focus ~ .focus-line,
+    .input-group textarea:focus ~ .focus-line,
+    .input-group select:focus ~ .focus-line {
+        width: 100%;
+    }
+
+
+    /* Modal Styles */
+    .form-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: color-mix(in srgb, var(--color-primary-darker), transparent 20%);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .form-modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .form-modal-content {
+        max-width: 500px;
+        width: 90%;
+        border-radius: 15px;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
+
+    .form-modal-overlay.active .form-modal-content {
+        transform: scale(1);
+    }
+
+    .form-modal-inner {
+        padding: 3rem;
+        text-align: center;
+        background: var(--color-primary-dark);
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        border: solid 1px var(--color-secondary);
+
+
+    }
+
+    .form-modal-inner h2 {
+        color: var(--color-foreground-lighter);
+        margin-bottom: 1.5rem;
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .form-modal-inner p {
+        color: var(--color-foreground-lighter);
+        margin-bottom: 2rem;
+        font-size: var(--size-med);
+        line-height: 1.6;
+    }
+
+
+</style>
+
+<script>
+    import { ContactFormHandler } from "../../assets/scripts/ContactFormHandler.js";
+    document.addEventListener("astro:page-load", () => {
+        document.querySelectorAll(".contact-form").forEach((formEl) => {
+            new ContactFormHandler(formEl);
+        });
+    });
+</script>

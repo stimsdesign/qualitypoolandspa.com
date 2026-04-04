@@ -9,9 +9,11 @@ import HomeHero from "../sections/HomeHero.astro";
     <HomeHero />
 </header>
 
-<style is:inline>
+<style is:global>
     header {
         container-type: inline-size;
         width: 100%;
+        position: relative; /* <-- Add this */
+        z-index: 9999;        /* <-- Add this */
     }
 </style>

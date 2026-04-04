@@ -1,6 +1,6 @@
 ---
+
 import { siteConfig } from "../../siteConfig";
-import Logo from "../elements/Logo.astro";
 const linksTitle = "Quick Links";
 const links = [
     { name: "Home", href: "/", icon: null },
@@ -8,7 +8,7 @@ const links = [
     { name: "About", href: "/about.html", icon: null },
     { name: "Services", href: "/services.html", icon: null },
 ];
-const extrasTitle = "Extras";
+const extrasTitle = "Credentials";
 const extras = [
     { name: "A+ Certified by BBB", href: "https://www.bbb.org/us/ut/south-salt-lake/profile/pool-maintenance/quality-pool-spa-1166-2007823", icon: null },
 ];
@@ -16,7 +16,7 @@ const extras = [
 <footer>
     <div class="footer-grid">
         <div class="footer-col brand-col">
-            <Logo src={siteConfig.logoDark} height="60px" />
+            <svg viewBox="0 0 1184.82 543.66"><use href="#quality-pool-and-spa-white-logo" /></svg>
             <p class="brand-mission">{siteConfig.mission}</p>
             <div class="social-links">
                 {siteConfig.socialLinks.map((link) => (
@@ -25,7 +25,7 @@ const extras = [
             </div>
         </div>
         <div class="footer-col link-col">
-            <h6>{linksTitle}</h6>
+            <h5>{linksTitle}</h5>
             <ul class="footer-links">
                 {links.map((link) => (
                     <li><a href={link.href}>{link.name}{link.icon && <link.icon />}</a></li>
@@ -33,7 +33,7 @@ const extras = [
             </ul>
         </div>
         <div class="footer-col link-col">
-            <h6>{extrasTitle}</h6>
+            <h5>{extrasTitle}</h5>
             <ul class="footer-links">
                 {extras.map((link) => (
                     <li><a href={link.href} target="_blank" rel="noopener noreferrer">{link.name}{link.icon && <link.icon />}</a></li>
@@ -41,38 +41,45 @@ const extras = [
             </ul>
         </div>
         <div class="footer-col extras-col">
-            <h6>Extras</h6>
+            <h5>Quick Info</h5>
+            <p><strong>Quality Pool & Spa</strong><br>{siteConfig.addressLine1} {siteConfig.addressLine2}<br>{siteConfig.city}, {siteConfig.state} {siteConfig.postalCode}</p>
+            <p><strong>Operating Hours</strong><br>{siteConfig.hoursOfOperation}<br>{siteConfig.hoursOfOperationWeekend}</p>
+            <p><strong>Phone</strong><br>{siteConfig.prettyTelephone}</p>
+            <p><strong>Email</strong><br>{siteConfig.email}</p>
         </div>
     </div>
     <div class="footer-copy">
-        <p class="copyright">©{new Date().getFullYear()} {siteConfig.company}</p>
+        <p class="copyright">©{new Date().getFullYear()} {siteConfig.company} <span>Quality is Our Specialty</span></p>
     </div>
 </footer>
 
 <style is:global>
     footer {
         display: flex;
+        padding: 0 4cqi;
         flex-direction: column;
         position: relative;
         color: var(--color-foreground-lighter);
+        background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light));
     }
 
     .footer-grid {
-        width: var(--desktop-width);
+        width: calc(100% - 3cqi);
         margin: 0 auto;
         display: grid;
         grid-template-columns: 2fr 1fr 1fr 1.5fr;
-        gap: 4rem;
+        gap: 4cqi;
     }
 
     /* Brand Column */
     .brand-col {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.5cqi;
     }
 
-    .logo-area {
+    .brand-col svg {
+        max-width: 300px;
         width: fit-content;
         display: flex;
         align-items: center;
@@ -80,18 +87,17 @@ const extras = [
     }
 
     .brand-mission {
-        font-size: var(--size-sm);
         max-width: 35ch;
     }
 
     .social-links {
         display: flex;
-        gap: 1.25rem;
+        gap: 1.25cqi;
         text-align: center;
     }
 
     .social-links svg {
-        color: var(--color-accent);
+        color: var(--color-secondary-light);
         transition:
             color 0.3s ease,
             transform 0.3s ease;
@@ -112,21 +118,21 @@ const extras = [
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.75cqi;
     }
 
     .footer-links a {
-        color: var(--color-foreground);
+        color: var(--color-secondary-light);
         text-decoration: none;
         transition:
             color 0.3s ease,
             padding-left 0.3s ease;
-        font-size: var(--size-sm);
+        font-size: var(--size-lg);
         display: block;
     }
 
     .footer-links a:hover {
-        color: var(--color-foreground-light);
+        color: var(--color-secondary-lighter);
         padding-left: 5px;
     }
 
@@ -134,10 +140,22 @@ const extras = [
 
     /* Bottom Bar */
     .footer-copy {
-        width: var(--desktop-width);
-        margin: 0 auto;
-        padding: 1.5rem 0;
-        font-size: var(--size-xs);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 2cqi 0;
+    }   .footer-copy p {
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .footer-copy span {
+        display: inline-block;
+        margin-left: 1cqi;
+        padding-left: 1cqi;
+        border-left: 1px solid var(--color-secondary-light);
     }
 
     /* Responsive */
@@ -149,7 +167,7 @@ const extras = [
             grid-column: span 3;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 2cqi;
         }
     }
 
@@ -159,12 +177,21 @@ const extras = [
             text-align: center;
         }
 
+        .footer-col {
+            margin-bottom: 2rem;
+        }
+
         .logo-area {
             width: auto;
         }
 
         .brand-col {
             grid-column: span 2;
+            text-align: center;
+        }
+
+        .brand-col svg {
+            margin: 0 auto 1rem;
         }
 
         .brand-mission {
@@ -179,13 +206,26 @@ const extras = [
 
         .social-links {
             justify-content: center;
+            gap: 5cqi;
+        }
+
+        .footer-copy p {
+            white-space: normal;
+        }
+
+        .footer-copy span {
+            display: block;
+            margin-left: 0;
+            padding-left: 0;
+            border-left: none;
+            margin:0 0 5cqi;
         }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 500px) {
         .footer-grid {
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 3cqi;
         }
         .brand-col, .link-col, .extras-col {
             grid-column: span 1;

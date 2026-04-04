@@ -112,3 +112,19 @@ console.log('');
         console.log('Easter Egg Activated!');
     }
 })();
+
+// Seasonal Services
+document.addEventListener('change', (e) => {
+    if (e.target && e.target.id === 'seasonal-checkbox') {
+        const winterSeason = document.querySelectorAll('.winter-season');
+        const summerSeason = document.querySelectorAll('.summer-season');
+
+        if (e.target.checked) {
+            winterSeason.forEach(el => el.classList.add('active'));
+            summerSeason.forEach(el => el.classList.remove('active'));
+        } else {
+            winterSeason.forEach(el => el.classList.remove('active'));
+            summerSeason.forEach(el => el.classList.add('active'));
+        }
+    }
+});

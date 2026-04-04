@@ -1,0 +1,13 @@
+---
+import { siteConfig } from "../siteConfig";
+import Template from "../layouts/ContentPage.astro";
+import Main from '../components/layout/Main.astro';
+import PageHeading from '../components/elements/PageHeading.astro';
+import Button from '../components/elements/Button.astro';
+---
+
+<Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa is a family-owned and operated business serving Salt Lake City, Utah, and the surrounding areas. We are dedicated to providing our customers with the highest quality pool and spa services.`}>
+	<Main id="about-page">
+		<PageHeading color="dark" background="https://placehold.net/4-800x600.png">About Us</PageHeading>
+	</Main>
+</Template>

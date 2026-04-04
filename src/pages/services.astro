@@ -1,0 +1,546 @@
+---
+import { siteConfig } from "../siteConfig";
+import Template from "../layouts/ContentPage.astro";
+import Main from '../components/layout/Main.astro';
+import PageHeading from '../components/elements/PageHeading.astro';
+import Calendar from "../assets/images/calendar.svg";
+import Repair from "../assets/images/repair.svg";
+import Beachball from "../assets/images/beachball.svg";
+import Flame from "../assets/images/flame.svg";
+import Mountains from "../assets/images/mountains.svg";
+import Button from '../components/elements/Button.astro';
+---
+
+<Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa offers a full range of pool and spa services in Salt Lake City, Utah. From pool openings and closings to weekly pool maintenance and equipment repair, our team has you covered.`}>
+	<Main id="services-page">
+		<PageHeading color="dark" background="https://placehold.net/1-800x600.png">Our Services</PageHeading>
+		<p>Welcome to <strong>Quality Pool & Spa</strong>, the Wasatch Front’s premier choice for comprehensive, year-round pool and hot tub care. From navigating the freezing temperatures of a Utah winter to maintaining crystal-clear water during the peak summer swim season, our expert technicians deliver tailored solutions for every backyard oasis. Whether you are looking for dependable <strong>weekly pool cleaning in Salt Lake City</strong>, advanced <strong>spa diagnostics</strong>, or professional <strong>seasonal winterization</strong>, we provide a full spectrum of specialized services designed to protect your equipment and ensure your pool or spa is always perfectly balanced, safe, and ready to enjoy.</p>
+		<section id="weekly-services">
+			<Calendar />
+			<div class="service-description">
+				<h2>Weekly Cleaning & Maintenance</h2>
+				<p>Maintaining a pristine swimming environment along the Wasatch Front requires consistent care and expert chemistry. Our dedicated weekly maintenance plans are designed to take the guesswork and labor out of pool ownership. From precise chemical balancing in Salt Lake City to routine filter management, we ensure your water remains crystal clear, sanitary, and perfectly inviting week after week, so you can spend less time skimming and more time swimming.</p>
+			</div>
+			<div class="service-bullets">
+				<h3>Routine Maintenance & Upkeep</h3>
+				<ul>
+					<li>
+						<strong>Weekly Cleaning</strong>
+						<p>Take the hassle out of pool ownership with our reliable weekly cleaning. We skim, brush, vacuum, and monitor your water quality year-round so your pool or spa is always ready when you are.</p>
+					</li>
+					<li>
+						<strong>Pool Water Balancing</strong>
+						<p>Proper chemistry is the key to a safe and comfortable swimming environment. Our pool water balancing services ensure your water levels are perfectly calibrated to prevent scaling, algae growth, and skin irritation.</p>
+					</li>
+					<li>
+						<strong>Filter Cleaning</strong>
+						<p>A clogged filter chokes your plumbing and leaves your water cloudy. Our routine filter cleaning removes trapped oils and debris, lowering system pressure and drastically improving water clarity.</p>
+					</li>
+				</ul>
+			</div>
+			<div class="service-cta">
+				<p>Get your weekends back and let the experts handle the maintenance.</p>
+				<Button class="wave" href="/contact">Request a Route Quote</Button>
+			</div>
+		</section>
+		<section id="maintenance-repair">
+			<Repair />
+			<div class="service-description">
+				<h2>Repair Services</h2>
+				<p>When equipment fails or leaks threaten your property, you need rapid, reliable solutions. Our expert repair technicians specialize in diagnosing and resolving complex pool and spa issues across Utah. Whether it’s pinpointing a hidden plumbing leak, fixing a failing pump, or restoring a heavy-duty boiler system, we use advanced diagnostics to deliver cost-effective repairs that get your aquatic systems back online quickly and safely.</p>
+			</div>
+			<div class="service-bullets">
+				<h3>Diagnostic & Repair Solutions</h3>
+				<ul>
+					<li>
+						<strong>Equipment Diagnosis and Repair</strong>
+						<p>When your system fails, you need rapid solutions. Our expert technicians provide comprehensive equipment diagnosis and repair, resolving issues quickly to minimize downtime.</p>
+					</li>
+					<li>
+						<strong>Leak Detection</strong>
+						<p>Even a minor leak can lead to major water bills and structural damage. Our advanced leak detection technology finds hidden breaches in your shell or plumbing so we can stop the water loss immediately.</p>
+					</li>
+					<li>
+						<strong>Plumbing Repairs</strong>
+						<p>From cracked PVC to failing valves, compromised plumbing strains your entire system. We execute seamless plumbing repairs to ensure airtight, watertight circulation for your pool and spa.</p>
+					</li>
+					<li>
+						<strong>Boiler System Repair</strong>
+						<p>When your large-scale heating fails, it impacts everything. We specialize in boiler system repair for robust pool and spa setups, resolving ignition and flow issues to get the heat back on. Keep your high-capacity heaters running smoothly and safely. Our comprehensive annual boiler system maintenance minimizes downtime and ensures your equipment operates at peak efficiency year-round.</p>
+					</li>
+					<li>
+						<strong>Tankless Water Heater Service</strong>
+						<p>Modern tankless systems require dedicated care to function properly. We provide expert tankless water heater service to address error codes and ensure consistent temperature delivery. Our tankless water heater flushes remove damaging scale buildup, preserving your system's efficiency and drastically extending its operational life.</p>
+					</li>
+				</ul>
+			</div>
+			<div class="service-cta">
+				<p>Don't let a breakdown ruin your swim. Get fast, accurate diagnostics today.</p>
+				<Button class="wave" href="/contact">Request Repair Service</Button>
+			</div>
+		</section>
+		<section id="pool-services">
+			<Beachball />
+			<div class="service-description">
+				<h2>Pool Services</h2>
+				<p>From the initial summer opening to deep-winter protection, our comprehensive pool services cover every aspect of your backyard investment. We proudly offer specialized upgrades, equipment installations, and aesthetic remodeling to elevate your Salt Lake City pool. Whether you need an energy-efficient pump upgrade, professional home buyer inspections, or safe seasonal transitions, our tailored solutions protect your structural integrity and enhance your swimming experience.</p>
+			</div>
+			<div class="service-bullets">
+				<h3>Comprehensive Pool Care</h3>
+				<ul>
+					<li>
+						<strong>Openings</strong>
+						<p>Ensure a seamless transition into the warmer months with our comprehensive pool opening solutions. We handle the heavy lifting so your pool is safe, clear, and swim-ready the moment the Utah summer arrives.</p>
+					</li>
+					<li>
+						<strong>Closing/winterization</strong>
+						<p>Utah winters can be brutal on plumbing and equipment. Our thorough pool closing and winterization services safeguard your system against freeze damage, saving you from costly repair bills this spring.</p>
+					</li>
+					<li>
+						<strong>Inspections for home buyers</strong>
+						<p>Don't let a backyard feature become a hidden liability. We provide detailed pool inspections for home buyers in the SLC area, evaluating equipment, structural integrity, and safety compliance before you close on your new home.</p>
+					</li>
+					<li>
+						<strong>Remodeling - plaster, tile, coping</strong>
+						<p>Upgrade your aging aquatic space with our top-tier pool remodeling services. From fresh plaster and modern tile to durable coping, we modernize your pool to increase both property value and backyard appeal.</p>
+					</li>
+					<li>
+						<strong>Plaster Start Ups</strong>
+						<p>The first few weeks of a new plaster coat are critical for its longevity. Our meticulous plaster start-ups prevent staining and scaling, ensuring your newly surfaced pool cures flawlessly.</p>
+					</li>
+				</ul>
+			</div>
+			<div class="additional-services">
+				<h6>Additional Services</h6>
+				<ul>
+					<li>Fiberglass Gel Coat Restoration</li>
+					<li>Pool Cover Repair and Replacement</li>
+					<li>Pool Cover Cleaning</li>
+					<li>Pool Cover Vault Cleanout</li>
+					<li>Pool Heaters</li>
+					<li>Annual Pool Heater Service and Maintenance</li>
+					<li>Pool Heating Combustion Analysis</li>
+					<li>Single Speed Pumps</li>
+					<li>Variable Speed Pumps</li>
+					<li>Salt Water Chlorine Generators “Salt Cells”</li>
+					<li>Salt Cell Cleaning</li>
+					<li>Equipment Specification and Layout</li>
+					<li>Equipment Consultation</li>
+					<li>Automation Programming and Optimization</li>
+					<li>Chemical Automation</li>
+					<li>Certified Pool Operator Services</li>
+					<li>Commercial Chemicals</li>
+				</ul>
+			</div>
+			<div class="service-cta">
+				<p>Upgrade, protect, and optimize your backyard oasis with our elite pool solutions!</p>
+				<Button class="wave" href="/contact">Schedule Pool Service</Button>
+			</div>
+		</section>
+		<section id="spa-services">
+			<Flame />
+			<div class="service-description">
+				<h2>Spa Services</h2>
+				<p>Hot tubs have highly intricate, foam-insulated plumbing and complex electrical panels that demand specialized knowledge. We deliver expert spa services dedicated to keeping your jets powerful and your water perfectly heated. Whether you require meticulous top-side control repairs, leak isolation within the cabinet, or professional seasonal winterization to guard against Utah’s freezing temperatures, our precise diagnostic and repair solutions will preserve the life and luxury of your spa.</p>
+			</div>
+			<div class="service-bullets">
+				<h3>Specialized Spa Solutions</h3>
+				<ul>
+					<li>
+						<strong>Winterization/Seasonal Closing</strong>
+						<p>As temperatures drop, ensure your spa's delicate plumbing and pumps are protected. Our spa winterization services fully drain and blow out your system to prevent cracked pipes through the cold months.</p>
+					</li>
+					<li>
+						<strong>Electrical Diagnosis</strong>
+						<p>Tripping breakers or unresponsive controls can be dangerous. Our technicians provide safe, accurate spa electrical diagnosis to isolate shorts and restore safe power to your hot tub.</p>
+					</li>
+					<li>
+						<strong>Leak Detection</strong>
+						<p>Spas have intricate, foam-insulated plumbing that makes finding leaks notoriously difficult. Our spa leak diagnosis isolates the exact source of the drip to prevent cabinet rot and water waste.</p>
+					</li>
+					<li>
+						<strong>Plumbing Repair</strong>
+						<p>From freeze damage to brittle manifolds, we handle all aspects of spa plumbing repair. We carefully excavate and replace compromised lines to get your hot tub holding water perfectly again.</p>
+					</li>
+					<li>
+						<strong>Heater Repair</strong>
+						<p>From freeze damage to brittle manifolds, we handle all aspects of spa plumbing repair. We carefully excavate and replace compromised lines to get your hot tub holding water perfectly again.</p>
+					</li>
+				</ul>
+			</div>
+			<div class="additional-services">
+				<h6>Additional Services</h6>
+				<ul>
+					<li>Pump diagnosis</li>
+					<li>Pump repair</li>
+					<li>Pump replacement</li>
+					<li>Spa Pack Diagnosis</li>
+					<li>Pool Heaters</li>
+					<li>Spa Pack Repair</li>
+					<li>Top Side Control Diagnosis</li>
+					<li>Top Side Control Replacement</li>
+					<li>Jet and Diverter Replacement</li>
+				</ul>
+			</div>
+			<div class="service-cta">
+				<p>Restore your ultimate relaxation space. Book your expert spa service today!</p>
+				<Button class="wave" href="/contact">Schedule Spa Service</Button>
+			</div>
+		</section>
+	</Main>
+</Template>
+
+<style>
+	section {
+		display: grid;
+		grid-template-columns: 8cqi 1fr 1.5fr;
+		grid-template-rows: 1fr max-content;
+		column-gap: 2cqi;
+		row-gap: 1cqi;
+		padding: 2cqi;
+		margin-bottom: 4cqi;
+	}
+
+	@media (max-width: 1024px) {
+		section {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 769px) {
+		section {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	section#pool-services,
+	section#spa-services {
+		grid-template-rows: 1fr max-content max-content;
+	}
+
+	section:nth-of-type(odd) {
+		background-color: white;
+		border-radius: 15px;
+	}
+
+	/* SVG */
+
+	section svg {
+		width: 8cqi;
+		height: auto;
+		grid-column: 1 / 1;
+		grid-row: 1 / 2;
+	}
+
+	@media (max-width: 1024px) {
+		section svg {
+			display: none;
+		}
+	}
+
+	section#weekly-services svg {
+		color: var(--color-primary-dark);
+	}
+
+	section#maintenance-repair svg {
+		color: var(--color-foreground-dark);
+	}
+
+	section#pool-services svg {
+		color: var(--color-primary-light);
+	}
+
+	section#spa-services svg {
+		color: var(--color-accent-light);
+	}
+
+	/* DESCRIPTION */
+
+	section .service-description {
+		grid-column: 2 / 2;
+		grid-row: 1 / 2;
+	}
+
+	.service-description h2 {
+		text-align: left;
+	}
+
+	@media (max-width: 769px) {
+		.service-description h2 {
+			text-align: center;
+			margin:2rem 0 1rem;
+		}
+	}
+
+	section#weekly-services .service-description h2 {
+		color: var(--color-primary-dark);
+	}
+
+	section#maintenance-repair .service-description h2 {
+		color: var(--color-foreground-dark);
+	}
+
+	section#pool-services .service-description h2 {
+		color: var(--color-primary-light);
+	}
+
+	section#spa-services .service-description h2 {
+		color: var(--color-accent-light);
+	}
+
+	.service-description p {
+		text-indent: 2ch;
+		text-wrap: pretty;
+	}
+
+	@media (max-width: 769px) {
+		.service-description p {
+			text-align: center;
+		}
+	}
+
+	/* BULLETS */
+
+	section .service-bullets {
+		grid-column: 3 / 3;
+		grid-row: 1 / 2;
+	}
+
+	.service-bullets h3 {
+		text-align: left;
+		margin-bottom: .5em;
+		color: var(--color-secondary);
+	}
+
+	@media (max-width: 769px) {
+		.service-bullets h3 {
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.service-bullets ul {
+		list-style: none;
+		padding-left: 0;
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+		max-height: 25rem;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding-right: 3ch;
+	}
+
+	@media (max-width: 769px) {
+		.service-bullets ul {
+			margin-left: 0;
+		}
+	}
+
+	/* Firefox Fallback */
+	@supports (-moz-appearance: none) {
+		.service-bullets ul {
+			scrollbar-width: thin;
+			scrollbar-color: var(--color-primary-light) transparent;
+		}
+	}
+
+	/* Webkit Scrollbar (Chrome/Safari/Edge) */
+	.service-bullets ul::-webkit-scrollbar {
+		width: 4px;
+	}
+	.service-bullets ul::-webkit-scrollbar-track {
+		background: var(--color-foreground-light);
+	}
+	.service-bullets ul::-webkit-scrollbar-thumb {
+		background-color: var(--color-primary-light);
+		border-radius: 10px;
+	}
+	/* .service-bullets ul::-webkit-scrollbar-button {
+		display: none;
+	} */
+
+	.service-bullets ul li {
+		position: relative;
+		padding-left: 2rem;
+		margin-bottom: 1.5rem;
+		font-size: var(--size-base);
+		font-weight: 500;
+		color: var(--color-blue);
+	}
+
+	.service-bullets ul li strong {
+		font-weight: 00;
+		text-transform: uppercase;
+		font-family: var(--font-roboto-condensed);
+		font-size: var(--size-lg);
+	}
+
+	section#weekly-services .service-bullets h3 {
+		color: var(--color-primary-dark);
+	}
+
+	section#maintenance-repair .service-bullets h3 {
+		color: var(--color-foreground-dark);
+	}
+
+	section#pool-services .service-bullets h3 {
+		color: var(--color-primary-light);
+	}
+
+	section#spa-services .service-bullets h3 {
+		color: var(--color-accent-light);
+	}
+
+
+	#weekly-services .service-bullets ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 3px;
+		width: 25px;
+		height: 25px;
+		background-color: var(--color-primary-dark);
+		-webkit-mask: url('/images/calendar.svg') no-repeat center center;
+		mask: url('/images/calendar.svg') no-repeat center center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}
+
+	#maintenance-repair .service-bullets ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 3px;
+		width: 25px;
+		height: 25px;
+		background-color: var(--color-foreground-dark);
+		-webkit-mask: url('/images/repair.svg') no-repeat center center;
+		mask: url('/images/repair.svg') no-repeat center center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}
+
+	#pool-services .service-bullets ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 3px;
+		width: 25px;
+		height: 25px;
+		background-color: var(--color-primary-light);
+		-webkit-mask: url('/images/beachball.svg') no-repeat center center;
+		mask: url('/images/beachball.svg') no-repeat center center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}
+
+	#spa-services .service-bullets ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 3px;
+		width: 25px;
+		height: 25px;
+		background-color: var(--color-accent-light);
+		-webkit-mask: url('/images/flame.svg') no-repeat center center;
+		mask: url('/images/flame.svg') no-repeat center center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}
+
+	.service-bullets ul li p {
+		font-size: var(--size-sm);
+		font-weight: 400;
+		text-indent: 0;
+		color: var(--color-foreground-dark);
+		letter-spacing: -0.025em;
+	}
+
+	/* CALL TO ACTION */
+
+	section .service-cta {
+		grid-column: 1 / 4;
+		grid-row: 2 / 2;
+		text-align: center;
+	}
+
+	section#pool-services .service-cta,
+	section#spa-services .service-cta {
+		grid-column: 1 / 4;
+		grid-row: 3 / 3;
+		text-align: center;
+	}
+
+	section .service-cta p {
+		text-indent: 0;
+		font-size: var(--size-lg);
+		font-style: italic;
+		font-weight: 600;
+		color: var(--color-secondary);
+		letter-spacing: -0.025em;
+		align-self: center;
+		margin: 0 auto 1em auto;
+		text-transform: capitalize;
+	}
+
+	/* ADDITIONAL SERVICES */
+
+	section .additional-services {
+		grid-column: 1 / 4;
+		grid-row: 2 / 2;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	section#pool-services .additional-services h6 {
+		color: var(--color-primary-light);
+	}
+
+	section#spa-services .additional-services h6 {
+		color: var(--color-accent-light);
+	}
+
+	section .additional-services ul {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		column-gap: 0;
+		row-gap: .5cqi;
+	}
+
+	section .additional-services ul li {
+		font-size: var(--size-base);
+		font-weight: 400;
+		text-indent: 0;
+		color: var(--color-foreground-dark);
+		letter-spacing: -0.025em;
+		text-transform: capitalize;
+		white-space: nowrap;
+		font-size: var(--size-sm);
+	}
+
+	section .additional-services ul li::after {
+		content: "•";
+		margin: 0 1ch;
+	}
+
+	section .additional-services ul li:last-child::after {
+		content: "";
+	}
+
+	@media (max-width: 500px) {
+		section .additional-services ul {
+			flex-direction: column;
+		}
+		section .additional-services ul li::after {
+			content: "";
+		}
+	}
+
+</style>

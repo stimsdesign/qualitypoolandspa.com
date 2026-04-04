@@ -1,0 +1,85 @@
+---
+import Button from "./Button.astro";
+import Calendar from "../../assets/images/calendar.svg";
+import Repair from "../../assets/images/repair.svg";
+import Beachball from "../../assets/images/beachball.svg";
+import Flame from "../../assets/images/flame.svg";
+---
+
+<div id="services-dropdown">
+    <ul>
+        <li><a href="/services.html#weekly-services"><Calendar />Weekly Services</a></li>
+        <li><a href="/services.html#maintenance-repair"><Repair />Repair Services</a></li>
+        <li><a href="/services.html#pool-services"><Beachball />Pool Services</a></li>
+        <li><a href="/services.html#spa-services"><Flame />Spa Services</a></li>
+    </ul>
+    <Button class="alt wave" href="/services">View All Services</Button>
+</div>
+
+<style is:global>
+    #services-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: max-content;
+        max-width: 70vw;
+        padding: 1rem;
+        background: linear-gradient(to bottom, var(--color-secondary), var(--color-secondary-light));
+        z-index: 10000;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 15px 15px;
+        padding: 2cqi 3cqi;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+    }
+    #services-dropdown .button {
+        display: block;
+        margin:2cqi auto 0;
+    }
+
+    #services-dropdown ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1cqi;
+    }
+
+    #services-dropdown ul li {
+        display: flex;
+    }
+
+    #services-dropdown ul li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: .5cqi;
+        color: white;
+        text-decoration: none;
+        font-family: var(--font-roboto-condensed);
+        font-weight: 500;
+        font-size: 1.25cqi;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 0 var(--color-secondary-dark);
+        box-shadow: 1px 1px 0 var(--color-secondary-lighter), inset 1px 1px 0 var(--color-secondary-dark);
+        padding: .5cqi;
+        border-radius: 15px;
+        background: linear-gradient(to right, var(--color-secondary), var(--color-secondary-light));
+        aspect-ratio: 1/1;
+        width: 11cqi;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+    }
+
+    #services-dropdown ul li svg {
+        display: block;
+        width: 5cqi;
+        height: auto;
+        max-height: 5cqi;
+        filter: drop-shadow(1px 1px 0 var(--color-secondary-dark));
+    }
+
+    #services-dropdown ul li a:hover {
+        background: var(--color-primary-light);
+    }
+
+</style>

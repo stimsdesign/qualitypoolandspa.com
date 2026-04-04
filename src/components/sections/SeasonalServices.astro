@@ -1,0 +1,489 @@
+---
+//import { Image } from "astro:assets";
+import Button from "../elements/Button.astro";
+import SeasonalCheckbox from "../elements/SeasonalCheckbox.astro";
+import Sun from "../../assets/images/sun.svg";
+import Snowflake from "../../assets/images/snowflake.svg";
+---
+
+<section id="seasonal-services">
+    <div class="seasonal-services__switch">
+        <div class="summer-season active">Summer Season</div>
+        <div class="winter-season">Winter Season</div>
+        <SeasonalCheckbox />
+    </div>
+    <div class="seasonal-services__container">
+        <div class="seasonal-service__content">
+            
+            <div class="summer-season active">
+                <h1><Sun />Services</h1>
+                <p>When the Utah summer heat arrives, your backyard should be an oasis, not a chore. As Salt Lake City's trusted pool and spa experts, we provide comprehensive summer pool services designed to keep your water crystal clear and your equipment running flawlessly all season long. From seamless pool openings and precise water balancing to dependable weekly cleaning and rapid equipment repairs, our local team ensures you spend less time maintaining and more time swimming. Discover our top-rated summer services and get your pool ready for endless sunshine.</p>
+                <Button href="/services.html" class="wave">View All Services</Button>
+            </div>
+            <div class="winter-season">
+                <h1><Snowflake />Services</h1>
+                <p>Utah winters can be unforgiving on backyard investments, making professional winterization and reliable spa maintenance essential. Protect your pool from freezing temps with a secure closing and keep your hot tub running perfectly for an evening soak. Our premier winter pool & spa services in Salt Lake City have you covered. We specialize in pool winterization, durable cover replacements, and hot tub diagnostics so you can enjoy total peace of mind throughout the coldest months. Explore our essential winter services designed specifically for the local SLC climate.</p>
+                <Button href="/services.html" class="wave">View All Services</Button>
+            </div>
+        </div>
+        <div class="seasonal-service__display summer-season active">
+            <div class="card-layout">
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/1-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/1-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Start your swim season right with our expert pool opening services.</h4>
+                        <p>Ensure a seamless transition into the warmer months with our comprehensive pool opening solutions. We handle the heavy lifting so your pool is safe, clear, and swim-ready the moment the Utah summer arrives.</p>
+                    </div>
+                    <h2 class="card-text">Pool Openings</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/2-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/2-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Enjoy a pristine swim anytime with dependable weekly pool cleaning in Salt Lake City.</h4>
+                        <p>Take the hassle out of pool ownership with our reliable weekly cleaning. We skim, brush, vacuum, and monitor your water quality year-round so your pool or spa is always ready when you are.</p>
+                    </div>
+                    <h2 class="card-text">Weekly Cleaning</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/3-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/3-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Fast and accurate equipment diagnosis and repair to keep your pool running efficiently.</h4>
+                        <p>When your system fails, you need rapid solutions. Our expert technicians provide comprehensive equipment diagnosis and repair, resolving issues quickly to minimize downtime.</p>
+                    </div>
+                    <h2 class="card-text">Equipment Repair</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/4-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/4-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Achieve crystal-clear perfection with precise pool water balancing in SLC.</h4>
+                        <p>Proper chemistry is the key to a safe and comfortable swimming environment. Our pool water balancing services ensure your water levels are perfectly calibrated to prevent scaling, algae growth, and skin irritation.</p>
+                    </div>
+                    <h2 class="card-text">Pool Water Balancing</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/5-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/5-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Stop water loss in its tracks with pinpoint accurate leak detection.</h4>
+                        <p>Even a minor leak can lead to major water bills and structural damage. Our advanced leak detection technology finds hidden breaches in your shell or plumbing so we can stop the water loss immediately.</p>
+                    </div>
+                    <h2 class="card-text">Leak Detection</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/6-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/6-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Buy with confidence using our comprehensive pool inspections for home buyers.</h4>
+                        <p>Don't let a backyard feature become a hidden liability. We provide detailed pool inspections for home buyers in the SLC area, evaluating equipment, structural integrity, and safety compliance before you close on your new home.</p>
+                    </div>
+                    <h2 class="card-text">Pool Inspections</h2>
+                </a>
+            </div>
+        </div>
+        <div class="seasonal-service__display winter-season">
+            <div class="card-layout">
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/7-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/1-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Protect your investment against freezing temperatures with professional pool closing and winterization.</h4>
+                        <p>Utah winters can be brutal on plumbing and equipment. Our thorough pool closing and winterization services safeguard your system against freeze damage, saving you from costly repairs come spring.</p>
+                    </div>
+                    <h2 class="card-text">Pool Closing</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/8-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/8-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Secure your hot tub for the off-season with our spa winterization and seasonal closing.</h4>
+                        <p>When the temperatures drop, ensure your spa's delicate plumbing and pumps are protected. Our spa winterization services fully drain and blow out your system to prevent cracked pipes during the coldest months.</p>
+                    </div>
+                    <h2 class="card-text">Spa Closing</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/9-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/9-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Keep debris out and safety high with expert pool cover repair and replacement.</h4>
+                        <p>A compromised cover leaves your pool vulnerable to winter weather and safety hazards. We offer fast pool cover repair and replacement to ensure your pool remains tightly sealed and secure all winter long.</p>
+                    </div>
+                    <h2 class="card-text">Pool Covers</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/10-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/10-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Resolve hot tub power issues safely with professional spa electrical diagnosis.</h4>
+                        <p>Tripping breakers or unresponsive controls can be dangerous. Our technicians provide safe, accurate spa electrical diagnosis to isolate shorts and restore safe power to your hot tub.</p>
+                    </div>
+                    <h2 class="card-text">Spa Electrical</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/1-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/1-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Find hidden hot tub water loss quickly with expert spa leak diagnosis.</h4>
+                        <p>Spas have intricate, foam-insulated plumbing that makes finding leaks notoriously difficult. Our spa leak diagnosis isolates the exact source of the drip to prevent cabinet rot and water waste.</p>
+                    </div>
+                    <h2 class="card-text">Spa Leak Detection</h2>
+                </a>
+                <a href="/services" class="card touch">
+                    <div class="fuzzy-load" style="--background: url(https://placehold.net/2-800x600.png)">
+                        <img class="card-image" src="https://placehold.net/2-800x600.png" alt="" />
+                    </div>
+                    <div class="card-context">
+                        <h4>Cost-effective solutions through professional spa pump repair.</h4>
+                        <p>Don't replace the entire unit if it just needs a fix. We offer dedicated spa pump repair, swapping out bad seals and bearings to extend the life of your current equipment.</p>
+                    </div>
+                    <h2 class="card-text">Spa Pump Repair</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style is:global>
+    #seasonal-services {
+        position: relative;
+        background-color: var(--color-primary-lighter);
+    }
+
+    #seasonal-services .seasonal-services__switch {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        gap: 1ch;
+        width: calc(100% - 3cqi);
+        padding: 1cqi 0;
+        margin: 0 auto;
+        color: var(--color-foreground-lighter);
+        font-weight: 700;
+    }
+
+    #seasonal-services .seasonal-services__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 3cqi);
+        margin: 0 auto;
+    }
+
+    #seasonal-services .seasonal-service__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 0 2cqi 3cqi;   
+        font-weight: 700;
+    }
+
+    .seasonal-service__content .button {
+        display: block;
+        margin: 0 auto;
+    }
+
+    #seasonal-services .seasonal-service__content svg {
+        display: inline-block;
+        width: 4cqi;
+        height: 4cqi;
+        min-width:50px;
+        min-height:50px;
+        color: var(--color-accent-lighter);
+    }
+
+    #seasonal-services .seasonal-service__content .summer-season svg {
+        color: var(--color-accent-lighter);
+    }
+
+    #seasonal-services .seasonal-service__content .winter-season svg {
+        color: var(--color-secondary-lighter);
+    }
+
+
+
+    @media (max-width: 769px) {
+        #seasonal-services .seasonal-services__container {
+            flex-direction: column;
+            padding: 5cqi 5cqi 10cqi;
+        }
+
+        #seasonal-services .seasonal-services__switch {
+            padding-top: 5cqi;
+        }
+        #seasonal-services .seasonal-service__content {
+            margin-bottom: 5cqi;
+        }
+
+        #seasonal-services .seasonal-service__content p {
+            text-align: center;
+        }
+    }
+
+    #seasonal-services .seasonal-services__container h1 {
+        color: var(--color-foreground-lighter);
+        text-shadow: 0 2px 0 var(--color-primary);
+        margin-bottom: .25em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1cqi;
+    }
+
+    #seasonal-services .seasonal-services__container p {
+        max-width: 80ch;
+        color: white;
+        font-size: var(--size-md);
+        text-indent: 2ch;
+        text-shadow: 0 1px 0 var(--color-secondary-darker);
+    }
+
+
+    
+    .card-layout {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 2rem;
+        column-gap: 1rem;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 1440px) {
+        .card-layout {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            row-gap: 1rem;
+
+        }
+    }
+    .card {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        overflow: hidden;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border:solid 1px var(--color-dark-gray);
+        aspect-ratio: 4 / 3;
+    }
+
+    .card:nth-child(1) {
+        border-top-left-radius: 2cqi;
+    }
+
+    .card:nth-child(3) {
+        border-top-right-radius: 2cqi;
+    }
+
+    .card:nth-child(4) {
+        border-bottom-left-radius: 2cqi;
+    }
+
+    .card:nth-child(6) {
+        border-bottom-right-radius: 2cqi;
+    }
+
+    @media (max-width: 1440px) {
+        .card:nth-child(2) {
+            border-top-right-radius: 2cqi;
+        }
+
+        .card:nth-child(5) {
+            border-bottom-left-radius: 2cqi;
+        }
+
+        .card:nth-child(3) {
+           border-top-right-radius: 0;
+        }
+
+        .card:nth-child(4) {
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .card:nth-child(1) {
+            border-radius: 25px 25px 0 0;
+        }
+        .card:nth-child(2) {
+            border-radius: 0 0 0 0;
+        }
+
+        .card:nth-child(5) {
+            border-radius: 0 0 0 0;
+        }
+
+        .card:nth-child(3) {
+           border-radius: 0 0 0 0;
+        }
+
+        .card:nth-child(4) {
+            border-radius: 0 0 0 0;
+        }
+        .card:nth-child(6) {
+            border-radius: 0 0 25px 25px;
+        }
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card-context {
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2rem;
+        z-index: 1;
+        transform: scale(0.8);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        backdrop-filter: blur(5px);
+        background: color-mix(in srgb, var(--color-primary) 80%, transparent); 
+    }
+
+    .card-context h4 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1.25cqi;
+        font-family: var(--font-roboto-condensed);
+        font-weight: 500;
+        line-height: 1em;
+    }
+
+    .card-context span, .card-context p {
+        display: block;
+        text-align: center;
+        font-size: .75cqi;
+        line-height: 1.25em;
+    }
+
+    h2.card-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: .5rem 0;
+        color: var(--color-foreground-lighter);
+        background: color-mix(in srgb, var(--color-primary) 80%, transparent); 
+        text-align: center;
+        font-size: 2cqi;
+        white-space: nowrap;
+        text-transform: uppercase;
+        transition: transform 0.3s ease;
+        margin: 0;
+        font-family: var(--font-roboto-condensed);
+        font-weight: 500;
+        z-index: 2;
+    }
+
+    @media (max-width: 1440px) {
+        h2.card-text {
+            font-size: 2.5cqi;
+            letter-spacing: .05cqi;
+        }
+
+        .card-context h4 {
+            font-size: 1.75cqi;
+        }
+
+        .card-context p {
+            font-size: 4cqi;
+        }
+    }
+    @media (max-width: 769px) {
+        h2.card-text {
+            font-size: 3.5cqi;
+        }
+
+        .card-context h4 {
+            font-size: 3cqi;
+        }
+
+        .card-context p {
+            display: none;
+        }
+    }    
+    @media (max-width: 500px) {
+        h2.card-text {
+            font-size: 7cqi;
+        }
+        .card-context h4 {
+            font-size: 6cqi;
+        }
+    }
+
+    .card.hover h2.card-text,
+    .card:hover h2.card-text {
+        transform: translateY(100%);
+    }
+
+    .card.hover .card-context,
+    .card:hover .card-context {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+
+    @media (max-width: 500px) {
+        .card-layout {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            row-gap: 1rem;
+        }
+        .card:nth-child(1) {
+            border-top-right-radius: 25px;
+        }
+        .card:nth-child(2) {
+            border-top-right-radius: 0;
+        }
+
+        .card:nth-child(5) {
+            border-bottom-left-radius: 0;
+        }
+
+        .card:nth-child(3) {
+           border-top-right-radius: 0;
+        }
+
+        .card:nth-child(4) {
+            border-bottom-left-radius: 0;
+        }
+        .card:nth-child(6) {
+            border-bottom-left-radius: 25px;
+        }
+    }
+
+
+</style>

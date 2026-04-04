@@ -68,6 +68,7 @@
 
 html {
     hanging-punctuation: first last;
+scroll-padding-top: calc(70px + 2rem);
     scroll-behavior: smooth;
     @media (prefers-reduced-motion: reduce) {
         scroll-behavior: auto;
@@ -76,11 +77,19 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 
+@media (max-width: 769px) {
+    html {
+        scroll-padding-top: calc(50px + 1rem);
+    }
+}
+
+
 body {
     font-size: var(--size-med);
-    background-color: var(--color-primary-lighter);
+    background-color: var(--color-primary);
     color: var(--color-foreground);
     font-family: var(--font-quicksand);
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -113,6 +122,7 @@ h2 {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -2px;
+    color: var(--color-primary);
 }
 
 h3 {
@@ -134,8 +144,11 @@ h5 {
 }
 
 h6 {
+    font-family: var(--font-roboto-condensed);
     font-size: var(--size-lg);
-    font-weight: 400;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 img, picture, video, canvas, svg, lite-youtube {
@@ -161,7 +174,10 @@ p a:hover:not(.button), blockquote a:hover:not(.button), figcaption a:hover:not(
     text-decoration: underline;
 }
 
-strong {font-weight: 700;}
+strong {
+    font-weight: 900;
+    color: var(--color-secondary-dark);
+}
 
 figure > figcaption {
     text-align: center;
@@ -179,7 +195,7 @@ figure > figcaption {
 
 .bold, .strong {font-weight: 700;}
 
-.hidden {
+.hidden, input[name="question-field"] {
     position: absolute;
     top: -10000px;
     left: -10000px;
@@ -196,10 +212,11 @@ figure > figcaption {
     position: relative;
     display: inline-block;
     width: fit-content;
+    max-width: 100%;
     white-space: nowrap;
     padding: 0.5rem 1.25rem;
     font-family: var(--font-roboto-condensed);
-    font-size: var(--size-xl);
+    font-size: var(--size-2xl);
     font-weight: 900;
     letter-spacing: -1px;
     text-align: center;
@@ -215,18 +232,20 @@ figure > figcaption {
     border-right: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .button {
         display: block;
-        font-size: 12cqi;
+        font-size: clamp(1rem, 6vw, 1.75rem);
+        width: 100%;
+        margin: 0 auto;
     }
 }
 
 .button.alt {
-    background: linear-gradient(to top, var(--color-secondary), var(--color-secondary-light));
+    background: var(--color-primary);
 }
 
-.button.wave span {
+.button.wave span, button.wave span {
     display: block;
     position: absolute;
     top: 0;
@@ -238,7 +257,7 @@ figure > figcaption {
     animation: wave 4s ease-in-out infinite;
 }
 
-.button:hover span {
+.button:hover span, button:hover span {
     color: var(--color-secondary-light);
 }
 
@@ -414,4 +433,9 @@ figure > figcaption {
 .req-characters.active, .req-uppercase.active, .req-number.active, .req-special.active {
     color: var(--color-green);
     font-weight: var(--weight-semibold);
+}
+
+#content-logo {
+    width: auto;
+    height: 200px;
 }

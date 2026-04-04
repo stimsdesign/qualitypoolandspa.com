@@ -33,7 +33,7 @@ export default defineConfig({
             provider: fontProviders.google(),
             name: 'Roboto Condensed',
             cssVariable: '--font-roboto-condensed',
-            weights: ['900']
+            weights: ['500','900']
         },
     ],  
     build: {

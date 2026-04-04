@@ -5,7 +5,53 @@ interface Props {
 const { id } = Astro.props;
 ---
 <main id={id} >
-    <slot>
-        <p>No content provided. This is the default content.</p>
-    </slot>
+    <div class="page-wrapper">
+        <slot>
+            <p>No content provided. This is the default content.</p>
+        </slot>
+    </div>
 </main>
+
+<style is:global>
+    main {
+        container-type: inline-size;
+        width: 100%;
+        padding: 0  3cqi 0;
+    }
+
+    @media (max-width: 769px) {
+        main {
+            padding: 0;
+        }
+    }
+
+    .page-wrapper {
+		background-color: var(--color-foreground-lighter);
+        border-radius: 15px;
+        padding: 2rem 3cqi;
+        min-height: 60dvh;
+        margin-bottom: 4rem;
+        color: var(--color-foreground-dark);
+    }
+
+    .page-wrapper > p {
+        max-width: calc(100% - 8cqi);
+        text-indent: 2ch;
+        text-wrap: pretty;
+        margin-inline: auto;
+    }
+
+    @media (max-width: 769px) {
+        .page-wrapper {
+            padding: 3cqi;
+        }
+
+        .page-wrapper > p {
+            max-width: 100%;
+            text-indent: 0;
+            text-align: center;
+            padding-inline: 2cqi;
+            line-height: 1.3em;
+        }
+    }
+</style>

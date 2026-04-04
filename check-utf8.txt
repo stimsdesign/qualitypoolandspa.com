@@ -1,0 +1,25 @@
+﻿[2m14:14:30[22m [34m[@astrojs/netlify][39m Enabling sessions with Netlify Blobs
+[33m[1m14:14:30[22m [WARN][39m The adapter @astrojs/netlify uses `entrypointResolution: "explicit"` by default, which is deprecated and will be removed in a future major version.
+[33m[1m14:14:30[22m [WARN][39m Update your adapter to use `entrypointResolution: "auto"` or contact the maintainers to update.
+[2m14:14:30[22m [34m[types][39m Generated [2m81ms[22m
+[2m14:14:30[22m [34m[check][39m Getting diagnostics for Astro files in D:\STIMSDESIGN\qualitypoolandspa\qualitypoolandspa.com...
+[96msrc/components/elements/Logo.astro[0m:[93m14[0m:[93m22[0m - [91merror[0m[90m ts(2339): [0mProperty 'logo' does not exist on type '{ url: string; prettyUrl: string; title: string; titleStinger: string; description: string; keywords: string; mission: string; author: string; brand: string; company: string; telephone: string; prettyTelephone: string; ... 10 more ...; socialLinks: { ...; }[]; }'.
+
+[7m14[0m     src = siteConfig.logo,
+[7m  [0m [91m                     ~~~~[0m
+
+[96msrc/components/sections/SeasonalServices.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Image' is declared but its value is never read.
+
+[7m2[0m import { Image } from "astro:assets";
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/ServiceArea.astro[0m:[93m8[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'TextTicker' is declared but its value is never read.
+
+[7m8[0m import TextTicker from "../elements/TextTicker.astro";
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Result (71 files): 
+- 1 error
+- 0 warnings
+- 2 hints
+

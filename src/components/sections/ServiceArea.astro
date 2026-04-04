@@ -1,9 +1,11 @@
 ---
 // Assets
 import { Image } from "astro:assets";
+import { siteConfig } from "../../siteConfig";
+
 // Components
 import Button from "../elements/Button.astro";
-import TextTicker from "../elements/TextTicker.astro";
+
 import GoogleMap from "../elements/GoogleMap.astro";
 // Images
 import ServiceAreaImage from "../../assets/images/service-area.png"
@@ -13,35 +15,43 @@ import ServiceAreaImageFuzzy from "../../assets/images/service-area-fuzzy.png"
 <section id="service-area">
 
 
-        <div id="service-area__image">
+        <!-- <div id="service-area__image">
             <div id="service-area__aspect-wrapper" class="fuzzy-load" style={`--background: url('${ServiceAreaImageFuzzy.src}')`}>
                 <Image src={ServiceAreaImage} alt="Service Area" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
             </div>
-        </div>
+        </div> -->
 
         <div id="service-area__wrapper">
             <div id="service-area__content">
                 <h2 id="service-area__title">Proudly Serving <span>the Wasatch Front</span></h2>
-                <p>
-                    We proudly serve the entire state of Utah, including Salt Lake City, Provo, Ogden, and all surrounding areas.</p>
-                <TextTicker>
-                    <span>Salt Lake City</span>
-                    <span>Provo</span>
-                    <span>Ogden</span>
-                    <span>Park City</span>
-                    <span>Sandy</span>
-                    <span>Draper</span>
-                    <span>Lehi</span>
-                    <span>Orem</span>
-                    <span>Provo</span>
-                    <span>Ogden</span>
-                    <span>Park City</span>
-                    <span>Sandy</span>
-                    <span>Draper</span>
-                    <span>Lehi</span>
-                    <span>Orem</span>
-                </TextTicker>
+                <p>From the bustling neighborhoods of Salt Lake City to the growing communities of Provo and Ogden, we provide premier pool and spa services across the entire Wasatch Front. We understand the unique demands that Utah’s climate places on your aquatic investments. Whether you need reliable weekly pool cleaning in Sandy, precise leak detection in South Jordan, or equipment upgrades in Lehi, our expert technicians deliver unparalleled service.</p>
                 <Button href="/contact.html" class="wave">Schedule Now</Button>
+                <div id="service-area__operating-hours">
+                    <h3>Operating Hours</h3>
+                    <span>{siteConfig.hoursOfOperation}</span> <span>{siteConfig.hoursOfOperationWeekend}</span>
+                </div>
+                <div class="wasatch-word-cloud">
+                    <span class="city-size-1">Salt Lake City</span>
+                    <span class="city-size-3">Sandy</span>
+                    <span class="city-size-2">Park City</span>
+                    <span class="city-size-4">Draper</span>
+                    <span class="city-size-2">Provo</span>
+                    <span class="city-size-3">South Jordan</span>
+                    <span class="city-size-1">Ogden</span>
+                    <span class="city-size-2">Heber City</span>
+                    <span class="city-size-4">West Jordan</span>
+                    <span class="city-size-3">Orem</span>
+                    <span class="city-size-2">Lehi</span>
+                    <span class="city-size-4">Bountiful</span>
+                    <span class="city-size-3">Layton</span>
+                    <span class="city-size-5">West Valley City</span>
+                    <span class="city-size-2">Alpine</span>
+                    <span class="city-size-4">Cottonwood Heights</span>
+                    <span class="city-size-5">Murray</span>
+                    <span class="city-size-4">Herriman</span>
+                    <span class="city-size-5">Clearfield</span>
+                    <span class="city-size-4">Riverton</span>
+                </div>
             </div>
             <div id="service-area__map">
                 <GoogleMap />
@@ -52,15 +62,12 @@ import ServiceAreaImageFuzzy from "../../assets/images/service-area-fuzzy.png"
 <style is:global>
     #service-area {
         width: 100%;
-        aspect-ratio: 2.37 / 1;
-        border-radius: 10cqi;
         background-color: var(--color-primary);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         color: var(--color-foreground);
-        border: solid 4px var(--color-secondary);
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3), inset 0 3px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
         position: relative;
         overflow: hidden;
     }
@@ -71,58 +78,18 @@ import ServiceAreaImageFuzzy from "../../assets/images/service-area-fuzzy.png"
         }
     }
 
-    #service-area__image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-position: center;
-        container-type: size;
-        overflow: hidden;
-    }
-
-    @media (max-width: 769px) {
-        #service-area__image {
-            display: none;
-        }
-    }
-
-    #service-area__aspect-wrapper {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: max(100cqw, 100cqh * 2.37);
-        height: max(100cqh, 100cqw / 2.37);
-    }
 
 
-
-    #service-area__aspect-wrapper > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
+        
     #service-area__wrapper {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
     }
 
     @media (max-width: 769px) {
         #service-area__wrapper {
-            position: relative;
             flex-direction: column;
         }
     }
@@ -130,19 +97,28 @@ import ServiceAreaImageFuzzy from "../../assets/images/service-area-fuzzy.png"
     #service-area__content {
         width: 60%;
         height: 100%;
-        padding: 2cqi;
+        padding: 4cqi;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        font-size: var(--size-lg);
         color: var(--color-foreground-lighter);
-        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+        background-image: url("/images/service-area.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left;
+        background-attachment: fixed;
+
+    }
+
+    #service-area__content p {
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+        text-indent: 2ch;
     }
 
     @media (max-width: 769px) {
         #service-area__content {
             width: 100%;
-            padding: 5cqi;
+            padding: 10cqi 5cqi 5cqi;
             text-align: center;
             align-items: center;
             justify-content: center;
@@ -154,18 +130,45 @@ import ServiceAreaImageFuzzy from "../../assets/images/service-area-fuzzy.png"
         text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
     }
 
+    @media (max-width: 769px) {
+        #service-area__title {
+            font-size:10cqi
+        }
+    }
+
     #service-area__title span {
         display: block;
         color: var(--color-secondary);
     }
 
-    #service-area__content .text-ticker {
-        margin: 0 0 2rem 0;
-        font-weight: 900;
+    #service-area__operating-hours {
+        margin: 3rem 0 0 0;
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+
+    }
+
+    #service-area__operating-hours span {
+        display: inline-block;
+        white-space: nowrap;
+    }   #service-area__operating-hours span:first-of-type {
+        margin-right: 2cqi;
+    }
+
+    #service-area__operating-hours h3 {
+        margin: 0 0 0.5rem 0;
     }
 
     #service-area__map {
         width: 40%;
+        position: relative;
+    }
+
+    /* Force the Google Map container to fill the stretched flex item */
+    #service-area__map :global(.google-map-container) {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
     }
 
@@ -174,6 +177,60 @@ import ServiceAreaImageFuzzy from "../../assets/images/service-area-fuzzy.png"
             width: 100%;
             height: 100%;
         }
+    }
+
+    .wasatch-word-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        column-gap: 1cqi;
+        row-gap: .5cqi;
+        margin-top: 2cqi;
+    }
+
+    .wasatch-word-cloud span {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        line-height: 1.1;
+        transition: transform 0.2s ease, color 0.2s ease;
+        cursor: default;
+        text-align: center;
+    }
+
+    /* Hover effect for interactivity */
+        .wasatch-word-cloud span:hover {
+        transform: scale(1.5);
+    }
+
+    /* CSS Classes for randomized sizing and shades of blue */
+    .city-size-1 { 
+        font-size: 2.8rem; 
+        font-weight: 800; 
+    } 
+    .city-size-2 { 
+        font-size: 2.2rem; 
+        font-weight: 700; 
+    }   
+    .city-size-3 { 
+        font-size: 1.7rem; 
+        font-weight: 600; 
+    } 
+    .city-size-4 { 
+        font-size: 1.3rem; 
+        font-weight: 500; 
+    } 
+    .city-size-5 { 
+        font-size: 1rem; 
+        font-weight: 400; 
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+        .city-size-1 { font-size: 2.2rem; }
+        .city-size-2 { font-size: 1.8rem; }
+        .city-size-3 { font-size: 1.4rem; }
+        .city-size-4 { font-size: 1.1rem; }
+        .city-size-5 { font-size: 0.9rem; }
     }
 
 

@@ -9,9 +9,6 @@ const baseUrl = "https://www.qualitypoolandspa.com";
 export const siteConfig = {
     url: baseUrl,
     prettyUrl: "qualitypoolandspa.com",
-    logo: "/images/logo/quality-pool-and-spa-logo.svg", /* Path relative to the public directory */
-    logoDark: "/images/logo/quality-pool-and-spa-logo-dark.svg", /* Path relative to the public directory */
-    logoLight: "/images/logo/quality-pool-and-spa-logo-light.svg", /* Path relative to the public directory */
     title: "Quality Pool & Spa",
     titleStinger: "Quality is Our Specialty",
     description: "Quality Pool and Spa is a leader in the premiere pool and spa industry across Salt Lake Valley & Park City.",
@@ -32,12 +29,6 @@ export const siteConfig = {
     hoursOfOperation: "Mon-Fri: 9:00AM - 6:00PM",
     hoursOfOperationWeekend: "Sat-Sun: 8:00AM - 4:00PM",
     ogImage: `${baseUrl}/og-image.jpg`, /* Path relative to the public directory */
-    // fontHeadings: [
-    //     { name: 'Raleway', cssVariable: '--font-raleway', weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] },
-    // ],
-    // fontBase: [
-    //     { name: 'Quicksand', cssVariable: '--font-quicksand', weight: ['300', '400', '500', '600', '700'] },
-    // ],
     socialLinks: [
         { name: 'Facebook', url: 'https://www.facebook.com/Qualitypoolandspaslc/', icon: FacebookIcon },
         { name: 'Instagram', url: 'https://www.instagram.com/qualitypoolandspa/', icon: InstagramIcon },

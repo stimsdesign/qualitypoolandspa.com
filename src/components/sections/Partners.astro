@@ -7,29 +7,35 @@ import ImageTicker from "../elements/ImageTicker.astro";
 <section id="partners">
     <div id="partners__content">
         <h2 id="partners__title">Our <span>Quality</span> Brand Partners</h2>
-        <p>We proudly serve the entire state of Utah, including Salt Lake City, Provo, Ogden, and all surrounding areas.</p>
+        <p>At Quality Pool and Spa, we believe that an extraordinary backyard oasis requires dependable, high-performance equipment. That's why we partner with the industry's leading manufacturers to bring you unparalleled reliability and efficiency for your Salt Lake City pool. Whether it's upgrading your system with advanced <strong>Pentair</strong> or <strong>Jandy</strong> pumps, installing energy-efficient heaters from <strong>Raypak</strong> or <strong>Lochinvar</strong>, or maintaining pristine water clarity with trusted <strong>Hayward</strong> and <strong>Aquastar</strong> components, we ensure your pool operates flawlessly. For comprehensive water chemistry, we rely on top-tier products from <strong>HASA</strong> and <strong>Orenda</strong> to keep your water perfectly balanced. When it comes to hot tubs, our expert technicians service premium parts from <strong>Balboa</strong>, <strong>Gecko</strong>, and <strong>Waterway</strong>, guaranteeing a relaxing soak every time. By integrating these trusted brand partners into our daily pool and spa services, we deliver lasting value, lower operating costs, and ultimate peace of mind. Come visit our store to see our selection of pool and spa products.</p>
         <ImageTicker>
-            <svg><use xlink:href="#jandy" /></svg>
-            <svg><use xlink:href="#pentair" /></svg>
-            <svg><use xlink:href="#hayward" /></svg>
-            <svg><use xlink:href="#aquastar" /></svg>
-            <svg><use xlink:href="#raypak" /></svg>
-            <svg><use xlink:href="#lochinvar" /></svg>
-            <svg><use xlink:href="#hasa" /></svg>
-            <svg><use xlink:href="#orenda" /></svg>
-            <svg><use xlink:href="#balboa" /></svg>
-            <svg><use xlink:href="#gecko" /></svg>
-            <svg><use xlink:href="#waterway" /></svg>
+            <svg viewBox="0 0 600.38 223.37"><use href="#jandy" /></svg>
+            <svg viewBox="0 0 2426.49 802.75"><use href="#pentair" /></svg>
+            <svg viewBox="0 0 2499.77 453"><use href="#hayward" /></svg>
+            <svg viewBox="0 0 1014.21 266.44"><use href="#aquastar" /></svg>
+            <svg viewBox="0 0 631.91 169.17"><use href="#raypak" /></svg>
+            <svg viewBox="0 0 2279.41 428.11"><use href="#lochinvar" /></svg>
+            <svg viewBox="0 0 200 57.41"><use href="#hasa" /></svg>
+            <svg viewBox="0 0 1838.57 517.4"><use href="#orenda" /></svg>
+            <svg viewBox="0 0 139.26 36.38"><use href="#balboa" /></svg>
+            <svg viewBox="0 0 450.64 243.66"><use href="#gecko" /></svg>
+            <svg viewBox="0 0 795.2 166"><use href="#waterway" /></svg>
         </ImageTicker>
-        <Button href="/contact.html" class="wave">Ask About Our Brands</Button>
+        <Button href="https://www.google.com/maps/dir//Quality+Pool+and+Spa,+2970+S+W+Temple+St+A,+South+Salt+Lake,+UT+84115/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x87528ae3f5f19397:0x8ecd06f0ae105075?sa=X&ved=1t:57443&ictx=111" target="_blank" class="wave">Store Location</Button>
     </div>
 </section>
 
 <style>
     #partners {
         background-color: var(--color-primary-lighter);
-        padding: 2rem 0;
+        padding: 5cqi 0;
         overflow: hidden;
+    }
+
+    @media (max-width: 769px) {
+        #partners {
+        padding: 10cqi 0;
+        }
     }
 
     #partners__content {
@@ -44,15 +50,37 @@ import ImageTicker from "../elements/ImageTicker.astro";
         color: var(--color-foreground-darker);
     }
 
-    @media (max-width: 769px) {
-        #partners__content {
 
-        }
-    }
 
     #partners__title {
         color: var(--color-primary);
         text-align: center;
+    }
+
+    
+    #partners__content p {
+        text-indent: 2ch;
+        text-align: left;
+        max-width: 80cqi;
+        margin: 0 auto;
+    }
+
+    
+    @media (max-width: 769px) {
+        #partners__content {
+            padding: 5cqi 2cqi;
+        }
+        #partners__content svg {
+            height: 50px;
+        }
+        #partners__title {
+            font-size: 10cqi;
+        }
+
+        #partners__content p {
+            text-align: center;
+            margin-bottom: 2cqi;
+        }
     }
 
     #partners__title span {

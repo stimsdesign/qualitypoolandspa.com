@@ -6,6 +6,7 @@ interface Props {
     bookmark?: boolean;
     type?: string;
     class?: string;
+    target?: string;
 }
 
 const { 
@@ -14,7 +15,8 @@ const {
     margin, 
     bookmark = false, 
     type = "anchor", 
-    class: className = "" 
+    class: className = "",
+    target
 } = Astro.props;
 
 const resolvedHref = href.trim() === "" ? "#" : href;
@@ -28,6 +30,7 @@ const attributes = {
     id: id || undefined,
     class: `button${bookmark ? " bookmark-button" : ""}${trimmedClass ? ` ${trimmedClass}` : ""}`,
     style: margin ? `margin: ${margin};` : undefined,
+    target: target || undefined,
 };
 ---
 
@@ -40,7 +43,7 @@ const attributes = {
     ) : (
         <button type={type === "submit" ? "submit" : "button"} {...attributes}>
             <Fragment set:html={slotHtml} />
-            {isWave && <Fragment set:html={slotHtml} />}
+            {isWave && <span><Fragment set:html={slotHtml} /></span>}
         </button>
     )
 }
