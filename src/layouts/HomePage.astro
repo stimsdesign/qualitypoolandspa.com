@@ -87,9 +87,6 @@ const {
         <script>
             import { functionFuzzyLoad } from "../assets/scripts/FuzzyLoad.js";
             
-            // Run instantly upon script load (which is safely deferred by Astro)
-            functionFuzzyLoad();
-
             // Prevent FOUT (Flash of Unstyled Text) Layout Shift Animations
             function initFonts() {
                 Promise.all([
@@ -101,10 +98,9 @@ const {
                     document.documentElement.classList.add('fonts-loaded');
                 });
             }
-            initFonts();
 
-            // Re-run on client-side routing transitions
-            document.addEventListener("astro:after-swap", () => {
+            // Run on initial load and client-side routing transitions
+            document.addEventListener("astro:page-load", () => {
                 functionFuzzyLoad();
                 initFonts();
             });

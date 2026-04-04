@@ -16,11 +16,11 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
     <div id="hero" class="summer">
         <div id="hero__image">
             <div class="hero__aspect-wrapper summer-season active fuzzy-load" style={`--background: url('${HeroSummerSceneFuzzy.src}')`}>
-                <Image src={HeroSummerScene} alt="Summer Hero" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                <Image src={HeroSummerScene} alt="Summer Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div id="hero__water"><div class="caustics"></div></div>
             </div>
             <div class="hero__aspect-wrapper winter-season fuzzy-load" style={`--background: url('${HeroWinterSceneFuzzy.src}')`}>
-                <Image src={HeroWinterScene} alt="Winter Hero" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                <Image src={HeroWinterScene} alt="Winter Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div id="hero__water"><div class="caustics"></div></div>
             </div>
         </div>
