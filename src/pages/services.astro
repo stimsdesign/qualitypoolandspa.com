@@ -7,13 +7,19 @@ import Calendar from "../assets/images/calendar.svg";
 import Repair from "../assets/images/repair.svg";
 import Beachball from "../assets/images/beachball.svg";
 import Flame from "../assets/images/flame.svg";
-import Mountains from "../assets/images/mountains.svg";
+
 import Button from '../components/elements/Button.astro';
 ---
 
 <Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa offers a full range of pool and spa services in Salt Lake City, Utah. From pool openings and closings to weekly pool maintenance and equipment repair, our team has you covered.`}>
 	<Main id="services-page">
 		<PageHeading color="dark" background="https://placehold.net/1-800x600.png">Our Services</PageHeading>
+		<ul class="shortcuts">
+			<li><a href="#weekly-services">Weekly Cleaning & Maintenance</a></li>
+			<li><a href="#maintenance-repair">Maintenance & Repair</a></li>
+			<li><a href="#pool-services">Pool Services</a></li>
+			<li><a href="#spa-services">Spa Services</a></li>
+		</ul>
 		<p>Welcome to <strong>Quality Pool & Spa</strong>, the Wasatch Front’s premier choice for comprehensive, year-round pool and hot tub care. From navigating the freezing temperatures of a Utah winter to maintaining crystal-clear water during the peak summer swim season, our expert technicians deliver tailored solutions for every backyard oasis. Whether you are looking for dependable <strong>weekly pool cleaning in Salt Lake City</strong>, advanced <strong>spa diagnostics</strong>, or professional <strong>seasonal winterization</strong>, we provide a full spectrum of specialized services designed to protect your equipment and ensure your pool or spa is always perfectly balanced, safe, and ready to enjoy.</p>
 		<section id="weekly-services">
 			<Calendar />
@@ -288,6 +294,53 @@ import Button from '../components/elements/Button.astro';
 	section#spa-services .service-description h2 {
 		color: var(--color-accent-light);
 	}
+
+	.shortcuts {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 1.5rem;
+		max-height: 25rem;
+		column-gap: 3ch;
+		row-gap: 1ch;
+	}
+
+	@media (max-width: 769px) {
+		.shortcuts {
+			margin-top: 1rem;
+		}
+	}
+
+	.shortcuts li {
+		transform: translateY(0);
+		transition: transform .1s ease-in-out;
+	}
+	
+	.shortcuts li:hover {
+		transform: translateY(-.125rem);
+	}
+
+	.shortcuts a {
+		color: var(--color-secondary);
+		text-decoration: none;
+		font-family: var(--font-roboto-condensed);
+		font-weight: 500;
+		text-transform: capitalize;
+		font-size: clamp(16px, 8cqi, 2rem);
+
+		/* clamp(1.125rem, 1.4vw, 1.625rem) */
+
+		white-space: nowrap;
+		transition: all .1s ease-in-out;
+	}
+
+	.shortcuts a:hover {
+		color: var(--color-primary-light);
+	}
+
 
 	.service-description p {
 		text-indent: 2ch;

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const {
-    src = siteConfig.logo,
+    src = "/logo.svg",
     height = "auto",
     maxHeight = "100%",
     width = "auto",
@@ -26,7 +26,7 @@ const {
     </object>
 </a>
 
-<style is:global>
+<style>
     a.logo {
         display: block;
     }
@@ -38,6 +38,6 @@ const {
         max-width: 100%;
         max-height: 100%;
         pointer-events: none;
-        transition: height 0.3s ease;
+        transition: height 0.1s ease;
     }
 </style>

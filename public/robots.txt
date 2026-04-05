@@ -3,4 +3,4 @@ User-agent: *
 # Disallow: /api/
 
 # Point crawlers to your sitemap
-# Sitemap: https://stimsdesign.com/sitemap.xml
+# Sitemap: https://qualitypoolandspa.com/sitemap.xml

@@ -85,7 +85,8 @@ scroll-padding-top: calc(70px + 2rem);
 
 
 body {
-    font-size: var(--size-med);
+    /* font-size: var(--size-med); */
+    font-size: 16px;
     background-color: var(--color-primary);
     color: var(--color-foreground);
     font-family: var(--font-quicksand);
@@ -225,7 +226,7 @@ figure > figcaption {
     border-radius: 15px;
     background: var(--color-accent);
     color: white;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
     cursor: pointer;
     border-top: none;
     border-left: none;
@@ -255,6 +256,12 @@ figure > figcaption {
     color: white;
     padding: 0.5rem 1.25rem;
     animation: wave 4s ease-in-out infinite;
+    animation-play-state: paused;
+}
+
+.button.wave:hover span, button.wave:hover span,
+.button.wave:focus span, button.wave:focus span {
+    animation-play-state: running;
 }
 
 .button:hover span, button:hover span {
@@ -327,52 +334,6 @@ figure > figcaption {
     filter: drop-shadow(0 0 2px var(--color-secondary)) drop-shadow(0 0 1px var(--color-secondary-light));
 }
 
-/* Fancy Border - Animated Conic Gradient Border */
-@property --border-angle-1 {syntax: "<angle>"; inherits: true; initial-value: 0deg;}
-@property --border-angle-2 {syntax: "<angle>"; inherits: true; initial-value: 90deg;}
-@property --border-angle-3 {syntax: "<angle>"; inherits: true; initial-value: 180deg;}
-.fancy-border {
-    --border-angle-1: 0deg;
-    --border-angle-2: 90deg;
-    --border-angle-3: 180deg;
-    color: inherit;
-    border: 0;
-    padding: 1px;
-    border-radius: 15px;
-    background-color: var(--color-primary);
-    background-image:
-        conic-gradient(from var(--border-angle-1) at 10% 15%,
-            transparent,
-            var(--color-secondary) 10%,
-            transparent 30%,
-            transparent),
-        conic-gradient(from var(--border-angle-2) at 70% 60%,
-            transparent,
-            var(--color-primary) 10%,
-            transparent 60%,
-            transparent),
-        conic-gradient(from var(--border-angle-3) at 50% 20%,
-            transparent,
-            var(--color-accent) 10%,
-            transparent 50%,
-            transparent);
-    animation:
-        rotateBackground 3s linear infinite,
-        rotateBackground2 8s linear infinite,
-        rotateBackground3 13s linear infinite;
-}
-.fancy-border > * {
-    border-radius: calc(15px - 1px);
-}
-@keyframes rotateBackground {
-    to {--border-angle-1: 360deg;}
-}
-@keyframes rotateBackground2 {
-    to {--border-angle-2: -270deg;}
-}
-@keyframes rotateBackground3 {
-    to {--border-angle-3: 540deg;}
-}
 
 /* Global Animations */
 @keyframes pulse {
@@ -406,7 +367,9 @@ figure > figcaption {
         transform: scale(1.05);
         z-index: 0;
         opacity: 1;
-        transition: opacity 350ms ease-in-out;
+        visibility: visible;
+        transition: opacity 350ms ease-in-out, visibility 0s linear 0s;
+        will-change: opacity;
     }
     & > * {
         position: relative;
@@ -420,6 +383,8 @@ figure > figcaption {
 
 .fuzzy-load.loaded::before {
     opacity: 0;
+    visibility: hidden;
+    transition: opacity 350ms ease-in-out, visibility 0s linear 350ms;
 }
 
 .fuzzy-load.loaded > * {
@@ -428,7 +393,7 @@ figure > figcaption {
 
 /* Password Requirement Indicators */
 .req-characters, .req-uppercase, .req-number, .req-special { 
-    transition: color 0.3s ease, font-weight 0.3s ease;
+    transition: color 0.1s ease, font-weight 0.1s ease;
 }
 .req-characters.active, .req-uppercase.active, .req-number.active, .req-special.active {
     color: var(--color-green);
