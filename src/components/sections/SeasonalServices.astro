@@ -1,9 +1,33 @@
 ---
-//import { Image } from "astro:assets";
+import { Image } from "astro:assets";
 import Button from "../elements/Button.astro";
 import SeasonalCheckbox from "../elements/SeasonalCheckbox.astro";
 import Sun from "../../assets/images/sun.svg";
 import Snowflake from "../../assets/images/snowflake.svg";
+import PoolOpening from "../../assets/images/pool-opening.webp";
+import PoolOpeningFuzzy from "../../assets/images/pool-opening.png";
+import WeeklyCleaning from "../../assets/images/weekly-cleaning.webp";
+import WeeklyCleaningFuzzy from "../../assets/images/weekly-cleaning.png";
+import EquipmentRepair from "../../assets/images/equipment-repair.webp";
+import EquipmentRepairFuzzy from "../../assets/images/equipment-repair.png";
+import PoolWaterBalancing from "../../assets/images/water-balancing.webp";
+import PoolWaterBalancingFuzzy from "../../assets/images/water-balancing.png";
+import LeakDetection from "../../assets/images/leak-detection.webp";
+import LeakDetectionFuzzy from "../../assets/images/leak-detection.png";
+import PoolInspection from "../../assets/images/pool-inspection.webp";
+import PoolInspectionFuzzy from "../../assets/images/pool-inspection.png";
+import PoolClosing from "../../assets/images/pool-closing.webp";
+import PoolClosingFuzzy from "../../assets/images/pool-closing.png";
+import SpaClosing from "../../assets/images/spa-closing.webp";
+import SpaClosingFuzzy from "../../assets/images/spa-closing.png";
+import PoolCovers from "../../assets/images/pool-covers.webp";
+import PoolCoversFuzzy from "../../assets/images/pool-covers.png";
+import SpaElectrical from "../../assets/images/spa-electrical.webp";
+import SpaElectricalFuzzy from "../../assets/images/spa-electrical.png";
+import SpaLeak from "../../assets/images/spa-leak.webp";
+import SpaLeakFuzzy from "../../assets/images/spa-leak.png";
+import SpaPump from "../../assets/images/spa-pump.webp";
+import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
 ---
 
 <section id="seasonal-services">
@@ -29,8 +53,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
         <div class="seasonal-service__display summer-season active">
             <div class="card-layout">
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/1-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/1-800x600.png" alt="" />
+                    <div class="fuzzy-load" style={`--background: url('${PoolOpeningFuzzy.src}')`}>
+                        <Image class="card-image" src={PoolOpening} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Start your swim season right with our expert pool opening services.</h4>
@@ -39,8 +63,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Pool Openings</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/2-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/2-800x600.png" alt="" />
+                    <div class="fuzzy-load" style={`--background: url('${WeeklyCleaningFuzzy.src}')`}>
+                        <Image class="card-image" src={WeeklyCleaning} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Enjoy a pristine swim anytime with dependable weekly pool cleaning in Salt Lake City.</h4>
@@ -49,8 +73,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Weekly Cleaning</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/3-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/3-800x600.png" alt="" />
+                    <div class="fuzzy-load" style={`--background: url('${EquipmentRepairFuzzy.src}')`}>
+                        <Image class="card-image" src={EquipmentRepair} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Fast and accurate equipment diagnosis and repair to keep your pool running efficiently.</h4>
@@ -59,8 +83,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Equipment Repair</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/4-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/4-800x600.png" alt="" />
+                    <div class="fuzzy-load" style={`--background: url('${PoolWaterBalancingFuzzy.src}')`}>
+                        <Image class="card-image" src={PoolWaterBalancing} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Achieve crystal-clear perfection with precise pool water balancing in SLC.</h4>
@@ -69,8 +93,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Pool Water Balancing</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/5-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/5-800x600.png" alt="" />
+                    <div class="fuzzy-load" style={`--background: url('${LeakDetectionFuzzy.src}')`}>
+                        <Image class="card-image" src={LeakDetection} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Stop water loss in its tracks with pinpoint accurate leak detection.</h4>
@@ -79,8 +103,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Leak Detection</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/6-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/6-800x600.png" alt="" />
+                    <div class="fuzzy-load" style={`--background: url('${PoolInspectionFuzzy.src}')`}>
+                        <Image class="card-image" src={PoolInspection} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Buy with confidence using our comprehensive pool inspections for home buyers.</h4>
@@ -93,8 +117,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
         <div class="seasonal-service__display winter-season">
             <div class="card-layout">
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/7-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/1-800x600.png" alt="" />
+                    <div class="fuzzy-load" style={`--background: url('${PoolClosingFuzzy.src}')`}>
+                        <Image class="card-image" src={PoolClosing} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Protect your investment against freezing temperatures with professional pool closing and winterization.</h4>
@@ -103,8 +127,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Pool Closing</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/8-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/8-800x600.png" alt="" />
+                    <div class="fuzzy-load" style="--background: url('${SpaClosingFuzzy.src}')">
+                        <Image class="card-image" src={SpaClosing} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Secure your hot tub for the off-season with our spa winterization and seasonal closing.</h4>
@@ -113,8 +137,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Spa Closing</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/9-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/9-800x600.png" alt="" />
+                    <div class="fuzzy-load" style="--background: url('${PoolCoversFuzzy.src}')">
+                        <Image class="card-image" src={PoolCovers} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Keep debris out and safety high with expert pool cover repair and replacement.</h4>
@@ -123,8 +147,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Pool Covers</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/10-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/10-800x600.png" alt="" />
+                    <div class="fuzzy-load" style="--background: url('${SpaElectricalFuzzy.src}')">
+                        <Image class="card-image" src={SpaElectrical} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Resolve hot tub power issues safely with professional spa electrical diagnosis.</h4>
@@ -133,8 +157,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Spa Electrical</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/1-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/1-800x600.png" alt="" />
+                    <div class="fuzzy-load" style="--background: url('${SpaLeakFuzzy.src}')">
+                        <Image class="card-image" src={SpaLeak} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Find hidden hot tub water loss quickly with expert spa leak diagnosis.</h4>
@@ -143,8 +167,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
                     <h2 class="card-text">Spa Leak Detection</h2>
                 </a>
                 <a href="/services" class="card touch">
-                    <div class="fuzzy-load" style="--background: url(https://placehold.net/2-800x600.png)">
-                        <img class="card-image" src="https://placehold.net/2-800x600.png" alt="" />
+                    <div class="fuzzy-load" style="--background: url('${SpaPumpFuzzy.src}')">
+                        <Image class="card-image" src={SpaPump} alt="" />
                     </div>
                     <div class="card-context">
                         <h4>Cost-effective solutions through professional spa pump repair.</h4>
@@ -161,6 +185,8 @@ import Snowflake from "../../assets/images/snowflake.svg";
     #seasonal-services {
         position: relative;
         background-color: var(--color-primary-lighter);
+        border-top: 4px solid var(--color-secondary);
+        box-shadow: inset 0 3px 0 var(--color-primary-light);
     }
 
     #seasonal-services .seasonal-services__switch {

@@ -3,11 +3,673 @@ import { siteConfig } from "../siteConfig";
 import Template from "../layouts/ContentPage.astro";
 import Main from '../components/layout/Main.astro';
 import PageHeading from '../components/elements/PageHeading.astro';
-
+import Button from "../components/elements/Button.astro";
 ---
 
-<Template title={`Pool Openings | ${siteConfig.title}`} description={`Sorry, the page you are looking for does not exist on ${siteConfig.brand}. Please check the URL or return to the homepage.`}>
+<Template title={`Pool Openings | ${siteConfig.title}`} description={`Schedule your Pool Opening with ${siteConfig.brand}.`}>
 	<Main id="opening-page">
-		<PageHeading color="dark" background="https://placehold.net/5-800x600.png">Pool Openings</PageHeading>
+		<PageHeading background="/images/ladder-banner.webp" fuzzy="/images/ladder-banner-fuzzy.webp">Pool Openings</PageHeading>
+		<p>Get your backyard oasis ready for the Utah summer with our professional pool opening services. At Quality Pool & Spa, we help homeowners across Salt Lake City and the Wasatch Front transition seamlessly into swim season. Simply fill out the request form below with your pool's details, and our expert technicians will handle the heavy lifting, precise water balancing, and thorough equipment checks. Let us do the hard work so your water is crystal clear, safe, and ready to enjoy the moment the warm weather arrives.</p>
+		<div class="opening-page-content">
+			<div class="service-wrapper">
+				<h3>Our Base Service Includes&hellip;</h3>
+				<ul class="service-list">
+					<li>Cover Removal</li>
+					<li>Plug Removal & Reassembly</li>
+					<li>Fitting Installation</li>
+					<li>Accessory Installation</li>
+					<li>System Start-Up & Priming</li>
+					<li>Visual Leak & Equipment Check</li>
+					<li>Initial Water Testing</li>
+					<li>Start-Up Chemicals</li>
+				</ul>
+			</div>
+			<div class="form-wrapper" id="opening-form-anchor">
+				<div class="form-card">
+					<div class="form-header">
+						<h2>Request Form</h2>
+						<div id="step-indicator" class="step-indicator">Step 1 of 4</div>
+					</div>
+					<div class="progress-track" aria-hidden="true">
+						<div id="progress-bar" class="progress-bar"></div>
+					</div>
+					<form id="opening-form" class="contact-form" name="Opening Form" data-netlify="true" netlify-honeypot="question-field">
+						<input type="hidden" name="form-name" value="Opening Form" />
+						<input type="hidden" name="subject" value=`{Opening Form Submisstion from ${siteConfig.prettyUrl}}` />
+						<input type="text" id="question-field" name="question-field" style="display:none" />
+						<!-- Step 1: Customer Information -->
+						<div class="form-step active" id="step-1">
+							<h3>Your Information</h3>
+							<div class="input-group radio-group">
+								<label class="element-label">Are you a returning client?</label>
+								<div class="options-row">
+									<label><input type="radio" name="returning_client" value="Yes"> Yes</label>
+									<label><input type="radio" name="returning_client" value="No" checked> No</label>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="input-group">
+									<label for="first_name" class="element-label">First Name <span>*</span></label>
+									<input type="text" id="first_name" name="first_name" placeholder=" " required />
+								</div>
+								<div class="input-group">
+									<label for="last_name" class="element-label">Last Name <span>*</span></label>
+									<input type="text" id="last_name" name="last_name" placeholder=" " required />
+								</div>
+							</div>
+							<div class="input-group">
+								<label for="address" class="element-label">Physical Address <span>*</span></label>
+								<input type="text" id="address" name="address" placeholder=" " required />
+							</div>
+							<div class="form-row">
+								<div class="input-group">
+									<label for="city" class="element-label">City <span>*</span></label>
+									<input type="text" id="city" name="city" placeholder=" " required />
+								</div>
+								<div class="input-group">
+									<label for="zip" class="element-label">Zip <span>*</span></label>
+									<input type="text" id="zip" name="zip" placeholder=" " required />
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="input-group">
+									<label for="email" class="element-label">Email Address <span>*</span></label>
+									<input type="email" id="email" name="email" placeholder=" " required />
+								</div>
+								<div class="input-group">
+									<label for="phone" class="element-label">Phone Number <span>*</span></label>
+									<input type="tel" id="phone" name="phone" placeholder=" " required />
+								</div>
+							</div>
+							<div class="step-actions right-align">
+								<Button type="button" class="next-btn wave" href="#opening-page">Next</Button>
+							</div>
+						</div>
+						<!-- Step 2: Service Options -->
+						<div class="form-step" id="step-2">
+							<h3>Service Options</h3>
+							<div class="form-row">
+								<div class="input-group">
+									<label for="date" class="element-label date-label">Date of Opening (Request) <span>*</span></label>
+									<input type="date" id="date" name="date" placeholder=" " required />
+								</div>
+							</div>
+							<div class="input-group checkbox-group">
+								<label class="element-label">Additional Services Needed</label>
+								<div class="options-col">
+									<label><input type="checkbox" name="service_type_cover_cleaning" value="Professional Pool Cover Cleaning"><span>Pool Cover Cleaning</span></label>
+									<label><input type="checkbox" name="service_type_vault_cleanout" value="Pool Cover Vault Cleanout"><span>Pool Cover Vault Cleanout</span></label>
+									<label><input type="checkbox" name="service_type_initial_vacuuming" value="Initial Vacuuming"><span>Initial Vacuuming</span></label>
+									<label><input type="checkbox" name="service_type_initial_filter_cleaning" value="Filter Cleaning"><span>Filter Cleaning</span></label>
+									<label><input type="checkbox" name="service_type_salt_cell_cleaning" value="Salt Cell Cleaning"><span>Salt Cell Cleaning</span></label>
+									<label><input type="checkbox" name="service_type_pool_heater_service" value="Pool Heater Service"><span>Pool Heater Service</span></label>
+									<label><input type="checkbox" name="service_type_plaster_start_ups" value="Plaster Start-Ups"><span>Plaster Start-Ups</span></label>
+									<label><input type="checkbox" name="service_type_repairs_needed" value="Repairs Needed"><span>Repairs Needed</span></label>
+								</div>
+							</div>
+							<div id="repairs-needed-wrapper" style="display:none">
+								<div class="input-group">
+									<label for="repairs_needed_details" class="element-label">Describe the Repairs Needed <span>*</span></label>
+									<textarea id="repairs_needed_details" name="repairs_needed_details"></textarea>
+								</div>
+							</div>
+							<div class="input-group">
+								<label for="other_open" class="element-label">Openings Needed other than Pool?</label>
+								<select id="other_open" name="other_open">
+									<option value="" disabled selected>No</option>
+									<option value="Spa">Spa</option>
+									<option value="Water Feature">Water Feature (Water Fall, Fountain, etc.)</option>
+									<option value="Slide">Slide</option>
+									<option value="Other">Yes, Other</option>
+								</select>
+							</div>
+							<div class="form-row">
+								<div class="input-group radio-group">
+									<label class="element-label">Is the Pool Heated? <span>*</span></label>
+									<div class="options-row">
+										<label><input type="radio" name="heated" value="Yes" required> Yes</label>
+										<label><input type="radio" name="heated" value="No" required> No</label>
+									</div>
+								</div>
+								<div class="input-group" id="temp-wrapper" style="display: none;">
+									<label for="temp" class="element-label">Requested Temperature?</label>
+									<input type="text" id="temp" name="temp" placeholder=" " />
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="input-group radio-group">
+									<label class="element-label">Inquire About Regular Maintenance?</label>
+									<div class="options-row">
+										<label><input type="radio" name="regular_maintenance" value="Yes"> Yes</label>
+										<label><input type="radio" name="regular_maintenance" value="No"> No</label>
+									</div>
+								</div>
+								<div class="input-group" id="schedule-wrapper" style="display: none;">
+									<label for="schedule_type" class="element-label">Type of Schedule</label>
+									<select id="schedule_type" name="schedule_type">
+										<option value="" disabled selected>Select Schedule Type</option>
+										<option value="Weekly">Weekly</option>
+										<option value="Bi-Weekly">Bi-Weekly</option>
+										<option value="Please contact to discuss">Please contact to discuss</option>
+									</select>
+								</div>
+							</div>
+							<div class="step-actions flex-between">
+								<Button type="button" class="prev-btn wave">Previous</Button>
+								<Button type="button" class="next-btn wave">Next</Button>
+							</div>
+						</div>
+						<!-- Step 3: Details -->
+						<div class="form-step" id="step-3">
+							<h3>Cover Details</h3>
+							<div class="form-row">
+								<div class="input-group radio-group">
+									<label class="element-label">Cover Type <span>*</span></label>
+									<div class="options-row">
+										<label><input type="radio" name="cover_type" value="Automatic" required> Automatic</label>
+										<label><input type="radio" name="cover_type" value="Manual" required> Manual</label>
+									</div>
+								</div>
+								<div class="input-group radio-group" id="manual-remove-wrapper" style="display: none;">
+									<label class="element-label">Do We Need to Remove it?<span>*</span></label>
+									<div class="options-row">
+										<label><input type="radio" name="manual_remove" value="Yes" required> Yes</label>
+										<label><input type="radio" name="manual_remove" value="No" required> No</label>
+									</div>
+								</div>
+							</div>
+							<div class="input-group" id="manual-store-wrapper" style="display: none;">
+								<label for="manual_store" class="element-label">Where Would You Like it Stored?<span>*</span></label>
+								<input type="text" id="manual_store" name="manual_store" placeholder=" " required />
+							</div>
+							<h3>Access Details</h3>
+							<div class="input-group radio-group">
+								<label class="element-label">Type of Access to Pool Area <span>*</span></label>
+								<div class="options-row">
+									<label><input type="radio" name="access_type" value="Outdoor Access" required>Outdoor Access</label>
+									<label><input type="radio" name="access_type" value="Indoor Only Access" required>Indoor Only Access</label>
+									<label><input type="radio" name="access_type" value="Code/Key Required" required>Code/Key Required</label>
+								</div>
+							</div>
+							<div class="input-group" id="access-code-wrapper" style="display: none;">
+								<label for="access_code" class="element-label">Access Code / Key Location <span>*</span></label>
+								<input type="text" id="access_code" name="access_code" placeholder=" " />
+							</div>
+							<h3>Chemical Details</h3>
+							<div class="input-group radio-group">
+								<label class="element-label">Additional Chemicals other than the Start Up Needed? <span>*</span></label>
+								<div class="options-row">
+									<label><input type="radio" name="additional_chemicals" value="Yes" required> Yes</label>
+									<label><input type="radio" name="additional_chemicals" value="Yes But Not Sure What" required> Yes, but not sure which ones</label>
+									<label><input type="radio" name="additional_chemicals" value="No" required> No</label>
+								</div>
+							</div>
+							<div class="input-group" id="chemical-needs-wrapper" style="display: none;">
+								<label for="chemicals_list" class="element-label">Chemical Needs <span>*</span></label>
+								<input type="text" id="chemicals_list" name="chemicals_list" placeholder="List the chemicals you need here">
+							</div>
+							<div class="step-actions flex-between">
+								<Button type="button" class="prev-btn wave">Previous</Button>
+								<Button type="button" class="next-btn wave">Next</Button>
+							</div>
+						</div>
+						<!-- Step 4: Acknowledgements -->
+						<div class="form-step" id="step-4">
+							<h3>Acknowledgements</h3>
+							<div class="input-group checkbox-group checkbox-list">
+								<label class="element-label">Pre Service Checklist</label>
+								<div class="options-col">
+									<label><input type="checkbox" name="power_access" value="Yes" required>
+										<span>Power supply will be accessible for use during service<span>*</span></span>
+									</label>
+									<label><input type="checkbox" name="pets_secured" value="Yes" required>
+										<span>All pets will be secured before the technician arrives<span>*</span></span>
+									</label>
+									<label><input type="checkbox" name="equipment_accessible" value="Yes" required>
+										<span>If your pool equipment is in a shed or closed location, you will ensure that it is FREE and CLEAR of stored items (pool toys, yard care equipment, machines, boxes, etc.) and all debris that hinders access to equipment.<span>*</span></span>
+									</label>
+									<label><input type="checkbox" name="indoor_access" value="Yes" required>
+										<span>Because <strong>Indoor Only Access</strong> was selected, someone will be home to let the technician in<span>*</span></span>
+									</label>
+									<label><input type="checkbox" name="cover_soaked" value="Yes" required>
+										<span>Because <strong>Pool Cover Cleaning</strong> was selected, 1 inch of water will be left on the cover at least 2 hours before the technician arrives<span>*</span>
+										<small>Note: Ensuring the cover has had time to soak in water prior to cleaning helps us ensure we can clean the cover quickly and effectively in a timely manner.</small></span>
+									</label>
+									<label><input type="checkbox" name="opt_in_newsletter" value="Yes">
+										<span>Opt-In for Newsletter and Promotions.</span>
+									</label>
+								</div>
+							</div>			
+							<h3>Additional Details</h3>
+							<div class="input-group textarea-group">
+								<label for="additional_details" class="element-label">Comments</label>
+								<textarea id="additional_details" name="additional_details" placeholder=" " rows="4"></textarea>
+							</div>
+							<div class="step-actions flex-between" style="margin-top: 2rem;">
+								<Button type="button" class="prev-btn wave">Previous</Button>
+								<Button type="submit" id="submit-btn" class="wave">Submit Request</Button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</Main>
+	<!-- THANK YOU MODAL -->
+	<div class="form-modal-overlay">
+		<div class="form-modal-content">
+			<div class="form-modal-inner">
+				<h2>Request Received</h2>
+				<p>We will reach out to you within <strong>48 hours</strong> with an estimate and to confirm scheduling for your pool opening.</p>
+				<Button class="close-modal wave">Click to Return</Button>
+			</div>
+		</div>
+	</div>
 </Template>
+
+<style>
+
+	.opening-page-content {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		align-items: top;
+		justify-content: center;
+		margin:4rem 0;
+		gap: 2cqi;
+	}
+
+	@media (max-width: 769px) {
+		.opening-page-content {
+			grid-template-columns: 1fr;
+			margin:1rem 0;
+		}
+	}
+
+	:global(#opening-page .form-step h3) {
+		margin-top:1.25rem;
+		text-align: left;
+		margin-bottom: .25em;
+	}
+
+	:global(#opening-page .form-step h3:first-of-type) {
+		margin-top:0;
+	}
+
+	:global(#opening-page h3) {
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 769px) {
+		:global(#opening-page h3) {
+			text-align: center;
+		}
+	}
+
+	.service-list {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	@media (max-width: 769px) {
+		.service-list {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: 1cqi;
+			row-gap: .5rem;
+			justify-content: center;
+			margin-bottom: 5cqi;
+		}
+	}
+
+	.service-list li {
+		color: var(--color-secondary);
+		text-decoration: none;
+		font-family: var(--font-roboto-condensed);
+		font-weight: 500;
+		text-transform: capitalize;
+		font-size: var(--size-xl);
+		transform: translateY(0);
+		transition: transform .1s ease-in-out;
+		word-spacing: -.25ch;
+		margin-bottom: .75rem;
+	}
+
+	@media (max-width: 769px) {
+		.service-list li {
+			white-space: nowrap;
+			margin-bottom: 0;
+		}
+	}
+
+    .progress-track {
+        width: 100%;
+        height: 4px;
+        background-color: var(--color-secondary);
+        border-radius: 4px;
+        margin-bottom: 2rem;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 25%;
+        background-color: var(--color-accent);
+        transition: width 0.4s ease;
+    }
+
+    .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 1.5rem;
+    }
+
+    .form-header h2 {
+        margin: 0;
+        color: var(--color-secondary);
+    }
+
+    .step-indicator {
+        font-size: var(--size-base);
+        font-weight: 600;
+        color: var(--color-foreground-dark);
+		white-space: nowrap;
+    }
+
+    .form-step {
+        display: none;
+        flex-direction: column;
+        gap: 1.5cqi;
+        animation: fadeIn 0.4s ease forwards;
+    }
+
+	@media (max-width: 769px) {
+		.form-step {
+			gap: 0;
+		}
+	}
+		
+
+    .form-step.active {
+        display: flex;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+
+
+
+    /* Actions */
+    .step-actions {
+        margin-top: 2rem;
+    }
+    .step-actions.right-align {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .step-actions.flex-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+    :global(.step-actions .prev-btn) {
+        background: var(--color-primary-light) !important;
+    }
+    .step-actions button {
+        min-width: 150px;
+    }
+    @media (max-width: 480px) {
+        .step-actions.flex-between {
+            flex-direction: column-reverse;
+        }
+        .step-actions button {
+            width: 100%;
+        }
+    }
+
+	.next-btn {
+		display:none !important;
+	}
+
+</style>
+
+<script>
+    import { ContactFormHandler } from "../assets/scripts/ContactFormHandler.js";
+    document.addEventListener("astro:page-load", () => {
+        document.querySelectorAll(".contact-form").forEach((formEl) => {
+            new ContactFormHandler(formEl);
+        });
+
+        // Multi-step logic
+        const form = document.getElementById("opening-form");
+        if(form) {
+            const steps = form.querySelectorAll(".form-step");
+            const nextBtns = form.querySelectorAll(".next-btn");
+            const prevBtns = form.querySelectorAll(".prev-btn");
+            const stepIndicator = document.getElementById("step-indicator");
+            let currentStep = 0;
+
+            function showStep(index: number) {
+                steps.forEach((step, i) => {
+                    if(i === index) {
+                        step.classList.add("active");
+                    } else {
+                        step.classList.remove("active");
+                    }
+                });
+                if(stepIndicator) {
+                    stepIndicator.textContent = `Step ${index + 1} of ${steps.length}`;
+                }
+                const progressBar = document.getElementById("progress-bar");
+                if (progressBar) {
+                    progressBar.style.width = `${(index + 1) * 25}%`;
+                }
+            }
+
+            function validateStep(index: number) {
+                const step = steps[index];
+                const requiredFields = step.querySelectorAll("[required]");
+                for(let i = 0; i < requiredFields.length; i++) {
+                    const field = requiredFields[i] as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+                    if(!field.checkValidity()) {
+                        field.reportValidity();
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            const scrollAnchor = document.getElementById("opening-form-anchor") || form;
+
+            nextBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    if(validateStep(currentStep)) {
+                        currentStep++;
+                        if(currentStep >= steps.length) currentStep = steps.length - 1;
+                        showStep(currentStep);
+                        scrollAnchor.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+
+            prevBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    currentStep--;
+                    if(currentStep < 0) currentStep = 0;
+                    showStep(currentStep);
+                    scrollAnchor.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            });
+
+            form.addEventListener("submit", () => {
+                scrollAnchor.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+
+            const heatedRadios = form.querySelectorAll('input[name="heated"]');
+            const tempWrapper = document.getElementById("temp-wrapper");
+            
+            heatedRadios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value === "Yes") {
+                        if (tempWrapper) tempWrapper.style.display = "flex";
+                    } else {
+                        if (tempWrapper) {
+                            tempWrapper.style.display = "none";
+                            const tempInput = tempWrapper.querySelector('input');
+                            if(tempInput) tempInput.value = '';
+                        }
+                    }
+                });
+            });
+
+            const maintRadios = form.querySelectorAll('input[name="regular_maintenance"]');
+            const scheduleWrapper = document.getElementById("schedule-wrapper");
+            
+            maintRadios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value === "Yes") {
+                        if (scheduleWrapper) scheduleWrapper.style.display = "flex";
+                    } else {
+                        if (scheduleWrapper) {
+                            scheduleWrapper.style.display = "none";
+                            const scheduleSelect = scheduleWrapper.querySelector('select');
+                            if(scheduleSelect) scheduleSelect.value = '';
+                        }
+                    }
+                });
+            });
+
+            const manualRemoveRadios = form.querySelectorAll('input[name="manual_remove"]');
+            const manualStoreWrapper = document.getElementById("manual-store-wrapper");
+            manualRemoveRadios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value === "Yes") {
+                        if (manualStoreWrapper) {
+                            manualStoreWrapper.style.display = "flex";
+                            const input = manualStoreWrapper.querySelector('input');
+                            if(input) input.required = true;
+                        }
+                    } else {
+                        if (manualStoreWrapper) {
+                            manualStoreWrapper.style.display = "none";
+                            const input = manualStoreWrapper.querySelector('input');
+                            if(input) {
+                                input.value = '';
+                                input.required = false;
+                            }
+                        }
+                    }
+                });
+            });
+
+            const accessTypeRadios = form.querySelectorAll('input[name="access_type"]');
+            const accessCodeWrapper = document.getElementById("access-code-wrapper");
+            accessTypeRadios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value === "Code/Key Required") {
+                        if (accessCodeWrapper) {
+                            accessCodeWrapper.style.display = "flex";
+                            const input = accessCodeWrapper.querySelector('input');
+                            if(input) input.required = true;
+
+                        }
+                    } else {
+                        if (accessCodeWrapper) {
+                            accessCodeWrapper.style.display = "none";
+                            const input = accessCodeWrapper.querySelector('input');
+                            if(input) {
+                                input.value = '';
+                                input.required = false;
+                            }
+                        }
+                    }
+                });
+            });
+
+            const coverTypeRadios = form.querySelectorAll('input[name="cover_type"]');
+            const manualRemoveWrapper = document.getElementById("manual-remove-wrapper");
+            coverTypeRadios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value === "Manual") {
+                        if (manualRemoveWrapper) {
+                            manualRemoveWrapper.style.display = ""; // Remove inline style to inherit form-row grid
+                            const radios = manualRemoveWrapper.querySelectorAll('input[type="radio"]');
+                            radios.forEach(r => (r as HTMLInputElement).required = true);
+                        }
+                    } else {
+                        if (manualRemoveWrapper) {
+                            manualRemoveWrapper.style.display = "none";
+                            const radios = manualRemoveWrapper.querySelectorAll('input[type="radio"]');
+                            radios.forEach(r => {
+                                (r as HTMLInputElement).checked = false;
+                                (r as HTMLInputElement).required = false;
+                            });
+                            
+                            // Also reset and hide manual store wrapper since the parent is hidden
+                            const manualStoreWrapper = document.getElementById("manual-store-wrapper");
+                            if (manualStoreWrapper) {
+                                manualStoreWrapper.style.display = "none";
+                                const input = manualStoreWrapper.querySelector('input');
+                                if(input) {
+                                    input.value = '';
+                                    input.required = false;
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+
+            const additionalChemRadios = form.querySelectorAll('input[name="additional_chemicals"]');
+            const chemNeedsWrapper = document.getElementById("chemical-needs-wrapper");
+            additionalChemRadios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value === "Yes") {
+                        if (chemNeedsWrapper) {
+                            chemNeedsWrapper.style.display = "flex";
+                            const textarea = chemNeedsWrapper.querySelector('textarea');
+                            if(textarea) textarea.required = true;
+                        }
+                    } else {
+                        if (chemNeedsWrapper) {
+                            chemNeedsWrapper.style.display = "none";
+                            const textarea = chemNeedsWrapper.querySelector('textarea');
+                            if(textarea) {
+                                textarea.value = '';
+                                textarea.required = false;
+                            }
+                        }
+                    }
+                });
+            });
+            const repairsCheckbox = form.querySelector('input[name="service_type_repairs_needed"]');
+            const repairsWrapper = document.getElementById("repairs-needed-wrapper");
+            if (repairsCheckbox && repairsWrapper) {
+                repairsCheckbox.addEventListener("change", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    const textarea = repairsWrapper.querySelector('textarea');
+                    if (target.checked) {
+                        repairsWrapper.style.display = "block";
+                        if (textarea) textarea.required = true;
+                    } else {
+                        repairsWrapper.style.display = "none";
+                        if (textarea) {
+                            textarea.value = "";
+                            textarea.required = false;
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>

@@ -34,6 +34,7 @@ export const siteConfig = {
         { name: 'Instagram', url: 'https://www.instagram.com/qualitypoolandspa/', icon: InstagramIcon },
         { name: 'Twitter/X', url: 'https://twitter.com/qualitypoolslc', icon: TwitterXIcon },
     ],
+    messengerId: "Qualitypoolandspaslc",
     // Add other configurable values here
 };
 

@@ -4,24 +4,30 @@ interface Props {
     id?: string;
     margin?: string;
     bookmark?: boolean;
-    type?: string;
+    type?: "anchor" | "button" | "submit";
     class?: string;
     target?: string;
 }
 
 const { 
-    href = "#", 
+    href, 
     id, 
     margin, 
     bookmark = false, 
-    type = "anchor", 
+    type, 
     class: className = "",
     target
 } = Astro.props;
 
-const resolvedHref = href.trim() === "" ? "#" : href;
+// Default to "anchor" if href is present, otherwise "button"
+const finalType = type || (href ? "anchor" : "button");
+const isAnchor = finalType === "anchor";
+
 const trimmedClass = className.trim();
-const isWave = trimmedClass.split(/\s+/).includes('wave');
+const classList = trimmedClass.split(/\s+/);
+const isWave = classList.includes('wave');
+const isNext = classList.includes('next-btn');
+const isPrev = classList.includes('prev-btn');
 
 const slotHtml = await Astro.slots.render('default');
 
@@ -35,15 +41,31 @@ const attributes = {
 ---
 
 {
-    type === "anchor" ? (
-        <a href={resolvedHref} {...attributes}>
+    isAnchor ? (
+        <a href={href || "#"} {...attributes}>
+            {isPrev && <svg class="prev-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>}
             <Fragment set:html={slotHtml} />
-            {isWave && <span><Fragment set:html={slotHtml} /></span>}
+            {isNext && <svg class="next-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>}
+            {isWave && (
+                <span>
+                    {isPrev && <svg class="prev-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>}
+                    <Fragment set:html={slotHtml} />
+                    {isNext && <svg class="next-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>}
+                </span>
+            )}
         </a>
     ) : (
-        <button type={type === "submit" ? "submit" : "button"} {...attributes}>
+        <button type={finalType === "submit" ? "submit" : "button"} {...attributes}>
+            {isPrev && <svg class="prev-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>}
             <Fragment set:html={slotHtml} />
-            {isWave && <span><Fragment set:html={slotHtml} /></span>}
+            {isNext && <svg class="next-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>}
+            {isWave && (
+                <span>
+                    {isPrev && <svg class="prev-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>}
+                    <Fragment set:html={slotHtml} />
+                    {isNext && <svg class="next-svg" xmlns="http://www.w3.org/2000/svg" viewBox="6 6 12 12" width="22" height="22"><path fill="white" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>}
+                </span>
+            )}
         </button>
     )
 }

@@ -32,7 +32,6 @@ export class ContactFormHandler {
     closeModal = () => {
         if (!this.formModalOverlay) return;
         this.formModalOverlay.classList.remove('active');
-        // window.location.href = '/';
     };
 
     handleFormSubmit = async (event) => {

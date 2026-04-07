@@ -1,0 +1,124 @@
+---
+import { siteConfig } from "../../siteConfig";
+import Button from "../elements/Button.astro";
+---
+
+<div id="request-form-wrapper">
+    <label for="request-form-close" id="request-form-close" aria-label="Close Menu">
+        <svg viewBox="0 0 95.939 95.939"><use href="#icon-cross" /></svg>
+    </label>
+    <svg class="request-form-logo" viewBox="0 0 1184.82 543.66"><use href="#quality-pool-and-spa-light-logo" /></svg>
+    <p class="active">Use the form below to request a free quote for our services.</p>
+    <p class="hidden">Thank you for your request!<br>We will get back to you as soon as possible.</p>
+    <form id="request-form" class="active" name="Request Form" data-netlify="true" netlify-honeypot="question-field">
+        <input type="hidden" name="form-name" value="Request Form" />
+        <input type="hidden" name="subject" value=`{Request Form Submisstion from ${siteConfig.prettyUrl}}` />
+        <input type="text" id="question-field" name="question-field" style="display:none" />
+        <div class="form-row">
+            <div class="input-group">
+                <label class="element-label" for="request-first-name">First Name</label>
+                <input type="text" id="request-first-name" name="first-name" required placeholder="Your First Name" aria-label="Your First Name" />
+            </div>
+            <div class="input-group">
+                <label class="element-label" for="request-last-name">Last Name</label>
+                <input type="text" id="request-last-name" name="last-name" required placeholder="Your Last Name" aria-label="Your Last Name" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label class="element-label" for="request-phone">Phone</label>
+                <input type="tel" id="request-phone" name="phone" required placeholder="Your Phone Number" aria-label="Your Phone Number" />
+            </div>
+            <div class="input-group">
+                <label class="element-label" for="request-email">Email</label>
+                <input type="email" id="request-email" name="email" required placeholder="Your Email" aria-label="Your Email" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group radio-group">
+                <label class="element-label" for="request-preferred-contact">Preferred Contact Method</label>
+                <div class="options-row">
+                    <label for="request-preferred-phone"><input type="radio" id="request-preferred-phone" name="preferred-contact" value="Phone" aria-label="Phone" /> Phone</label>
+                    <label for="request-preferred-email"><input type="radio" id="request-preferred-email" name="preferred-contact" value="Email" aria-label="Email" /> Email</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <label class="element-label" for="request-preferred-time">Preferred Contact Time</label>
+                <input type="text" id="request-preferred-time" name="preferred-time" placeholder=" " />
+            </div>
+        </div>
+            <div class="input-group">
+                <label class="element-label" for="request-service">Service</label>
+                <select id="request-service" name="service" required aria-label="Service">
+                    <option value="">Select a Service</option>
+                    <option value="">Pool Opening</option>
+                    <option value="">Pool Closing</option>
+                    <option value="">Pool Maintenance</option>
+                    <option value="">Pool Repair</option>
+                    <option value="">Pool Installation</option>
+                    <option value="">Pool Cleaning</option>
+                    <option value="">Pool Renovation</option>
+                    <option value="">Pool Winterization</option>
+                    <option value="">Pool Opening & Closing</option>
+                    <option value="">Pool Opening & Maintenance</option>
+                    <option value="">Pool Opening & Repair</option>
+                    <option value="">Pool Opening & Installation</option>
+                    <option value="">Pool Opening & Cleaning</option>
+                    <option value="">Pool Opening & Renovation</option>
+                    <option value="">Pool Opening & Winterization</option>
+                    <option value="">Pool Closing & Maintenance</option>
+                    <option value="">Pool Closing & Repair</option>
+                    <option value="">Pool Closing & Installation</option>
+                    <option value="">Pool Closing & Cleaning</option>
+                    <option value="">Pool Closing & Renovation</option>
+                    <option value="">Pool Closing & Winterization</option>
+                    <option value="">Pool Maintenance & Repair</option>
+                    <option value="">Pool Maintenance & Installation</option>
+                    <option value="">Pool Maintenance & Cleaning</option>
+                    <option value="">Pool Maintenance & Renovation</option>
+                    <option value="">Pool Maintenance & Winterization</option>
+                    <option value="">Pool Repair & Installation</option>
+                    <option value="">Pool Repair & Cleaning</option>
+                    <option value="">Pool Repair & Renovation</option>
+                    <option value="">Pool Repair & Winterization</option>
+                    <option value="">Pool Installation & Cleaning</option>
+                    <option value="">Pool Installation & Renovation</option>
+                    <option value="">Pool Installation & Winterization</option>
+                    <option value="">Pool Cleaning & Renovation</option>
+                    <option value="">Pool Cleaning & Winterization</option>
+                    <option value="">Pool Renovation & Winterization</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label class="element-label" for="request-street-address">Street Address</label>
+                <input type="text" id="request-street-address" name="street-address" required placeholder="Your Street Address" aria-label="Your Street Address" />
+            </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label class="element-label" for="request-city">City</label>
+                <input type="text" id="request-city" name="city" required placeholder="Your City" aria-label="Your City" />
+            </div>
+            <div class="input-group">
+                <label class="element-label" for="request-zip-code">Zip Code</label>
+                <input type="text" id="request-zip-code" name="zip-code" required placeholder="Your Zip Code" aria-label="Your Zip Code" />
+            </div>
+        </div>
+        <div class="input-group textarea-group">
+            <label class="element-label" for="request-message">Message</label>
+            <textarea id="request-message" name="message" required placeholder="Your Message" aria-label="Your Message"></textarea>
+        </div>
+        <div class="button-group">
+            <Button type="submit" id="request-submit-btn" class="wave">Submit Request</Button>
+        </div>
+    </form>
+</div>
+
+<script>
+    import { RequestFormHandler } from "../../assets/scripts/RequestFormHandler.js";
+    
+    document.addEventListener("astro:page-load", () => {
+       if (document.getElementById('request-form-wrapper')) {
+           new RequestFormHandler();
+       }
+    });
+</script>

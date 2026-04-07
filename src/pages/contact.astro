@@ -3,30 +3,185 @@ import { siteConfig } from "../siteConfig";
 import Template from "../layouts/ContentPage.astro";
 import Main from "../components/layout/Main.astro";
 import PageHeading from '../components/elements/PageHeading.astro';
+import Button from "../components/elements/Button.astro";
 ---
 
 <Template title={`Contact | ${siteConfig.title}`} description={`Get in touch with ${siteConfig.brand}"`}>
     <Main id="contact-page">
-        <PageHeading color="dark" background="https://placehold.net/2-800x600.png">Contact Us</PageHeading>
-        <form id="main-contact-form" class="contact-form" name="Contact Page Form" data-netlify="true" netlify-honeypot="question-field">
-            <input type="hidden" name="form-name" value="Contact Page Form" />
-            <input type="hidden" name="subject" value=`{Contact Page Submisstion from ${siteConfig.prettyUrl}}` />
-            <input type="text" id="question-field" name="question-field" />
-        </form>
+        <PageHeading background="/images/feet-banner.webp" fuzzy="/images/feet-banner-fuzzy.webp">Contact Us</PageHeading>
+        <p>We’d love to hear from you! Whether you need to schedule a routine weekly pool cleaning, request an emergency hot tub repair, or simply ask a question about upgrading your equipment, the team at Quality Pool & Spa is here to help. As the trusted experts for year-round pool and spa services across Salt Lake City and the greater Wasatch Front, we are dedicated to keeping your backyard oasis running flawlessly in every season. Reach out to us using the contact form below or give us a call today, and let us provide the prompt, professional service your pool or spa deserves.</p>
+        <div class="contact-page-content">
+            <div class="contact-methods">
+                <h3>Reach Out via</h3>
+                <ul class="methods-list">
+                    <li>
+                        <svg viewBox="0 0 16 16"><use href="#icon-mobilephone" /></svg>
+                        <span><a href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone}</a></span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><use href="#icon-mail" /></svg>
+                        <span><a href={`mailto:${siteConfig.email}`} aria-label={`Email Today ${siteConfig.email}`}>{siteConfig.email}</a></span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><use href="#icon-messenger" /></svg>
+                        <span><a href={`https://m.me/${siteConfig.messengerId}?text=Hello!%20How%20can%20we%20help%20you%20today%3F`} aria-label={`Facebook Messenger`}>Facebook Messenger</a></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-wrapper">  
+                <div class="form-header">
+                    <h2>Send Us a Message</h2>
+                    <p>We’re here to help with any questions you may have about our services. Please fill out the form below and we’ll get back to you as soon as possible.</p>
+                </div>
+                <form id="main-contact-form" class="contact-form" name="Contact Page Form" data-netlify="true" netlify-honeypot="question-field">
+                    <input type="hidden" name="form-name" value="Contact Page Form" />
+                    <input type="hidden" name="subject" value=`{Contact Page Submisstion from ${siteConfig.prettyUrl}}` />
+                    <input type="text" id="question-field" name="question-field" />
+                    <h3>Your Information</h3>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="first_name" class="element-label">First Name <span>*</span></label>
+                            <input type="text" id="first_name" name="first_name" placeholder=" " required />
+                        </div>
+                        <div class="input-group">
+                            <label for="last_name" class="element-label">Last Name <span>*</span></label>
+                            <input type="text" id="last_name" name="last_name" placeholder=" " required />
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="preferred_contact_method" class="element-label">Preferred Contact Method</label>
+                        <select id="preferred_contact_method" name="preferred_contact_method">
+                            <option value="">Select a method</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="email" class="element-label">Email Address <span>*</span></label>
+                            <input type="email" id="email" name="email" placeholder=" " required />
+                        </div>
+                        <div class="input-group">
+                            <label for="phone" class="element-label">Phone Number <span>*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder=" " />
+                        </div>
+                    </div>
+                    <div class="input-group textarea-group">
+                        <label for="message" class="element-label">Message</label>
+                        <textarea id="message" name="message" placeholder=" " rows="4"></textarea>
+                    </div>
+					<div class="button-group">
+						<Button type="submit" id="submit-btn" class="wave">Send Message</Button>
+					</div>
+                </form>
+            </div>
+        </div>
+
+        <!-- THANK YOU MODAL -->
+        <div class="form-modal-overlay">
+            <div class="form-modal-content">
+                <div class="form-modal-inner">
+                    <h2>Message Received</h2>
+                    <p>We will get back to you within <strong>24-48 hours</strong>.</p>
+                    <Button class="close-modal wave">Click to Return</Button>
+                </div>
+            </div>
+        </div>
     </Main>
 </Template>
 
 <style>
-    #question-field {
-        position: absolute;
-        top: -10000px;
-        left: -10000px;
-        visibility: hidden;
-        height: 0;
-        width: 0;
-        overflow: hidden;
-        z-index: -1;
+    .contact-page-content {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		align-items: top;
+		justify-content: center;
+		margin:4rem 0 6rem 0;
+		gap: 2cqi;
+	}
+
+	@media (max-width: 769px) {
+		.contact-page-content {
+			grid-template-columns: 1fr;
+			margin:1rem 0;
+		}
+	}
+
+    .contact-page-content h2 {
+		color: var(--color-primary-lighter);
+	}
+
+	:global(#contact-page form h3) {
+		margin-top:1.25rem;
+		text-align: left;
+		margin-bottom: .5em;
+	}
+
+	:global(#contact-page form h3:first-of-type) {
+		margin-top:0;
+	}
+
+	:global(#contact-page h3) {
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 769px) {
+		:global(#contact-page h3) {
+			text-align: center;
+		}
+	}
+
+	.methods-list {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	@media (max-width: 769px) {
+		.methods-list {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: 1cqi;
+			row-gap: .5rem;
+			justify-content: center;
+			margin-bottom: 5cqi;
+		}
+	}
+
+	.methods-list li {
+		color: var(--color-secondary);
+		text-decoration: none;
+		font-family: var(--font-roboto-condensed);
+		font-weight: 500;
+		font-size: var(--size-xl);
+		transform: translateY(0);
+		transition: transform .1s ease-in-out;
+		word-spacing: -.25ch;
+		margin-bottom: .75rem;
+        display: flex;
+        align-items: left;
+        gap: 1rem;
+	}
+
+    .methods-list li:first-of-type {
+        letter-spacing: -.05em;
     }
+
+    .methods-list li svg {
+        width: 1em;
+        height: auto;
+    }
+
+    .methods-list li a {
+        text-decoration: none;
+        color: var(--color-primary-light);
+    }
+
+	@media (max-width: 769px) {
+		.methods-list li {
+			white-space: nowrap;
+			margin-bottom: 0;
+		}
+	}
 </style>
 
 <script>

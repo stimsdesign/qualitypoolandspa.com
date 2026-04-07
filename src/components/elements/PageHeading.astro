@@ -5,13 +5,14 @@
 interface Props {
     background?: string;
     color?: string;
+    fuzzy?: string;
 }
-const { background, color = "dark" } = Astro.props;
+const { background, color = "dark", fuzzy } = Astro.props;
 ---
 
 
 <div id="page-heading">
-    <div id="page-heading__text" class="fuzzy-load" style=`--background: url(${background})`>
+    <div id="page-heading__text" class="fuzzy-load" style=`--background: url(${fuzzy})`>
         <img src={`${background}`} alt="" />
         <h1 class={color}><slot /></h1>
     </div>
@@ -66,10 +67,10 @@ const { background, color = "dark" } = Astro.props;
 
     :global(#page-heading__text h1.dark) {
         background-image: linear-gradient(to bottom,
-            var(--color-primary-lighter),
-            var(--color-primary));
+            var(--color-primary),
+            var(--color-primary-dark));
         background-clip: text;
-        filter: drop-shadow(1px 1px 0 var(--color-secondary-lighter));
+        -webkit-text-stroke: 1px white;
     }
 
     :global(#page-heading__text h1.light) {

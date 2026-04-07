@@ -7,13 +7,13 @@ import Calendar from "../assets/images/calendar.svg";
 import Repair from "../assets/images/repair.svg";
 import Beachball from "../assets/images/beachball.svg";
 import Flame from "../assets/images/flame.svg";
-
+import RequestForm from "../components/sections/RequestForm.astro";
 import Button from '../components/elements/Button.astro';
 ---
 
 <Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa offers a full range of pool and spa services in Salt Lake City, Utah. From pool openings and closings to weekly pool maintenance and equipment repair, our team has you covered.`}>
 	<Main id="services-page">
-		<PageHeading color="dark" background="https://placehold.net/1-800x600.png">Our Services</PageHeading>
+		<PageHeading background="/images/floatie-banner.webp" fuzzy="/images/floatie-banner-fuzzy.webp">Our Services</PageHeading>
 		<ul class="shortcuts">
 			<li><a href="#weekly-services">Weekly Cleaning & Maintenance</a></li>
 			<li><a href="#maintenance-repair">Maintenance & Repair</a></li>
@@ -46,7 +46,7 @@ import Button from '../components/elements/Button.astro';
 			</div>
 			<div class="service-cta">
 				<p>Get your weekends back and let the experts handle the maintenance.</p>
-				<Button class="wave" href="/contact">Request a Route Quote</Button>
+				<Button class="wave request-form-trigger">Request a Route Quote</Button>
 			</div>
 		</section>
 		<section id="maintenance-repair">
@@ -82,7 +82,7 @@ import Button from '../components/elements/Button.astro';
 			</div>
 			<div class="service-cta">
 				<p>Don't let a breakdown ruin your swim. Get fast, accurate diagnostics today.</p>
-				<Button class="wave" href="/contact">Request Repair Service</Button>
+				<Button class="wave request-form-trigger">Request Repair Service</Button>
 			</div>
 		</section>
 		<section id="pool-services">
@@ -140,7 +140,7 @@ import Button from '../components/elements/Button.astro';
 			</div>
 			<div class="service-cta">
 				<p>Upgrade, protect, and optimize your backyard oasis with our elite pool solutions!</p>
-				<Button class="wave" href="/contact">Schedule Pool Service</Button>
+				<Button class="wave request-form-trigger">Schedule Pool Service</Button>
 			</div>
 		</section>
 		<section id="spa-services">
@@ -190,11 +190,13 @@ import Button from '../components/elements/Button.astro';
 			</div>
 			<div class="service-cta">
 				<p>Restore your ultimate relaxation space. Book your expert spa service today!</p>
-				<Button class="wave" href="/contact">Schedule Spa Service</Button>
+				<Button class="wave request-form-trigger">Schedule Spa Service</Button>
 			</div>
 		</section>
 	</Main>
 </Template>
+
+<RequestForm />
 
 <style>
 	section {
@@ -330,9 +332,7 @@ import Button from '../components/elements/Button.astro';
 		font-weight: 500;
 		text-transform: capitalize;
 		font-size: clamp(16px, 8cqi, 2rem);
-
-		/* clamp(1.125rem, 1.4vw, 1.625rem) */
-
+		word-spacing: -.25ch;
 		white-space: nowrap;
 		transition: all .1s ease-in-out;
 	}
@@ -597,3 +597,4 @@ import Button from '../components/elements/Button.astro';
 	}
 
 </style>
+

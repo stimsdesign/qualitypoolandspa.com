@@ -3,11 +3,321 @@ import { siteConfig } from "../siteConfig";
 import Template from "../layouts/ContentPage.astro";
 import Main from '../components/layout/Main.astro';
 import PageHeading from '../components/elements/PageHeading.astro';
-
+import Button from "../components/elements/Button.astro";
 ---
 
-<Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa is looking for motivated individuals to join our team. We offer competitive pay and benefits. Apply today!`}>
+<Template title={`Our why-uss | ${siteConfig.title}`} description={`Quality Pool and Spa is looking for motivated individuals to join our team. We offer competitive pay and benefits. Apply today!`}>
 	<Main id="jobs-page">
-		<PageHeading color="dark" background="https://placehold.net/3-800x600.png">Join Our Team</PageHeading>
+		<PageHeading background="/images/swimming-banner.webp" fuzzy="/images/swimming-banner-fuzzy.webp">Join Our Team</PageHeading>
+		<p>Ready to build a rewarding career where no two days are exactly the same? At Quality Pool & Spa, we are looking for driven, detail-oriented individuals to join our elite team of pool and hot tub technicians. Serving the beautiful Wasatch Front—from Salt Lake City to Park City—our technicians are the trusted experts who keep our community swimming all summer and soaking safely all winter. Whether you are an experienced pool professional or a hands-on problem solver eager to learn a highly specialized trade, we offer year-round stability, ongoing training, and the opportunity to work outdoors in some of Utah's most stunning backyards. Dive into a dynamic new career and fill out the application below to join our growing crew!</p>
+		<div class="jobs-page-content">
+			<div class="why-us-wrapper">
+				<h3>Why Work With Us?&hellip;</h3>
+				<ul class="why-us-list">
+					<li>Competitive Pay</li>
+					<li>Year-Round Stability</li>
+					<li>The Great Outdoors</li>
+					<li>Hands-On Training</li>
+					<li>Dynamic Days</li>
+					<li>Premium Routes</li>
+					<li>Growth Opportunities</li>
+				</ul>
+			</div>
+			<div class="form-wrapper">
+				<div class="form-header">
+					<h2>Current jobs</h2>
+					<p>We’re currently looking for Pool & Spa Technicians to join our team. If you’re interested in applying, please fill out the form below.</p>
+				</div>
+				<form id="main-contact-form" class="contact-form" name="Jobs Page Form" data-netlify="true" netlify-honeypot="question-field">
+					<input type="hidden" name="form-name" value="Jobs Page Form" />
+					<input type="hidden" name="subject" value=`{Jobs Page Submisstion from ${siteConfig.prettyUrl}}` />
+					<input type="text" id="question-field" name="question-field" />
+					<h3>Your Information</h3>
+					<div class="form-row">
+						<div class="input-group">
+							<label for="first_name" class="element-label">First Name <span>*</span></label>
+							<input type="text" id="first_name" name="first_name" placeholder=" " required />
+						</div>
+						<div class="input-group">
+							<label for="last_name" class="element-label">Last Name <span>*</span></label>
+							<input type="text" id="last_name" name="last_name" placeholder=" " required />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="input-group">
+							<label for="email" class="element-label">Email Address <span>*</span></label>
+							<input type="email" id="email" name="email" placeholder=" " required />
+						</div>
+						<div class="input-group">
+							<label for="phone" class="element-label">Phone Number <span>*</span></label>
+							<input type="tel" id="phone" name="phone" placeholder=" " required />
+						</div>
+					</div>
+					<div class="input-group textarea-group">
+						<label for="message" class="element-label">Message</label>
+						<textarea id="message" name="message" placeholder=" " rows="4"></textarea>
+					</div>
+					<div class="input-group file-group">
+						<label class="element-label" for="resume">Attach Your Resume <span>*</span></label>
+						<input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required aria-required="true">
+						<small>PDF, DOC, or DOCX file. 8MB Limit.</small>
+						<small id="file-size-warning">File size must be less than 8MB.</small>
+						<small id="file-type-warning">Invalid file type. Please upload a PDF, DOC, or DOCX file.</small>
+					</div>
+					<div class="input-group checkbox-group checkbox-list">
+						<label class="element-label">Privacy Policy</label>
+						<div class="options-col">
+							<label><input type="checkbox" name="privacy-policy" value="Yes" required>
+								<span>I acknowledge and agree to the <a id="jobs-privacy-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a> on how my resume information is handled.<span>*</span></span>
+							</label>
+						</div>
+					</div>
+					<div class="button-group">
+						<Button type="submit" id="submit-btn" class="wave">Submit Application</Button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="privacy-policy-wrapper">
+			<div id="privacy-policy-copy">
+				<a id="privacy-policy-bookmark">
+					<h2>Job Applicant Privacy Policy</h2>
+				</a>
+				<small>Last updated: March 18, 2025</small>
+				<h4>About Us</h4>
+				<p>Quality Pool & Spa gathers and handles the details provided by candidates via our digital employment application.</p>
+				<h4>Information We Gather</h4>
+				<p>During the application process, we might obtain:</p>
+				<ul>
+					<li>Personal identifiers and contact details: your name, email address, phone number, and physical address.</li>
+					<li>Employment materials: your resume or CV, cover letters, previous work experience, educational background, and relevant certifications.</li>
+					<li>Optional details: demographic information you elect to share (such as data for equal employment opportunity compliance).</li>
+					<li>System data: automatically logged information like your IP address, browser type, and device details when accessing our application portal.</li>
+				</ul>
+				<p>Please note that we absolutely do not ask for sensitive details like Social Security numbers, bank account information, or medical and genetic records during the initial hiring phases.</p>
+				<h4>How We Use Your Data</h4>
+				<ul>
+					<li>To assess your skills and fit for the role.</li>
+					<li>To reach out to you concerning your candidacy.</li>
+					<li>To fulfill our legal documentation obligations.</li>
+					<li>To ensure our application systems remain secure and operational.</li>
+				</ul>
+				<h4>Data Sharing</h4>
+				<p>Your application details may be shared with:</p>
+				<ul>
+					<li>Designated personnel at Quality Pool & Spa who participate in hiring decisions.</li>
+					<li>Third-party vendors assisting us in running our website and job portals (such as web hosts).</li>
+					<li>Law enforcement or regulatory bodies, if legally mandated.</li>
+				</ul>
+				<p>We strictly do not sell the personal information of our applicants.</p>
+				<h4>Privacy Rights for Utah Residents</h4>
+				<ul>
+					<li>The Utah Consumer Privacy Act (UCPA) typically affects companies exceeding $25 million in revenue alongside specific data processing volumes. As a small enterprise, Quality Pool & Spa falls below these UCPA requirements.</li>
+					<li>Nevertheless, we respect legitimate requests to view, modify, or erase your application information. Reach out to us at info@qualitypoolandspa.com.</li>
+				</ul>
+				<h4>Information Retention</h4>
+				<p>We keep candidate submissions and associated documents for a minimum of one year following a hiring choice to align with federal EEO record-keeping guidelines. Afterward, this data is securely destroyed unless extended preservation is necessary (for instance, due to an ongoing legal dispute).</p>
+				<h4>Data Protection</h4>
+				<p>We implement standard security protocols to shield candidate data against unauthorized viewing or leaks.</p>
+				<h4>Minors</h4>
+				<p>Our hiring portal is not meant for children under the age of 13. Should a minor submit their details, please let us know immediately so we can remove the data.</p>
+				<h4>Get in Touch</h4>
+				<p>
+					For any privacy inquiries or to assert your data rights, please contact:<br />
+					Email: office@qualitypoolandspa.com<br />
+					Mail: Quality Pool & Spa, 5209 S Commerce Dr Murray, UT 84107
+				</p>
+				<h4>Policy Changes</h4>
+				<p>We reserve the right to amend this privacy notice from time to time, and we will refresh the "last updated" timestamp whenever changes occur.</p>
+			</div>
+		</div>
+        <!-- THANK YOU MODAL -->
+        <div class="form-modal-overlay">
+            <div class="form-modal-content">
+                <div class="form-modal-inner">
+                    <h2>Message Received</h2>
+                    <p>Keep an eye on your inbox for a reply within <strong>48 hours</strong>.</p>
+                    <Button class="close-modal wave">Click to Return</Button>
+                </div>
+            </div>
+        </div>
 	</Main>
 </Template>
+
+<style>
+	.jobs-page-content {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		align-items: top;
+		justify-content: center;
+		margin:4rem 0 6rem 0;
+		gap: 2cqi;
+	}
+
+	@media (max-width: 769px) {
+		.jobs-page-content {
+			grid-template-columns: 1fr;
+			margin:1rem 0;
+		}
+	}
+
+	.jobs-page-content h2 {
+		color: var(--color-primary-lighter);
+	}
+
+	:global(#jobs-page form h3) {
+		margin-top:1.25rem;
+		text-align: left;
+		margin-bottom: .5em;
+	}
+
+	:global(#jobs-page form h3:first-of-type) {
+		margin-top:0;
+	}
+
+	:global(#jobs-page h3) {
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 769px) {
+		:global(#jobs-page h3) {
+			text-align: center;
+		}
+	}
+
+	.why-us-list {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	@media (max-width: 769px) {
+		.why-us-list {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: 1cqi;
+			row-gap: .5rem;
+			justify-content: center;
+			margin-bottom: 5cqi;
+		}
+	}
+
+	.why-us-list li {
+		color: var(--color-secondary);
+		text-decoration: none;
+		font-family: var(--font-roboto-condensed);
+		font-weight: 500;
+		text-transform: capitalize;
+		font-size: var(--size-xl);
+		transform: translateY(0);
+		transition: transform .1s ease-in-out;
+		word-spacing: -.25ch;
+		margin-bottom: .75rem;
+	}
+
+	@media (max-width: 769px) {
+		.why-us-list li {
+			white-space: nowrap;
+			margin-bottom: 0;
+		}
+	}
+
+	#privacy-policy-wrapper {
+		border-top: 1px solid var(--color-primary-light);
+		padding: 4rem 0;
+	}
+
+	@media (max-width: 769px) {
+		#privacy-policy-wrapper {
+			border-top: none;
+		}
+	}
+
+	#privacy-policy-copy {
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
+	#privacy-policy-copy h2 {
+		text-align: center;
+		margin-bottom: 0;
+	}
+
+	#privacy-policy-copy small {
+		display: block;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	#privacy-policy-copy h4 {
+		margin-top: 2rem;
+		margin-bottom: .5rem;
+		font-size: var(--size-xl);
+		color: var(--color-foreground-darker);
+	}
+
+	#privacy-policy-copy p {
+		margin-bottom: 1rem;
+	}
+
+	#privacy-policy-copy ul {
+		margin-bottom: 1rem;
+		margin-left: 2rem;
+	}
+</style>
+
+<script>
+    // Scroll to privacy policy when #jobs-privacy-link is clicked
+    const privacyLink = document.getElementById("jobs-privacy-link");
+    const privacyBookmark = document.getElementById("privacy-policy-bookmark");
+
+    if (privacyLink && privacyBookmark) {
+        privacyLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            privacyBookmark.scrollIntoView({ behavior: "smooth" });
+        });
+    }
+
+	    // File upload validation
+    const resumeInput = document.getElementById('resume') as HTMLInputElement | null;
+    const fileSizeWarning = document.getElementById('file-size-warning') as HTMLElement | null;
+
+    function validateFileType(input: HTMLInputElement) {
+        const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        const file = input.files?.[0];
+        if (file && !allowedTypes.includes(file.type)) {
+            const warningEl = document.getElementById('file-type-warning');
+            if (warningEl) warningEl.style.display = 'block';
+            input.value = ''; // Clear the input
+        }
+    }
+    
+    document.getElementById('resume')?.addEventListener('change', function (this: HTMLInputElement) {
+        validateFileType(this);
+    });
+
+    document.getElementById('resume')?.addEventListener('focus', function () {
+        const typeWarning = document.getElementById('file-type-warning');
+        const sizeWarning = document.getElementById('file-size-warning');
+        if (typeWarning) typeWarning.style.display = 'none';
+        if (sizeWarning) sizeWarning.style.display = 'none';
+    });
+
+    resumeInput?.addEventListener('change', () => {
+        const file = resumeInput.files?.[0];
+        if (file && file.size > 8 * 1024 * 1024) {
+            if (fileSizeWarning) fileSizeWarning.style.display = 'block';
+            resumeInput.value = ''; // Clear the input
+        } else {
+            if (fileSizeWarning) fileSizeWarning.style.display = 'none';
+        }
+    });
+    // end file upload validation
+
+    import { ContactFormHandler } from "../assets/scripts/ContactFormHandler.js";
+    document.addEventListener("astro:page-load", () => {
+        document.querySelectorAll(".contact-form").forEach((formEl) => {
+            new ContactFormHandler(formEl);
+        });
+    });
+	
+</script>

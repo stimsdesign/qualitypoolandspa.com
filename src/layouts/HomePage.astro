@@ -10,6 +10,7 @@ import "../assets/css/styles.css";
 import HomeHeader from "../components/layout/HomeHeader.astro";
 import Footer from "../components/layout/Footer.astro";
 import MobileNav from "../components/navigation/MobileNav.astro";
+import RequestForm from "../components/sections/RequestForm.astro";
 
 // Import Symbols > Icons
 const iconFiles = import.meta.glob("../icons/{Whistle,Skimmer,Swimmer,Umbrella,Cross,Hamburger,MobilePhone,ArrowLeft,ArrowRight,Mail}.astro", { eager: true });
@@ -78,6 +79,7 @@ const {
         <slot />
         <Footer />
         <MobileNav />
+        <RequestForm />
         <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
             {svgSymbols.map((Symbol) => (
                 <Symbol />

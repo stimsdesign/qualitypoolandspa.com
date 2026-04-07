@@ -24,7 +24,7 @@ import GoogleMap from "../elements/GoogleMap.astro";
             <div id="service-area__content">
                 <h2 id="service-area__title">Proudly Serving <span>the Wasatch Front</span></h2>
                 <p>From the bustling neighborhoods of Salt Lake City to the growing communities of Provo and Ogden, we provide premier pool and spa services across the entire Wasatch Front. We understand the unique demands that Utah’s climate places on your aquatic investments. Whether you need reliable weekly pool cleaning in Sandy, precise leak detection in South Jordan, or equipment upgrades in Lehi, our expert technicians deliver unparalleled service.</p>
-                <Button href="/contact.html" class="wave">Schedule Now</Button>
+                <Button class="wave request-form-trigger">Schedule Now</Button>
                 <div id="service-area__operating-hours">
                     <h3>Operating Hours</h3>
                     <span>{siteConfig.hoursOfOperation}</span> <span>{siteConfig.hoursOfOperationWeekend}</span>
@@ -105,7 +105,6 @@ import GoogleMap from "../elements/GoogleMap.astro";
         background-size: cover;
         background-repeat: no-repeat;
         background-position: left;
-        background-attachment: fixed;
 
     }
 

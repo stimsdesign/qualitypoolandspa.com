@@ -128,7 +128,7 @@ const links = [
         width: 56px;
         height: 56px;
         top: 7px;
-        left: 45px;
+        left: 55px;
         color: var(--color-primary-dark);
         border-radius: 50%;
         cursor: pointer;
@@ -145,7 +145,7 @@ const links = [
             display: flex;
             width: 36px;
             height: 36px;
-            left: 45px;
+            left: 55px;
         }
     }
 
@@ -190,11 +190,9 @@ const links = [
         height: 100dvh;
         z-index: 9999;
         display: flex;
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
-        background-color: color-mix(in srgb, var(--color-primary-dark) 85%, transparent);
+        background-color: var(--color-primary-dark);
         flex-direction: column;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         transform: translateX(-100%);
         container-type: inline-size;
         overflow-x: hidden;
@@ -284,12 +282,12 @@ const links = [
     }
 
     .drawer-nav li {
-        margin-bottom: 10cqi;
+        margin-bottom: 6cqi;
         opacity: 0;
         transform: translateX(-20cqi);
         transition:
             opacity 0.1s ease,
-            transform 0.1s ease;
+            transform 1s ease;
     }
 
     /* Stagger the links */

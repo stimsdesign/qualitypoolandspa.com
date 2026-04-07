@@ -24,7 +24,7 @@
     --color-primary-darker: #041f32;
     --color-secondary-lighter: #dafafc;
     --color-secondary-light: #9fdced;
-    --color-secondary: #6bbede;
+    --color-secondary: #6cbede;
     --color-secondary-dark: #4692b3;
     --color-secondary-darker: #296986;
     --color-accent-lighter: #ffc64d;
@@ -85,8 +85,8 @@ scroll-padding-top: calc(70px + 2rem);
 
 
 body {
-    /* font-size: var(--size-med); */
-    font-size: 16px;
+    font-size: var(--size-med);
+    /* font-size: 16px; */
     background-color: var(--color-primary);
     color: var(--color-foreground);
     font-family: var(--font-quicksand);
@@ -186,7 +186,11 @@ figure > figcaption {
     margin-top: 0.5rem;
 }
 
-/* Helper Classes */
+small {
+    font-size: var(--size-sm);
+}
+
+/* Helper Styles */
 
 .nobreak, .nowrap {white-space: nowrap;}
 
@@ -205,6 +209,377 @@ figure > figcaption {
     width: 0;
     overflow: hidden;
     z-index: -1;
+}
+
+/* Form Styles */
+
+#question-field {
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Core Input Layouts */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    align-items: start;
+    width: 100%;
+}
+@media (max-width: 769px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        margin-bottom: 1rem;
+        row-gap: 0;
+    }
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Text Inputs, Selects, and Textareas */
+.input-group input:not([type="radio"]):not([type="checkbox"]),
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 1em;
+    border: none;
+    border: 1px solid var(--color-primary-light);
+    color: var(--color-text);
+    font-size: var(--size-med);
+    transition: all 0.2s ease;
+    border-radius: 5px;
+    background-color: white;
+    font-family: inherit;
+}
+
+.input-group input:not([type="radio"]):not([type="checkbox"]):focus,
+.input-group select:focus {
+    border-color: var(--color-accent);
+}
+    
+.input-group.textarea-group textarea {
+    resize: vertical;
+    min-height: 50px;
+    border: solid 1px var(--color-primary-light);
+    border-radius: 5px 5px 0 5px;
+    background-color: white;
+}
+
+.input-group.textarea-group textarea:focus {
+    border-color: var(--color-accent);
+}
+
+/* Autofill fixes */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+select:-webkit-autofill,
+select:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: var(--color-foreground-dark);
+    color: var(--color-foreground-dark);
+    border: none !important;
+    border: 1px solid var(--color-primary-light) !important;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: var(--color-foreground-dark);
+    color: var(--color-foreground-dark);
+    border: none !important;
+    border: 1px solid var(--color-accent) !important;
+}
+
+.input-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='30px' viewBox='0 0 24 24' fill='none' stroke='%230a5081' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.input-group select option {
+    color: black;
+}
+
+/* Labels */
+.input-group label.element-label {
+    color: var(--color-primary-light);
+    font-family: var(--font-roboto-condensed);
+    font-weight: 900;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-size: var(--size-lg);
+}
+
+.input-group label.element-label > span, .input-group label span span{
+    color: var(--color-accent);
+}
+
+.input-group label span strong {
+    color: var(--color-accent);
+}
+
+.input-group label span small {
+    display: block;
+    color: var(--color-foreground-dark);
+    font-size: var(--size-sm);
+    font-weight: 400;
+}
+
+.input-group textarea + label.element-label {
+    top: 1.5rem;
+}
+
+.input-group input:not([type="radio"]):not([type="checkbox"]):focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    outline: none;
+}
+
+.options-row {
+    display: flex;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+    font-weight: 700;
+    margin: 0;
+}
+.options-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.radio-group label:not(.element-label) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    line-height: 1.4;
+    padding: 1cqi 0 0;
+}
+
+.checkbox-group .options-col label {
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+
+.checkbox-group .options-col label a {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
+.checkbox-group .options-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1cqi 0 0;
+}
+
+.checkbox-group.checkbox-list .options-col {
+    grid-template-columns: 1fr;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 1ch;
+    flex-shrink: 0;
+    margin-top: 0.35rem; /* Align with first line of text */
+}
+
+.file-group input[type="file"] {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    padding: 1cqi 0 !important;
+}
+
+.file-group small {
+    font-size: var(--size-sm);
+}
+
+
+#file-type-warning,
+#file-size-warning {
+    color: #c00;
+    display: none;
+    font-size: 0.875rem;
+    margin-top: -1rem;
+}
+
+
+.button-group {
+    margin-top: 3rem;
+}
+
+
+/* Modal Styles */
+
+.form-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-primary-darker), transparent 20%);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+}
+
+.form-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-modal-content {
+    max-width: 500px;
+    width: 90%;
+    border-radius: 15px;
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+.form-modal-overlay.active .form-modal-content {
+    transform: scale(1);
+}
+
+.form-modal-inner {
+    padding: 3rem;
+    text-align: center;
+    background: var(--color-primary-dark);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: solid 1px var(--color-secondary);
+
+
+}
+
+.form-modal-inner h2 {
+    color: var(--color-foreground-lighter);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form-modal-inner p {
+    color: var(--color-foreground-lighter);
+    margin-bottom: 2rem;
+    font-size: var(--size-med);
+    line-height: 1.6;
+}
+
+/* Request Form Styles */
+
+#request-form-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary-dark);
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 9999;
+    padding: 2cqi;
+    transform: translateX(-100%);
+    transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#request-form-wrapper.active {
+    transform: translateX(0);
+}
+
+/* Firefox Fallback */
+@supports (-moz-appearance: none) {
+    #request-form-wrapper {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary-light) transparent;
+    }
+}
+
+#request-form-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+#request-form-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#request-form-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-primary-light);
+    border-radius: 10px;
+}
+
+#request-form-wrapper::-webkit-scrollbar-button {
+    display: none;
+}
+
+#request-form-close {
+    position: absolute;
+    top: 1cqi;
+    right: 1cqi;
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.1s ease;
+    z-index: 10000;
+}
+
+#request-form-close:hover {
+    transform: rotate(90deg);
+}
+
+#request-form-close svg {
+    width: 5cqi;
+    max-width: 25px;
+    height: 5cqi;
+    max-height: 25px;
+}
+
+.request-form-logo {
+    width: 500px;
+    margin: 0 auto 2rem;
+}
+
+#request-form-wrapper p {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: var(--size-lg);
+    text-align: center;
+}
+
+#request-form {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2cqi;
+}
+
+#request-form label.element-label {
+    color: var(--color-secondary-light);
+}
+
+#request-form .button-group {
+    margin: 2rem 0;
 }
 
 /* Button Styles */
@@ -228,9 +603,7 @@ figure > figcaption {
     color: white;
     transition: background-color 0.1s ease;
     cursor: pointer;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
 }
 
 @media (max-width: 769px) {
@@ -312,6 +685,20 @@ figure > figcaption {
 .buttons {
     display: flex;
     gap: clamp(1rem, 1.38vw, 2rem);
+}
+
+.button.next-btn svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-bottom: 2px;
+}
+
+.button.prev-btn svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 2px;
 }
 
 /* Style Effects */

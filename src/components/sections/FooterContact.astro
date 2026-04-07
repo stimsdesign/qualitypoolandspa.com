@@ -405,64 +405,6 @@ import Button from "../elements/Button.astro";
         width: 100%;
     }
 
-
-    /* Modal Styles */
-    .form-modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: color-mix(in srgb, var(--color-primary-darker), transparent 20%);
-        backdrop-filter: blur(4px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.1s ease;
-    }
-
-    .form-modal-overlay.active {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .form-modal-content {
-        max-width: 500px;
-        width: 90%;
-        border-radius: 15px;
-        transform: scale(0.9);
-        transition: transform 0.1s ease;
-    }
-
-    .form-modal-overlay.active .form-modal-content {
-        transform: scale(1);
-    }
-
-    .form-modal-inner {
-        padding: 3rem;
-        text-align: center;
-        background: var(--color-primary-dark);
-        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
-        border-radius: 15px;
-        border: solid 1px var(--color-secondary);
-
-
-    }
-
-    .form-modal-inner h2 {
-        color: var(--color-foreground-lighter);
-        margin-bottom: 1.5rem;
-        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
-    }
-
-    .form-modal-inner p {
-        color: var(--color-foreground-lighter);
-        margin-bottom: 2rem;
-        font-size: var(--size-med);
-        line-height: 1.6;
-    }
-
-
 </style>
 
 <script>

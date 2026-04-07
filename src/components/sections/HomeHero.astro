@@ -28,14 +28,29 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
             <div id="hero__content">
                 <svg id="hero__logo" viewBox="0 0 1006.15 468.32"><use href="#quality-pool-and-spa-stroked-logo" /></svg>
                 <Slider autoplay arrows pagination id="hero__slider">
-                    <div class="slide">Slide 1</div>
-                    <div class="slide">Slide 2</div>
-                    <div class="slide">Slide 3</div>
+                    <div class="slide">
+                        <div class="slide__content">
+                            <h2 class="fire">Start Your Summer Off Right</h2>
+                            <Button href="/opening.html" class="wave alt">Schedule Opening</Button>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide__content">
+                            <h2 class="fire">Your Utah Pool Service Experts</h2>
+                            <Button href="/services.html" class="wave alt">View Services</Button>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide__content">
+                            <h2 class="fire">Highly Rated Utah Pool Service</h2>
+                            <Button href="/about.html" class="wave alt">Learn More</Button>
+                        </div>
+                    </div>
                 </Slider>
             </div>
             <div id="hero__side-panel">
                 <h2><span>New Customers</span> <span>Receive</span> <span class="fire">20% Off</span> <span>First Service</span></h2>
-                <Button href="/contact.html" class="wave">Schedule Now</Button>
+                <Button class="wave request-form-trigger">Schedule Now</Button>
                 <div id="hero__trust-badges">
                     <a href="#why-choose"><svg viewBox="0 0 813.09 813.09"><use href="#google-reviews-badge" /></svg></a>
                     <a href="https://www.bbb.org/us/ut/south-salt-lake/profile/pool-maintenance/quality-pool-spa-1166-2007823" target="_blank"><svg viewBox="0 0 612.09 741.88"><use href="#bbb-badge" /></svg></a>
@@ -132,7 +147,7 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
 
     #hero__water {
         width: 100%;
-        height: 100%;
+        height: 102%;
         position: absolute;
         top: 0;
         left: 0;
@@ -241,22 +256,39 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
         padding: 0 calc(70px + 2rem) 2rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        font-size: 5cqi;
-        font-weight: bold;
-        color: var(--color-foreground-lighter);
-        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-
-
     }
 
     @media (max-width: 769px) {
         #hero__slider .slide {
             height: 100%;
             top: 0;
-            padding: 3.5cqi;
+            padding: 0 3cqi 0 ;
+        }
+    }
+
+    #hero__slider .slide__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2cqi;
+        border-radius: 1cqi;
+        max-width: calc(100% - 5cqi);
+        margin: 0 auto;
+    }
+
+    #hero__slider .slide__content h2 {
+        font-size: var(--size-4xl);
+        /* color: var(--color-primary);
+        text-stroke: 2px white;
+        -webkit-text-stroke: 2px white; */
+        text-align: center;
+        margin-bottom: 2cqi;
+    }
+
+    @media (min-width: 1900px) {
+        #hero__slider .slide__content h2 {
+            font-size: var(--size-5xl);
         }
     }
 
