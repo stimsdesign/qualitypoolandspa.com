@@ -17,11 +17,11 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
         <div id="hero__image">
             <div class="hero__aspect-wrapper summer-season active fuzzy-load" style={`--background: url('${HeroSummerSceneFuzzy.src}')`}>
                 <Image src={HeroSummerScene} alt="Summer Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
-                <div id="hero__water"><div class="caustics"></div></div>
+                <div class="hero__water"><div class="caustics"></div></div>
             </div>
             <div class="hero__aspect-wrapper winter-season fuzzy-load" style={`--background: url('${HeroWinterSceneFuzzy.src}')`}>
                 <Image src={HeroWinterScene} alt="Winter Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
-                <div id="hero__water"><div class="caustics"></div></div>
+                <div class="hero__water"><div class="caustics"></div></div>
             </div>
         </div>
         <div id="hero__overlay">
@@ -126,14 +126,23 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
     }
 
     .hero__aspect-wrapper {
-        display: block !important;
+        display: block;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: max(100cqw, 100cqh * 2.37) !important;
         height: max(100cqh, 100cqw / 2.37) !important;
-        transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out, visibility .5s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .hero__aspect-wrapper.active {
+        visibility: visible;
+        opacity: 1;
+        z-index: 2;
     }
 
     .hero__aspect-wrapper > img {
@@ -145,7 +154,7 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
         left: 0;
     }
 
-    #hero__water {
+    .hero__water {
         width: 100%;
         height: 102%;
         position: absolute;
@@ -286,7 +295,7 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
         margin-bottom: 2cqi;
     }
 
-    @media (min-width: 1900px) {
+    @media (min-width: 2000px) {
         #hero__slider .slide__content h2 {
             font-size: var(--size-5xl);
         }

@@ -26,7 +26,11 @@ export class FuzzyLoad {
         if (!this.img) return;
         try {
             // Wait for the browser to actually decode the high-res pixels
-            await this.img.decode();
+            // Added a safety timeout to ensure the image eventually displays even if decode hangs
+            const decodePromise = this.img.decode();
+            const timeoutPromise = new Promise(resolve => setTimeout(resolve, 5000));
+            
+            await Promise.race([decodePromise, timeoutPromise]);
             this.markLoaded();
         } catch (e) {
             // Fallback for older browsers or broken decodes
