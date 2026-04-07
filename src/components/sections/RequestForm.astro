@@ -16,21 +16,21 @@ import Button from "../elements/Button.astro";
         <input type="text" id="question-field" name="question-field" style="display:none" />
         <div class="form-row">
             <div class="input-group">
-                <label class="element-label" for="request-first-name">First Name</label>
+                <label class="element-label" for="request-first-name">First Name <span>*</span></label>
                 <input type="text" id="request-first-name" name="first-name" required placeholder="Your First Name" aria-label="Your First Name" />
             </div>
             <div class="input-group">
-                <label class="element-label" for="request-last-name">Last Name</label>
+                <label class="element-label" for="request-last-name">Last Name <span>*</span></label>
                 <input type="text" id="request-last-name" name="last-name" required placeholder="Your Last Name" aria-label="Your Last Name" />
             </div>
         </div>
         <div class="form-row">
             <div class="input-group">
-                <label class="element-label" for="request-phone">Phone</label>
+                <label class="element-label" for="request-phone">Phone <span>*</span></label>
                 <input type="tel" id="request-phone" name="phone" required placeholder="Your Phone Number" aria-label="Your Phone Number" />
             </div>
             <div class="input-group">
-                <label class="element-label" for="request-email">Email</label>
+                <label class="element-label" for="request-email">Email <span>*</span></label>
                 <input type="email" id="request-email" name="email" required placeholder="Your Email" aria-label="Your Email" />
             </div>
         </div>
@@ -51,51 +51,67 @@ import Button from "../elements/Button.astro";
                 <label class="element-label" for="request-service">Service</label>
                 <select id="request-service" name="service" required aria-label="Service">
                     <option value="">Select a Service</option>
-                    <option value="">Pool Opening</option>
-                    <option value="">Pool Closing</option>
-                    <option value="">Pool Maintenance</option>
-                    <option value="">Pool Repair</option>
-                    <option value="">Pool Installation</option>
-                    <option value="">Pool Cleaning</option>
-                    <option value="">Pool Renovation</option>
-                    <option value="">Pool Winterization</option>
-                    <option value="">Pool Opening & Closing</option>
-                    <option value="">Pool Opening & Maintenance</option>
-                    <option value="">Pool Opening & Repair</option>
-                    <option value="">Pool Opening & Installation</option>
-                    <option value="">Pool Opening & Cleaning</option>
-                    <option value="">Pool Opening & Renovation</option>
-                    <option value="">Pool Opening & Winterization</option>
-                    <option value="">Pool Closing & Maintenance</option>
-                    <option value="">Pool Closing & Repair</option>
-                    <option value="">Pool Closing & Installation</option>
-                    <option value="">Pool Closing & Cleaning</option>
-                    <option value="">Pool Closing & Renovation</option>
-                    <option value="">Pool Closing & Winterization</option>
-                    <option value="">Pool Maintenance & Repair</option>
-                    <option value="">Pool Maintenance & Installation</option>
-                    <option value="">Pool Maintenance & Cleaning</option>
-                    <option value="">Pool Maintenance & Renovation</option>
-                    <option value="">Pool Maintenance & Winterization</option>
-                    <option value="">Pool Repair & Installation</option>
-                    <option value="">Pool Repair & Cleaning</option>
-                    <option value="">Pool Repair & Renovation</option>
-                    <option value="">Pool Repair & Winterization</option>
-                    <option value="">Pool Installation & Cleaning</option>
-                    <option value="">Pool Installation & Renovation</option>
-                    <option value="">Pool Installation & Winterization</option>
-                    <option value="">Pool Cleaning & Renovation</option>
-                    <option value="">Pool Cleaning & Winterization</option>
-                    <option value="">Pool Renovation & Winterization</option>
+                    <optgroup label="Pool">
+                        <option value="weekly-cleaning">Weekly Cleaning</option>
+                        <option value="equipment-diagnosis-repair">Equipment Diagnosis and Repair</option>
+                        <option value="pool-heaters">Pool Heaters</option>
+                        <option value="single-speed-pumps">Single Speed Pumps</option>
+                        <option value="variable-speed-pumps">Variable Speed Pumps</option>
+                        <option value="home-buyer-inspections">Pool Inspections for home buyers</option>
+                        <option value="cover-repair-replacement">Pool Cover Repair and Replacement</option>
+                        <option value="cover-cleaning">Pool Cover Cleaning</option>
+                        <option value="cover-vault-cleanout">Pool Cover Vault Cleanout</option>
+                        <option value="leak-detection">Leak Detection</option>
+                        <option value="plumbing-repairs">Plumbing Repairs</option>
+                        <option value="equipment-spec-layout">Equipment Specification and Layout</option>
+                        <option value="salt-cells">Salt Water Chlorine Generators “Salt Cells”</option>
+                        <option value="salt-cell-cleaning">Salt Cell Cleaning</option>
+                        <option value="annual-heater-service">Annual Pool Heater Service and Maintenance</option>
+                        <option value="combustion-analysis">Pool Heating Combustion Analysis</option>
+                        <option value="automation-programming">Automation Programming and Optimization</option>
+                        <option value="chemical-automation">Chemical Automation</option>
+                        <option value="cpo-services">Certified Pool Operator Services</option>
+                        <option value="commercial-chemicals">Commercial Chemicals</option>
+                        <option value="remodeling">Pool Remodeling - plaster, tile, coping</option>
+                        <option value="pool-opening">Pool Opening</option>
+                        <option value="water-balancing">Pool Water Balancing</option>
+                        <option value="plaster-start-ups">Plaster Start Ups</option>
+                        <option value="pool-closing">Pool Closing/winterization</option>
+                        <option value="fiberglass-restoration">Fiberglass Gel Coat Restoration</option>
+                        <option value="filter-cleaning">Filter Cleaning</option>
+                        <option value="equipment-consultation">Equipment Consultation</option>
+                    </optgroup>
+
+                    <optgroup label="Spa">
+                        <option value="spa-electrical-diagnosis">Electrical Diagnosis</option>
+                        <option value="spa-leak-diagnosis">Leak Diagnosis</option>
+                        <option value="spa-plumbing-repair">Plumbing Repair</option>
+                        <option value="spa-pump-diagnosis">Pump diagnosis</option>
+                        <option value="spa-pump-repair">Pump repair</option>
+                        <option value="spa-pump-replacement">Pump replacement</option>
+                        <option value="spa-pack-diagnosis">Spa Pack Diagnosis</option>
+                        <option value="spa-pack-repair">Spa Pack Repair</option>
+                        <option value="spa-top-side-diagnosis">Top Side Control Diagnosis</option>
+                        <option value="spa-top-side-replacement">Top Side Control Replacement</option>
+                        <option value="spa-jet-diverter">Jet and Diverter Replacement</option>
+                        <option value="spa-winterization">Spa Winterization/Seasonal Closing</option>
+                    </optgroup>
+
+                    <optgroup label="Other">
+                        <option value="boiler-repair">Boiler System Repair</option>
+                        <option value="boiler-maintenance">Annual Boiler System Maintenance</option>
+                        <option value="tankless-service">Tankless Water Heater Service</option>
+                        <option value="tankless-flush">Tankless Water Heater Flushes</option>
+                    </optgroup>
                 </select>
             </div>
             <div class="input-group">
-                <label class="element-label" for="request-street-address">Street Address</label>
+                <label class="element-label" for="request-street-address">Street Address <span>*</span></label>
                 <input type="text" id="request-street-address" name="street-address" required placeholder="Your Street Address" aria-label="Your Street Address" />
             </div>
         <div class="form-row">
             <div class="input-group">
-                <label class="element-label" for="request-city">City</label>
+                <label class="element-label" for="request-city">City <span>*</span></label>
                 <input type="text" id="request-city" name="city" required placeholder="Your City" aria-label="Your City" />
             </div>
             <div class="input-group">
