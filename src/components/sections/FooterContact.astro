@@ -318,14 +318,14 @@ import Button from "../elements/Button.astro";
         flex-direction: column;
     }
 
-    .input-group input,
-    .input-group textarea,
-    .input-group select {
+    #contact .input-group input,
+    #contact .input-group textarea,
+    #contact .input-group select {
         width: 100%;
         padding: 1cqi;
-        background: transparent !important;
-        border: none !important;
-        border-bottom: 1px solid var(--color-primary-light) !important;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--color-primary-light);
         color: var(--color-text);
         font-size: var(--size-med);
         transition: all 0.1s ease;
@@ -333,23 +333,24 @@ import Button from "../elements/Button.astro";
     }
 
     /* Autofill Styling Overrides */
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    textarea:-webkit-autofill,
-    textarea:-webkit-autofill:hover,
-    textarea:-webkit-autofill:focus,
-    select:-webkit-autofill,
-    select:-webkit-autofill:hover,
-    select:-webkit-autofill:focus {
+    #contact input:-webkit-autofill,
+    #contact input:-webkit-autofill:hover,
+    #contact input:-webkit-autofill:focus,
+    #contact textarea:-webkit-autofill,
+    #contact textarea:-webkit-autofill:hover,
+    #contact textarea:-webkit-autofill:focus,
+    #contact select:-webkit-autofill,
+    #contact select:-webkit-autofill:hover,
+    #contact select:-webkit-autofill:focus {
         -webkit-box-shadow: 0 0 0px 1000px var(--color-primary-dark) inset !important;
         -webkit-text-fill-color: white !important;
         color: white !important;
         border: none !important;
+        border-bottom: 1px solid var(--color-primary-light) !important;
         transition: background-color 5000s ease-in-out 0s;
     }
 
-    .input-group select {
+    #contact .input-group select {
         padding-top: 1.5rem;
         cursor: pointer;
         appearance: none;
@@ -359,11 +360,11 @@ import Button from "../elements/Button.astro";
         background-position: right center;
     }
 
-    .input-group select option {
+    #contact .input-group select option {
         color: black;
     }
 
-    .input-group label {
+    #contact .input-group label {
         position: absolute;
         left: 0;
         top: 50%;
@@ -373,23 +374,24 @@ import Button from "../elements/Button.astro";
         transition: all 0.1s ease;
     }
 
-    .input-group input:focus,
-    .input-group textarea:focus,
-    .input-group select:focus {
+    #contact .input-group input:focus,
+    #contact .input-group textarea:focus,
+    #contact .input-group select:focus {
         outline: none;
+        border-bottom-color: var(--color-accent);
     }
 
-    .input-group input:focus ~ label,
-    .input-group textarea:focus ~ label,
-    .input-group input:not(:placeholder-shown) ~ label,
-    .input-group textarea:not(:placeholder-shown) ~ label {
+    #contact .input-group input:focus ~ label,
+    #contact .input-group textarea:focus ~ label,
+    #contact .input-group input:not(:placeholder-shown) ~ label,
+    #contact .input-group textarea:not(:placeholder-shown) ~ label {
         top: 0;
         font-size: var(--size-xs);
         color: var(--color-secondary-light);
         font-weight: var(--weight-bold);
     }
 
-    .focus-line {
+    #contact .focus-line {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -399,9 +401,9 @@ import Button from "../elements/Button.astro";
         transition: all 0.1s ease;
     }
 
-    .input-group input:focus ~ .focus-line,
-    .input-group textarea:focus ~ .focus-line,
-    .input-group select:focus ~ .focus-line {
+    #contact .input-group input:focus ~ .focus-line,
+    #contact .input-group textarea:focus ~ .focus-line,
+    #contact .input-group select:focus ~ .focus-line {
         width: 100%;
     }
 

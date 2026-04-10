@@ -13,7 +13,7 @@ import MobileNav from "../components/navigation/MobileNav.astro";
 import RequestForm from "../components/sections/RequestForm.astro";
 
 // Import Symbols > Icons
-const iconFiles = import.meta.glob("../icons/{Whistle,Skimmer,Swimmer,Umbrella,Cross,Hamburger,MobilePhone,ArrowLeft,ArrowRight,Mail}.astro", { eager: true });
+const iconFiles = import.meta.glob("../icons/{Whistle,Skimmer,Swimmer,Umbrella,Cross,Hamburger,MobilePhone,ArrowLeft,ArrowRight,Mail,Logo}.astro", { eager: true });
 const iconComponents = Object.values(iconFiles).map((module: any) => module.default);
 
 // Import Symbols > Logos
