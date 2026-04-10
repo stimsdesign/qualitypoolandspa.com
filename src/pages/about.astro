@@ -4,6 +4,7 @@ import Template from "../layouts/ContentPage.astro";
 import Main from '../components/layout/Main.astro';
 import PageHeading from '../components/elements/PageHeading.astro';
 import GoogleReviews from "../components/elements/GoogleReviews.astro";
+import Button from "../components/elements/Button.astro";
 ---
 
 <Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa is a family-owned and operated business serving Salt Lake City, Utah, and the surrounding areas. We are dedicated to providing our customers with the highest quality pool and spa services.`}>
@@ -15,7 +16,7 @@ import GoogleReviews from "../components/elements/GoogleReviews.astro";
 				<p>For 30 years, <strong>Quality Pool & Spa</strong> has been the trusted name in aquatic care across the Wasatch Front. Led by President Derek Mortensen and Partner Jeremy Porter, we believe your backyard should be a sanctuary, not a source of stress. Based in South Salt Lake, we are a dedicated team of <strong>pool and spa professionals</strong> passionate about keeping Utah swimming. We understand the unique challenges that our local climate presents—from the scorching summer sun to the deep freezes of a mountain winter. That’s why we’ve built our three-decade legacy on providing specialized, year-round care that protects your investment and maximizes your relaxation.</p>
 			</div>
 			<div class="content-expertise">
-				<h2><span>30 Years</span> of Local Expertise</h2>
+				<h2><span class="electric">30 Years</span> of Local Expertise</h2>
 				<p>Unlike seasonal companies that pack up when the leaves fall, we are true year-round aquatic specialists with <strong>30 years of proven experience</strong>. During the peak of summer, our technicians are out keeping water crystal clear, balancing chemistry, and ensuring your equipment is running at peak efficiency. When the snow flies, we shift gears to meticulous pool winterization and dedicated hot tub diagnostics. Whether you are down in the Salt Lake valley or up in the high elevations of Park City, we bring elite, time-tested service right to your backyard.</p>
 			</div>
 			<div class="content-reviews">
@@ -34,6 +35,10 @@ import GoogleReviews from "../components/elements/GoogleReviews.astro";
 				<h2>Our Mission</h2>
 				<p>Our mission is simple: to provide unparalleled, stress-free pool and spa management so you can focus on making memories. We handle the heavy lifting, the precise chemistry, and the complex repairs, delivering crystal clear water and total peace of mind in every season.</p>
 			</div>
+		</div>
+		<div class="content-cta">
+			<h5 class="electric">Ready to experience the Quality Pool & Spa difference? Contact us today for a free quote.</h5>
+			<Button class="wave request-form-trigger">Request a Quote</Button>
 		</div>
 	</Main>
 </Template>
@@ -73,7 +78,6 @@ import GoogleReviews from "../components/elements/GoogleReviews.astro";
 	}
 
 	.content-wrapper h2 span {
-		color: var(--color-secondary);
 		font-family: var(--font-roboto-condensed);
 	}
 
@@ -109,5 +113,11 @@ import GoogleReviews from "../components/elements/GoogleReviews.astro";
 		.content-wrapper p {
 			text-align: center;
 		}
+	}
+
+	.content-cta {
+		margin-top: 4cqi;
+		padding-bottom: 4cqi;
+		text-align: center;
 	}
 </style>

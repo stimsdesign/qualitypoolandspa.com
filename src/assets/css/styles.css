@@ -1,6 +1,9 @@
 /* View Transition API - This rule enables smooth transitions between different documents */
 @view-transition {navigation: auto;}
 
+/* CSS Architecture Layers Setup */
+@layer reset, base, global_utilities;
+
 /* Root CSS Variables */
 
 :root {
@@ -57,380 +60,383 @@
 .color-red {color: var(--color-red);}
 
 /* Reset Styles */
+@layer reset {
+    *, *::before, *::after {box-sizing: border-box;}
 
-*, *::before, *::after {box-sizing: border-box;}
-
-* {
-    margin: 0;
-    padding: 0;
-    font: inherit;
-}
-
-html {
-    hanging-punctuation: first last;
-scroll-padding-top: calc(70px + 2rem);
-    scroll-behavior: smooth;
-    @media (prefers-reduced-motion: reduce) {
-        scroll-behavior: auto;
+    * {
+        margin: 0;
+        padding: 0;
+        font: inherit;
     }
-    -webkit-tap-highlight-color: transparent;
-    -webkit-font-smoothing: antialiased;
-}
 
-@media (max-width: 769px) {
     html {
-        scroll-padding-top: calc(50px + 1rem);
+        hanging-punctuation: first last;
+    scroll-padding-top: calc(70px + 2rem);
+        scroll-behavior: smooth;
+        @media (prefers-reduced-motion: reduce) {
+            scroll-behavior: auto;
+        }
+        -webkit-tap-highlight-color: transparent;
+        -webkit-font-smoothing: antialiased;
     }
-}
+
+    @media (max-width: 769px) {
+        html {
+            scroll-padding-top: calc(50px + 1rem);
+        }
+    }
 
 
-body {
-    font-size: var(--size-med);
-    /* font-size: 16px; */
-    background-color: var(--color-primary);
-    color: var(--color-foreground);
-    font-family: var(--font-quicksand);
+    body {
+        font-size: var(--size-med);
+        /* font-size: 16px; */
+        background-color: var(--color-primary);
+        color: var(--color-foreground);
+        font-family: var(--font-quicksand);
 
-}
+    }
 
-@media (prefers-reduced-motion: reduce) {
-    body {scroll-behavior: auto;}
-}
+    @media (prefers-reduced-motion: reduce) {
+        body {scroll-behavior: auto;}
+    }
 
-h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-    font-family: var(--font-raleway);
-    font-weight: 900;
-    line-height: 1em;
-    margin-bottom: 2rem;
-}
+    h1, h2, h3, h4, h5, h6 {
+        text-wrap: balance;
+        font-family: var(--font-raleway);
+        font-weight: 900;
+        line-height: 1em;
+        margin-bottom: 2rem;
+    }
 
-h1 {
-    font-size: var(--size-4xl);
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 1em;
-}
+    h1 {
+        font-size: var(--size-4xl);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1em;
+    }
 
-hgroup>h1+p {
-    font-size: var(--size-2xl);
-    font-weight: 700;
-    color: var(--color-foreground);
-}
+    hgroup>h1+p {
+        font-size: var(--size-2xl);
+        font-weight: 700;
+        color: var(--color-foreground);
+    }
 
-h2 {
-    font-size: var(--size-3xl);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    color: var(--color-primary);
-}
+    h2 {
+        font-size: var(--size-3xl);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        color: var(--color-primary);
+    }
 
-h3 {
-    font-family: var(--font-roboto-condensed);
-    font-size: var(--size-2xl);
-    font-weight: 900;
-    text-transform: uppercase;
-}
+    h3 {
+        font-family: var(--font-roboto-condensed);
+        font-size: var(--size-2xl);
+        font-weight: 900;
+        text-transform: uppercase;
+    }
 
-h4 {
-    font-size: var(--size-2xl);
-    font-weight: 700;
-}
+    h4 {
+        font-size: var(--size-2xl);
+        font-weight: 700;
+    }
 
-h5 {
-    font-size: var(--size-xl);
-    font-weight: 700;
-    text-transform: uppercase;
-}
+    h5 {
+        font-size: var(--size-xl);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
 
-h6 {
-    font-family: var(--font-roboto-condensed);
-    font-size: var(--size-lg);
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
+    h6 {
+        font-family: var(--font-roboto-condensed);
+        font-size: var(--size-lg);
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
 
-img, picture, video, canvas, svg, lite-youtube {
-    display: block;
-    max-width: 100%;
-}
+    img, picture, video, canvas, svg, lite-youtube {
+        display: block;
+        max-width: 100%;
+    }
 
-a:focus {outline: none;}
+    a:focus {outline: none;}
 
-p, blockquote, figcaption {
-    text-wrap: pretty;
-    margin-bottom: 1.5rem;
-    line-height: 1.5em;
-}
+    p, blockquote, figcaption {
+        text-wrap: pretty;
+        margin-bottom: 1.5rem;
+        line-height: 1.5em;
+    }
 
-p a, blockquote a, figcaption a {
-    color: var(--color-accent);
-    text-decoration: none;
-}
+    p a, blockquote a, figcaption a {
+        color: var(--color-accent);
+        text-decoration: none;
+    }
 
-p a:hover:not(.button), blockquote a:hover:not(.button), figcaption a:hover:not(.button) {
-    color: var(--color-accent-light);
-    text-decoration: underline;
-}
+    p a:hover:not(.button), blockquote a:hover:not(.button), figcaption a:hover:not(.button) {
+        color: var(--color-accent-light);
+        text-decoration: underline;
+    }
 
-strong {
-    font-weight: 900;
-    color: var(--color-secondary-dark);
-}
+    strong {
+        font-weight: 900;
+        color: var(--color-secondary-dark);
+    }
 
-figure > figcaption {
-    text-align: center;
-    font-size: var(--size-sm);
-    margin-top: 0.5rem;
-}
+    figure > figcaption {
+        text-align: center;
+        font-size: var(--size-sm);
+        margin-top: 0.5rem;
+    }
 
-small {
-    font-size: var(--size-sm);
-}
+    small {
+        font-size: var(--size-sm);
+    }
+} /* End of @layer reset/base tags */
 
 /* Helper Styles */
+@layer global_utilities {
+    .nobreak, .nowrap {white-space: nowrap;}
 
-.nobreak, .nowrap {white-space: nowrap;}
+    .indent {text-indent: 1.5rem;}
 
-.indent {text-indent: 1.5rem;}
+    .small {font-size: var(--size-sm);}
 
-.small {font-size: var(--size-sm);}
+    .bold, .strong {font-weight: 700;}
 
-.bold, .strong {font-weight: 700;}
-
-.hidden, input[name="question-field"] {
-    position: absolute;
-    top: -10000px;
-    left: -10000px;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    z-index: -1;
-}
+    .hidden, input[name="question-field"] {
+        position: absolute;
+        top: -10000px;
+        left: -10000px;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+} /* End @layer global_utilities for helpers */
 
 /* Form Styles */
+@layer base {
 
-#question-field {
-    position: absolute;
-    top: -10000px;
-    left: -10000px;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    z-index: -1;
-}
-
-/* Core Input Layouts */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1.5rem;
-    row-gap: 1rem;
-    align-items: start;
-    width: 100%;
-}
-@media (max-width: 769px) {
-    .form-row {
-        grid-template-columns: 1fr;
-        margin-bottom: 1rem;
-        row-gap: 0;
+    #question-field {
+        position: absolute;
+        top: -10000px;
+        left: -10000px;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        z-index: -1;
     }
-}
 
-.input-group {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 1rem;
-}
+    /* Core Input Layouts */
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1.5rem;
+        row-gap: 1rem;
+        align-items: start;
+        width: 100%;
+    }
+    @media (max-width: 769px) {
+        .form-row {
+            grid-template-columns: 1fr;
+            margin-bottom: 1rem;
+            row-gap: 0;
+        }
+    }
 
-/* Text Inputs, Selects, and Textareas */
-.input-group input:not([type="radio"]):not([type="checkbox"]),
-.input-group textarea,
-.input-group select {
-    width: 100%;
-    padding: 1em;
-    border: none;
-    border: 1px solid var(--color-primary-light);
-    color: var(--color-text);
-    font-size: var(--size-med);
-    transition: all 0.2s ease;
-    border-radius: 5px;
-    background-color: white;
-    font-family: inherit;
-}
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 
-.input-group input:not([type="radio"]):not([type="checkbox"]):focus,
-.input-group select:focus {
-    border-color: var(--color-accent);
-}
-    
-.input-group.textarea-group textarea {
-    resize: vertical;
-    min-height: 50px;
-    border: solid 1px var(--color-primary-light);
-    border-radius: 5px 5px 0 5px;
-    background-color: white;
-}
+    /* Text Inputs, Selects, and Textareas */
+    .input-group input:not([type="radio"]):not([type="checkbox"]),
+    .input-group textarea,
+    .input-group select {
+        width: 100%;
+        padding: 1em;
+        border: none;
+        border: 1px solid var(--color-primary-light);
+        color: var(--color-text);
+        font-size: var(--size-med);
+        transition: all 0.2s ease;
+        border-radius: 5px;
+        background-color: white;
+        font-family: inherit;
+    }
 
-.input-group.textarea-group textarea:focus {
-    border-color: var(--color-accent);
-}
+    .input-group input:not([type="radio"]):not([type="checkbox"]):focus,
+    .input-group select:focus {
+        border-color: var(--color-accent);
+    }
+        
+    .input-group.textarea-group textarea {
+        resize: vertical;
+        min-height: 50px;
+        border: solid 1px var(--color-primary-light);
+        border-radius: 5px 5px 0 5px;
+        background-color: white;
+    }
 
-/* Autofill fixes */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-select:-webkit-autofill,
-select:-webkit-autofill:hover {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: var(--color-foreground-dark);
-    color: var(--color-foreground-dark);
-    border: none !important;
-    border: 1px solid var(--color-primary-light) !important;
-}
+    .input-group.textarea-group textarea:focus {
+        border-color: var(--color-accent);
+    }
 
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: var(--color-foreground-dark);
-    color: var(--color-foreground-dark);
-    border: none !important;
-    border: 1px solid var(--color-accent) !important;
-}
+    /* Autofill fixes */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+        -webkit-text-fill-color: var(--color-foreground-dark);
+        color: var(--color-foreground-dark);
+        border: none;
+        border: 1px solid var(--color-primary-light);
+    }
 
-.input-group select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='30px' viewBox='0 0 24 24' fill='none' stroke='%230a5081' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right center;
-}
-.input-group select option {
-    color: black;
-}
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+        -webkit-text-fill-color: var(--color-foreground-dark);
+        color: var(--color-foreground-dark);
+        border: none;
+        border: 1px solid var(--color-accent);
+    }
 
-/* Labels */
-.input-group label.element-label {
-    color: var(--color-primary-light);
-    font-family: var(--font-roboto-condensed);
-    font-weight: 900;
-    pointer-events: none;
-    transition: all 0.2s ease;
-    font-size: var(--size-lg);
-}
+    .input-group select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='30px' viewBox='0 0 24 24' fill='none' stroke='%230a5081' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+    .input-group select option {
+        color: black;
+    }
 
-.input-group label.element-label > span, .input-group label span span{
-    color: var(--color-accent);
-}
+    /* Labels */
+    .input-group label.element-label {
+        color: var(--color-primary-light);
+        font-family: var(--font-roboto-condensed);
+        font-weight: 900;
+        pointer-events: none;
+        transition: all 0.2s ease;
+        font-size: var(--size-lg);
+    }
 
-.input-group label span strong {
-    color: var(--color-accent);
-}
+    .input-group label.element-label > span, .input-group label span span{
+        color: var(--color-accent);
+    }
 
-.input-group label span small {
-    display: block;
-    color: var(--color-foreground-dark);
-    font-size: var(--size-sm);
-    font-weight: 400;
-}
+    .input-group label span strong {
+        color: var(--color-accent);
+    }
 
-.input-group textarea + label.element-label {
-    top: 1.5rem;
-}
+    .input-group label span small {
+        display: block;
+        color: var(--color-foreground-dark);
+        font-size: var(--size-sm);
+        font-weight: 400;
+    }
 
-.input-group input:not([type="radio"]):not([type="checkbox"]):focus,
-.input-group textarea:focus,
-.input-group select:focus {
-    outline: none;
-}
+    .input-group textarea + label.element-label {
+        top: 1.5rem;
+    }
 
-.options-row {
-    display: flex;
-    column-gap: 2rem;
-    flex-wrap: wrap;
-    font-weight: 700;
-    margin: 0;
-}
-.options-col {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-.radio-group label:not(.element-label) {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    line-height: 1.4;
-    padding: 1cqi 0 0;
-}
+    .input-group input:not([type="radio"]):not([type="checkbox"]):focus,
+    .input-group textarea:focus,
+    .input-group select:focus {
+        outline: none;
+    }
 
-.checkbox-group .options-col label {
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: flex-start;
-    line-height: 1.4;
-}
+    .options-row {
+        display: flex;
+        column-gap: 2rem;
+        flex-wrap: wrap;
+        font-weight: 700;
+        margin: 0;
+    }
+    .options-col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .radio-group label:not(.element-label) {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        line-height: 1.4;
+        padding: 1cqi 0 0;
+    }
 
-.checkbox-group .options-col label a {
-    color: var(--color-primary-light);
-    text-decoration: underline;
-}
+    .checkbox-group .options-col label {
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: flex-start;
+        line-height: 1.4;
+    }
 
-.checkbox-group .options-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 1cqi 0 0;
-}
+    .checkbox-group .options-col label a {
+        color: var(--color-primary-light);
+        text-decoration: underline;
+    }
 
-.checkbox-group.checkbox-list .options-col {
-    grid-template-columns: 1fr;
-}
+    .checkbox-group .options-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1cqi 0 0;
+    }
 
-.checkbox-group input[type="checkbox"] {
-    margin-right: 1ch;
-    flex-shrink: 0;
-    margin-top: 0.35rem; /* Align with first line of text */
-}
+    .checkbox-group.checkbox-list .options-col {
+        grid-template-columns: 1fr;
+    }
 
-.file-group input[type="file"] {
-    background-color: transparent !important;
-    border: none !important;
-    border-radius: 0;
-    padding: 1cqi 0 !important;
-}
+    .checkbox-group input[type="checkbox"] {
+        margin-right: 1ch;
+        flex-shrink: 0;
+        margin-top: 0.35rem; /* Align with first line of text */
+    }
 
-.file-group small {
-    font-size: var(--size-sm);
-}
+    .file-group input[type="file"] {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 1cqi 0;
+    }
 
-
-#file-type-warning,
-#file-size-warning {
-    color: #c00;
-    display: none;
-    font-size: 0.875rem;
-    margin-top: -1rem;
-}
+    .file-group small {
+        font-size: var(--size-sm);
+    }
 
 
-.button-group {
-    margin-top: 3rem;
-}
+    #file-type-warning,
+    #file-size-warning {
+        color: #c00;
+        display: none;
+        font-size: 0.875rem;
+        margin-top: -1rem;
+    }
+
+
+    .button-group {
+        margin-top: 3rem;
+    }
+
+} /* End @layer base for forms */
 
 
 /* Modal Styles */
-
 .form-modal-overlay {
     position: fixed;
     inset: 0;
@@ -583,211 +589,212 @@ select:-webkit-autofill:focus {
 }
 
 /* Button Styles */
-
-.button {
-    position: relative;
-    display: inline-block;
-    width: fit-content;
-    max-width: 100%;
-    white-space: nowrap;
-    padding: 0.5rem 1.25rem;
-    font-family: var(--font-roboto-condensed);
-    font-size: var(--size-2xl);
-    font-weight: 900;
-    letter-spacing: -1px;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 15px;
-    background: var(--color-accent);
-    color: white;
-    transition: background-color 0.1s ease;
-    cursor: pointer;
-    border: none;
-}
-
-@media (max-width: 769px) {
+@layer global_utilities {
     .button {
-        display: block;
-        font-size: clamp(1rem, 6vw, 1.75rem);
-        width: 100%;
-        margin: 0 auto;
+        position: relative;
+        display: inline-block;
+        width: fit-content;
+        max-width: 100%;
+        white-space: nowrap;
+        padding: 0.5rem 1.25rem;
+        font-family: var(--font-roboto-condensed);
+        font-size: var(--size-2xl);
+        font-weight: 900;
+        letter-spacing: -1px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 15px;
+        background: var(--color-accent);
+        color: white;
+        transition: background-color 0.1s ease;
+        cursor: pointer;
+        border: none;
     }
-}
 
-.button.alt {
-    background: var(--color-primary);
-}
+    @media (max-width: 769px) {
+        .button {
+            display: block;
+            font-size: clamp(1rem, 6vw, 1.75rem);
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
 
-.button.wave span, button.wave span {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: white;
-    padding: 0.5rem 1.25rem;
-    animation: wave 4s ease-in-out infinite;
-    animation-play-state: paused;
-}
+    .button.alt {
+        background: var(--color-primary);
+    }
 
-.button.wave:hover span, button.wave:hover span,
-.button.wave:focus span, button.wave:focus span {
-    animation-play-state: running;
-}
-
-.button:hover span, button:hover span {
-    color: var(--color-secondary-light);
-}
-
-@keyframes wave {
-	0%,
-	100% {
-		clip-path: polygon(
-			0% 45%,
-			16% 44%,
-			33% 50%,
-			54% 60%,
-			70% 61%,
-			84% 59%,
-			100% 52%,
-			100% 100%,
-			0% 100%
-		);
-	}
-
-	50% {
-		clip-path: polygon(
-			0% 60%,
-			15% 65%,
-			34% 66%,
-			51% 62%,
-			67% 50%,
-			84% 45%,
-			100% 46%,
-			100% 100%,
-			0% 100%
-		);
-	}
-}
-
-
-#hero .button {
-    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
-}
-
-.button:hover {
-    background-color: var(--color-primary-light);
-    text-shadow: 0 0 3px var(--color-primary-lighter);
-}
-
-.buttons {
-    display: flex;
-    gap: clamp(1rem, 1.38vw, 2rem);
-}
-
-.button.next-btn svg {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 8px;
-    margin-bottom: 2px;
-}
-
-.button.prev-btn svg {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px;
-    margin-bottom: 2px;
-}
-
-/* Style Effects */
-
-.fire {
-    color: transparent;
-    background-image: linear-gradient(to bottom,
-        var(--color-accent-lighter),
-        var(--color-accent));
-    background-clip: text;
-    filter: drop-shadow(1px 1px 4px red);
-}
-
-.electric {
-    color: transparent;
-    background-image: linear-gradient(to bottom,
-        var(--color-secondary-lightest),
-        var(--color-secondary-light));
-    background-clip: text;
-    filter: drop-shadow(0 0 2px var(--color-secondary)) drop-shadow(0 0 1px var(--color-secondary-light));
-}
-
-
-/* Global Animations */
-@keyframes pulse {
-    0% {transform: scale(1); opacity: 1;}
-    50% {transform: scale(1.5); opacity: 0.5;}
-    100% {transform: scale(1);opacity: 1;}
-}
-
-/* Scripted Effects */
-
-/* Fuzzy Lazy loading Effect for Images, Uses a blurred background image that transitions to the clear image when loaded */
-.fuzzy-load { 
-    width: fit-content;
-    height: fit-content;
-    position: relative;
-    background-image: var(--background);
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    transition: background-image 250ms ease-in-out;
-    /* Blur the background image without affecting child content */
-    &::before {
-        content: "";
+    .button.wave span, button.wave span {
+        display: block;
         position: absolute;
-        inset: 0;
-        background: inherit;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        padding: 0.5rem 1.25rem;
+        animation: wave 4s ease-in-out infinite;
+        animation-play-state: paused;
+    }
+
+    .button.wave:hover span, button.wave:hover span,
+    .button.wave:focus span, button.wave:focus span {
+        animation-play-state: running;
+    }
+
+    .button:hover span, button:hover span {
+        color: var(--color-secondary-light);
+    }
+
+    @keyframes wave {
+        0%,
+        100% {
+            clip-path: polygon(
+                0% 45%,
+                16% 44%,
+                33% 50%,
+                54% 60%,
+                70% 61%,
+                84% 59%,
+                100% 52%,
+                100% 100%,
+                0% 100%
+            );
+        }
+
+        50% {
+            clip-path: polygon(
+                0% 60%,
+                15% 65%,
+                34% 66%,
+                51% 62%,
+                67% 50%,
+                84% 45%,
+                100% 46%,
+                100% 100%,
+                0% 100%
+            );
+        }
+    }
+
+
+    #hero .button {
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .button:hover {
+        background-color: var(--color-primary-light);
+        text-shadow: 0 0 3px var(--color-primary-lighter);
+    }
+
+    .buttons {
+        display: flex;
+        gap: clamp(1rem, 1.38vw, 2rem);
+    }
+
+    .button.next-btn svg {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8px;
+        margin-bottom: 2px;
+    }
+
+    .button.prev-btn svg {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        margin-bottom: 2px;
+    }
+
+    /* Style Effects */
+
+    .fire {
+        color: transparent;
+        background-image: linear-gradient(to bottom,
+            var(--color-accent-lighter),
+            var(--color-accent));
+        background-clip: text;
+        filter: drop-shadow(1px 1px 4px red);
+    }
+
+    .electric {
+        color: var(--color-primary-light);
+        background-image: linear-gradient(to bottom,
+            var(--color-secondary-lighter),
+            var(--color-secondary));
+        background-clip: text;
+        filter: drop-shadow(0 0 2px var(--color-secondary-light)) drop-shadow(0 0 1px var(--color-secondary-lighter));
+    }
+
+
+    /* Global Animations */
+    @keyframes pulse {
+        0% {transform: scale(1); opacity: 1;}
+        50% {transform: scale(1.5); opacity: 0.5;}
+        100% {transform: scale(1);opacity: 1;}
+    }
+
+    /* Scripted Effects */
+
+    /* Fuzzy Lazy loading Effect for Images, Uses a blurred background image that transitions to the clear image when loaded */
+    .fuzzy-load { 
+        width: fit-content;
+        height: fit-content;
+        position: relative;
         background-image: var(--background);
         background-repeat: no-repeat;
         background-size: cover;
-        filter: blur(12px);
-        transform: scale(1.05);
-        z-index: 0;
+        overflow: hidden;
+        transition: background-image 250ms ease-in-out;
+        /* Blur the background image without affecting child content */
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: inherit;
+            background-image: var(--background);
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(12px);
+            transform: scale(1.05);
+            z-index: 0;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 350ms ease-in-out, visibility 0s linear 0s;
+            will-change: opacity;
+        }
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+    }
+    .fuzzy-load > * {
+        opacity: 0;
+        transition: opacity 350ms ease-in-out;
+    }
+
+    .fuzzy-load.loaded::before {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 350ms ease-in-out, visibility 0s linear 350ms;
+    }
+
+    .fuzzy-load.loaded > * {
         opacity: 1;
-        visibility: visible;
-        transition: opacity 350ms ease-in-out, visibility 0s linear 0s;
-        will-change: opacity;
     }
-    & > * {
-        position: relative;
-        z-index: 1;
+
+    /* Password Requirement Indicators */
+    .req-characters, .req-uppercase, .req-number, .req-special { 
+        transition: color 0.1s ease, font-weight 0.1s ease;
     }
-}
-.fuzzy-load > * {
-    opacity: 0;
-    transition: opacity 350ms ease-in-out;
-}
+    .req-characters.active, .req-uppercase.active, .req-number.active, .req-special.active {
+        color: var(--color-green);
+        font-weight: var(--weight-semibold);
+    }
 
-.fuzzy-load.loaded::before {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 350ms ease-in-out, visibility 0s linear 350ms;
-}
-
-.fuzzy-load.loaded > * {
-    opacity: 1;
-}
-
-/* Password Requirement Indicators */
-.req-characters, .req-uppercase, .req-number, .req-special { 
-    transition: color 0.1s ease, font-weight 0.1s ease;
-}
-.req-characters.active, .req-uppercase.active, .req-number.active, .req-special.active {
-    color: var(--color-green);
-    font-weight: var(--weight-semibold);
-}
-
-#content-logo {
-    width: auto;
-    height: 200px;
-}
+    #content-logo {
+        width: auto;
+        height: 200px;
+    }
+} /* End @layer global_utilities */

@@ -7,6 +7,7 @@ interface Props {
     type?: "anchor" | "button" | "submit";
     class?: string;
     target?: string;
+    [key: string]: any;
 }
 
 const { 
@@ -16,7 +17,8 @@ const {
     bookmark = false, 
     type, 
     class: className = "",
-    target
+    target,
+    ...rest
 } = Astro.props;
 
 // Default to "anchor" if href is present, otherwise "button"
@@ -37,6 +39,7 @@ const attributes = {
     class: `button${bookmark ? " bookmark-button" : ""}${trimmedClass ? ` ${trimmedClass}` : ""}`,
     style: margin ? `margin: ${margin};` : undefined,
     target: target || undefined,
+    ...rest
 };
 ---
 

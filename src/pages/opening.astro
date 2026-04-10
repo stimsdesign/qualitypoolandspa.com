@@ -148,8 +148,8 @@ import Button from "../components/elements/Button.astro";
 									<label for="schedule_type" class="element-label">Type of Schedule</label>
 									<select id="schedule_type" name="schedule_type">
 										<option value="" disabled selected>Select Schedule Type</option>
-										<option value="Weekly">Weekly</option>
-										<option value="Bi-Weekly">Bi-Weekly</option>
+										<option value="Routine">Routine</option>
+										<option value="Bi-Routine">Bi-Routine</option>
 										<option value="Please contact to discuss">Please contact to discuss</option>
 									</select>
 								</div>
@@ -416,9 +416,6 @@ import Button from "../components/elements/Button.astro";
         align-items: center;
         gap: 1rem;
     }
-    :global(.step-actions .prev-btn) {
-        background: var(--color-primary-light) !important;
-    }
     .step-actions button {
         min-width: 150px;
     }
@@ -430,10 +427,6 @@ import Button from "../components/elements/Button.astro";
             width: 100%;
         }
     }
-
-	.next-btn {
-		display:none !important;
-	}
 
 </style>
 

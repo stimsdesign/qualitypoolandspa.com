@@ -11,28 +11,28 @@ import RequestForm from "../components/sections/RequestForm.astro";
 import Button from '../components/elements/Button.astro';
 ---
 
-<Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa offers a full range of pool and spa services in Salt Lake City, Utah. From pool openings and closings to weekly pool maintenance and equipment repair, our team has you covered.`}>
+<Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa offers a full range of pool and spa services in Salt Lake City, Utah. From pool openings and closings to routine pool maintenance and equipment repair, our team has you covered.`}>
 	<Main id="services-page">
 		<PageHeading background="/images/floatie-banner.webp" fuzzy="/images/floatie-banner-fuzzy.webp">Our Services</PageHeading>
 		<ul class="shortcuts">
-			<li><a href="#weekly-services">Weekly Cleaning & Maintenance</a></li>
+			<li><a href="#routine-services">Routine Cleaning & Maintenance</a></li>
 			<li><a href="#maintenance-repair">Maintenance & Repair</a></li>
 			<li><a href="#pool-services">Pool Services</a></li>
 			<li><a href="#spa-services">Spa Services</a></li>
 		</ul>
-		<p>Welcome to <strong>Quality Pool & Spa</strong>, the Wasatch Front’s premier choice for comprehensive, year-round pool and hot tub care. From navigating the freezing temperatures of a Utah winter to maintaining crystal-clear water during the peak summer swim season, our expert technicians deliver tailored solutions for every backyard oasis. Whether you are looking for dependable <strong>weekly pool cleaning in Salt Lake City</strong>, advanced <strong>spa diagnostics</strong>, or professional <strong>seasonal winterization</strong>, we provide a full spectrum of specialized services designed to protect your equipment and ensure your pool or spa is always perfectly balanced, safe, and ready to enjoy.</p>
-		<section id="weekly-services">
+		<p>Welcome to <strong>Quality Pool & Spa</strong>, the Wasatch Front’s premier choice for comprehensive, year-round pool and hot tub care. From navigating the freezing temperatures of a Utah winter to maintaining crystal-clear water during the peak summer swim season, our expert technicians deliver tailored solutions for every backyard oasis. Whether you are looking for dependable <strong>routine pool cleaning in Salt Lake City</strong>, advanced <strong>spa diagnostics</strong>, or professional <strong>seasonal winterization</strong>, we provide a full spectrum of specialized services designed to protect your equipment and ensure your pool or spa is always perfectly balanced, safe, and ready to enjoy.</p>
+		<section id="routine-services">
 			<Calendar />
 			<div class="service-description">
-				<h2>Weekly Cleaning & Maintenance</h2>
-				<p>Maintaining a pristine swimming environment along the Wasatch Front requires consistent care and expert chemistry. Our dedicated weekly maintenance plans are designed to take the guesswork and labor out of pool ownership. From precise chemical balancing in Salt Lake City to routine filter management, we ensure your water remains crystal clear, sanitary, and perfectly inviting week after week, so you can spend less time skimming and more time swimming.</p>
+				<h2>Routine Cleaning & Maintenance</h2>
+				<p>Maintaining a pristine swimming environment along the Wasatch Front requires consistent care and expert chemistry. Our dedicated routine maintenance plans are designed to take the guesswork and labor out of pool ownership. From precise chemical balancing in Salt Lake City to routine filter management, we ensure your water remains crystal clear, sanitary, and perfectly inviting week after week, so you can spend less time skimming and more time swimming.</p>
 			</div>
 			<div class="service-bullets">
-				<h3>Routine Maintenance & Upkeep</h3>
+				<h3>Maintenance & Upkeep</h3>
 				<ul>
 					<li>
-						<strong>Weekly Cleaning</strong>
-						<p>Take the hassle out of pool ownership with our reliable weekly cleaning. We skim, brush, vacuum, and monitor your water quality year-round so your pool or spa is always ready when you are.</p>
+						<strong>Routine Cleaning</strong>
+						<p>Take the hassle out of pool ownership with our reliable routine cleaning. We skim, brush, vacuum, and monitor your water quality year-round so your pool or spa is always ready when you are.</p>
 					</li>
 					<li>
 						<strong>Pool Water Balancing</strong>
@@ -42,11 +42,23 @@ import Button from '../components/elements/Button.astro';
 						<strong>Filter Cleaning</strong>
 						<p>A clogged filter chokes your plumbing and leaves your water cloudy. Our routine filter cleaning removes trapped oils and debris, lowering system pressure and drastically improving water clarity.</p>
 					</li>
+					<li>
+						<strong>Annual Boiler System Maintenance</strong>
+						<p>Keep your high-capacity heaters running smoothly and safely. Our comprehensive annual boiler system maintenance minimizes downtime and ensures your equipment operates at peak efficiency year-round.</p>
+					</li>
+					<li>
+						<strong>Tankless Water Heater Service</strong>
+						<p>Modern tankless systems require dedicated care to function properly. We provide expert tankless water heater service to address error codes and ensure consistent temperature delivery.</p>
+					</li>
+					<li>
+						<strong>Tankless Water Heater Flushes</strong>
+						<p>Our tankless water heater flushes remove damaging scale buildup, preserving your system's efficiency and drastically extending its operational life.</p>
+					</li>
 				</ul>
 			</div>
 			<div class="service-cta">
 				<p>Get your weekends back and let the experts handle the maintenance.</p>
-				<Button class="wave request-form-trigger">Request a Route Quote</Button>
+				<Button class="wave request-form-trigger" data-service-group="routine-services">Request a Quote</Button>
 			</div>
 		</section>
 		<section id="maintenance-repair">
@@ -82,7 +94,7 @@ import Button from '../components/elements/Button.astro';
 			</div>
 			<div class="service-cta">
 				<p>Don't let a breakdown ruin your swim. Get fast, accurate diagnostics today.</p>
-				<Button class="wave request-form-trigger">Request Repair Service</Button>
+				<Button class="wave request-form-trigger" data-service-group="repair-services">Request Repair Service</Button>
 			</div>
 		</section>
 		<section id="pool-services">
@@ -140,7 +152,7 @@ import Button from '../components/elements/Button.astro';
 			</div>
 			<div class="service-cta">
 				<p>Upgrade, protect, and optimize your backyard oasis with our elite pool solutions!</p>
-				<Button class="wave request-form-trigger">Schedule Pool Service</Button>
+				<Button class="wave request-form-trigger" data-service-group="pool-services">Schedule Pool Service</Button>
 			</div>
 		</section>
 		<section id="spa-services">
@@ -190,7 +202,7 @@ import Button from '../components/elements/Button.astro';
 			</div>
 			<div class="service-cta">
 				<p>Restore your ultimate relaxation space. Book your expert spa service today!</p>
-				<Button class="wave request-form-trigger">Schedule Spa Service</Button>
+				<Button class="wave request-form-trigger" data-service-group="spa-services">Schedule Spa Service</Button>
 			</div>
 		</section>
 	</Main>
@@ -247,7 +259,7 @@ import Button from '../components/elements/Button.astro';
 		}
 	}
 
-	section#weekly-services svg {
+	section#routine-services svg {
 		color: var(--color-primary-dark);
 	}
 
@@ -281,7 +293,7 @@ import Button from '../components/elements/Button.astro';
 		}
 	}
 
-	section#weekly-services .service-description h2 {
+	section#routine-services .service-description h2 {
 		color: var(--color-primary-dark);
 	}
 
@@ -429,7 +441,7 @@ import Button from '../components/elements/Button.astro';
 		font-size: var(--size-lg);
 	}
 
-	section#weekly-services .service-bullets h3 {
+	section#routine-services .service-bullets h3 {
 		color: var(--color-primary-dark);
 	}
 
@@ -446,7 +458,7 @@ import Button from '../components/elements/Button.astro';
 	}
 
 
-	#weekly-services .service-bullets ul li::before {
+	#routine-services .service-bullets ul li::before {
 		content: '';
 		position: absolute;
 		left: 0;

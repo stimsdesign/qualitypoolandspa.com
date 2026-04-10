@@ -51,8 +51,24 @@ import Button from "../elements/Button.astro";
                 <label class="element-label" for="request-service">Service</label>
                 <select id="request-service" name="service" required aria-label="Service">
                     <option value="">Select a Service</option>
-                    <optgroup label="Pool">
-                        <option value="weekly-cleaning">Weekly Cleaning</option>
+                    <optgroup label="Routine Services" class="routine-services-opts">
+                        <option value="routine-cleaning">Routine Cleaning</option>
+                        <option value="pool-water-balancing">Pool Water Balancing</option>
+                        <option value="filter-cleaning">Filter Cleaning</option>
+                        <option value="boiler-maintenance">Annual Boiler System Maintenance</option>
+                    </optgroup>
+
+                    <optgroup label="Repair Services" class="repair-services-opts">
+                        <option value="equipment-diagnosis-repair">Equipment Diagnosis and Repair</option>
+                        <option value="leak-detection">Leak Detection</option>
+                        <option value="plumbing-repairs">Plumbing Repairs</option>
+                        <option value="boiler-system-repair">Boiler System Repair</option>
+                        <option value="tankless-water-heater-service">Tankless Water Heater Service</option>
+                        <option value="tankless-flush">Tankless Water Heater Flushes</option>
+                    </optgroup>
+
+                    <optgroup label="Pool Services" class="pool-services-opts">
+                        <option value="routine-cleaning">Routine Cleaning</option>
                         <option value="equipment-diagnosis-repair">Equipment Diagnosis and Repair</option>
                         <option value="pool-heaters">Pool Heaters</option>
                         <option value="single-speed-pumps">Single Speed Pumps</option>
@@ -82,7 +98,7 @@ import Button from "../elements/Button.astro";
                         <option value="equipment-consultation">Equipment Consultation</option>
                     </optgroup>
 
-                    <optgroup label="Spa">
+                    <optgroup label="Spa Services" class="spa-services-opts">
                         <option value="spa-electrical-diagnosis">Electrical Diagnosis</option>
                         <option value="spa-leak-diagnosis">Leak Diagnosis</option>
                         <option value="spa-plumbing-repair">Plumbing Repair</option>
@@ -95,13 +111,6 @@ import Button from "../elements/Button.astro";
                         <option value="spa-top-side-replacement">Top Side Control Replacement</option>
                         <option value="spa-jet-diverter">Jet and Diverter Replacement</option>
                         <option value="spa-winterization">Spa Winterization/Seasonal Closing</option>
-                    </optgroup>
-
-                    <optgroup label="Other">
-                        <option value="boiler-repair">Boiler System Repair</option>
-                        <option value="boiler-maintenance">Annual Boiler System Maintenance</option>
-                        <option value="tankless-service">Tankless Water Heater Service</option>
-                        <option value="tankless-flush">Tankless Water Heater Flushes</option>
                     </optgroup>
                 </select>
             </div>
@@ -128,6 +137,22 @@ import Button from "../elements/Button.astro";
         </div>
     </form>
 </div>
+
+<style>
+    .routine-services-opts,
+    .repair-services-opts,
+    .pool-services-opts,
+    .spa-services-opts {
+        color: #000;
+    }
+
+    .routine-services-opts.hidden,
+    .repair-services-opts.hidden,
+    .pool-services-opts.hidden,
+    .spa-services-opts.hidden {
+        display: none;
+    }
+</style>
 
 <script>
     import { RequestFormHandler } from "../../assets/scripts/RequestFormHandler.js";

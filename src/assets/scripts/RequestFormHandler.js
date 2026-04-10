@@ -22,7 +22,8 @@ export class RequestFormHandler {
             const trigger = e.target.closest('.request-form-trigger');
             if (trigger) {
                 e.preventDefault();
-                this.showForm();
+                const serviceGroup = trigger.getAttribute('data-service-group');
+                this.showForm(serviceGroup);
             }
         });
     }
@@ -51,7 +52,7 @@ export class RequestFormHandler {
         });
     }
 
-    showForm() {
+    showForm(serviceGroup) {
         this.wrapper.classList.add('active');
         // Reset message/form states just in case
         this.paragraphs[0].classList.add('active');
@@ -60,10 +61,60 @@ export class RequestFormHandler {
         this.paragraphs[1].classList.remove('active');
         this.form.classList.remove('hidden');
         this.form.classList.add('active');
+
+        // Filter service drop down options
+        const selectBox = this.form.querySelector('#request-service');
+        const defaultOption = selectBox?.querySelector('option[value=""]');
+        const optGroups = selectBox?.querySelectorAll('optgroup');
+        
+        if (defaultOption) {
+            if (serviceGroup) {
+                const groupName = serviceGroup.split('-')[0];
+                const capitalized = groupName.charAt(0).toUpperCase() + groupName.slice(1);
+                defaultOption.textContent = `Select a ${capitalized} Service`;
+            } else {
+                defaultOption.textContent = 'Select a Service';
+            }
+        }
+
+        if (optGroups) {
+            optGroups.forEach(group => {
+                if (serviceGroup) {
+                    if (group.classList.contains(`${serviceGroup}-opts`)) {
+                        group.classList.remove('hidden');
+                        group.style.display = '';
+                        group.disabled = false;
+                    } else {
+                        group.classList.add('hidden');
+                        group.style.display = 'none';
+                        group.disabled = true;
+                    }
+                } else {
+                    group.classList.remove('hidden');
+                    group.style.display = '';
+                    group.disabled = false;
+                }
+            });
+        }
+        if (selectBox) selectBox.value = "";
     }
 
     hideForm() {
         this.wrapper.classList.remove('active');
+
+        // Reset service drop down options
+        const selectBox = this.form?.querySelector('#request-service');
+        const defaultOption = selectBox?.querySelector('option[value=""]');
+        if (defaultOption) defaultOption.textContent = 'Select a Service';
+
+        const optGroups = selectBox?.querySelectorAll('optgroup');
+        if (optGroups) {
+            optGroups.forEach(group => {
+                group.classList.remove('hidden');
+                group.style.display = '';
+                group.disabled = false;
+            });
+        }
     }
 
     formatPhoneInput(inputEl) {

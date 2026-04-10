@@ -48,7 +48,7 @@ const { background, color = "dark", fuzzy } = Astro.props;
         object-fit: cover;
     }
 
-    :global(#page-heading__text h1) {
+    #page-heading__text h1 {
         display: flex;
         width: 100%;
         height: 100%;
@@ -65,7 +65,7 @@ const { background, color = "dark", fuzzy } = Astro.props;
         color: transparent;
     }
 
-    :global(#page-heading__text h1.dark) {
+    #page-heading__text h1.dark {
         background-image: linear-gradient(to bottom,
             var(--color-primary),
             var(--color-primary-dark));
@@ -73,7 +73,7 @@ const { background, color = "dark", fuzzy } = Astro.props;
         -webkit-text-stroke: 1px white;
     }
 
-    :global(#page-heading__text h1.light) {
+    #page-heading__text h1.light {
         background-image: linear-gradient(to bottom,
             var(--color-secondary-lighter),
             var(--color-secondary));
@@ -94,7 +94,14 @@ const { background, color = "dark", fuzzy } = Astro.props;
         }
 
         #page-heading__text h1 {
-            text-shadow: none !important;
+            color: var(--color-secondary);
+        }
+        #page-heading__text h1.dark,
+        #page-heading__text h1.light {
+            text-shadow: none;
+            -webkit-text-stroke: 0px transparent;
+            letter-spacing: -1px;
+            background-image: none;
         }
 
         #page-logo {
@@ -103,18 +110,18 @@ const { background, color = "dark", fuzzy } = Astro.props;
         }
 
         #page-heading__text.fuzzy-load {
-            background-image: none !important;
+            background-image: none;
             height: initial;
-            transition: none !important;
+            transition: none;
         }
 
         #page-heading__text.fuzzy-load::before {
-            display: none !important;
+            display: none;
         }
 
         #page-heading__text.fuzzy-load > * {
-            opacity: 1 !important;
-            transition: none !important;
+            opacity: 1;
+            transition: none;
         }
 
         #page-heading__text h1 {
