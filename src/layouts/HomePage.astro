@@ -101,10 +101,22 @@ const {
                 });
             }
 
+            // Defer heavy animations until after LCP
+            function initCaustics() {
+                if (document.readyState === 'complete') {
+                    setTimeout(() => document.documentElement.classList.add('enable-caustics'), 100);
+                } else {
+                    window.addEventListener('load', () => {
+                        setTimeout(() => document.documentElement.classList.add('enable-caustics'), 100);
+                    });
+                }
+            }
+
             // Run on initial load and client-side routing transitions
             document.addEventListener("astro:page-load", () => {
                 functionFuzzyLoad();
                 initFonts();
+                initCaustics();
             });
         </script>
     </body>

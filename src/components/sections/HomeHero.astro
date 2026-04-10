@@ -7,19 +7,17 @@ import Button from "../elements/Button.astro";
 import Slider from "../elements/Slider.astro";
 // Images
 import HeroSummerScene from "../../assets/images/summer-hero.webp";
-import HeroSummerSceneFuzzy from "../../assets/images/summer-hero-fuzzy.png";
 import HeroWinterScene from "../../assets/images/winter-hero.webp";
-import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
 ---
 
 <section id="hero-wrapper">
     <div id="hero" class="summer">
         <div id="hero__image">
-            <div class="hero__aspect-wrapper summer-season active fuzzy-load" style={`--background: url('${HeroSummerSceneFuzzy.src}')`}>
+            <div class="hero__aspect-wrapper summer-season active" style={`background-image: none;`}>
                 <Image src={HeroSummerScene} alt="Summer Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div class="hero__water"><div class="caustics"></div></div>
             </div>
-            <div class="hero__aspect-wrapper winter-season fuzzy-load" style={`--background: url('${HeroWinterSceneFuzzy.src}')`}>
+            <div class="hero__aspect-wrapper winter-season" style={`background-image: none;`}>
                 <Image src={HeroWinterScene} alt="Winter Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div class="hero__water"><div class="caustics"></div></div>
             </div>
@@ -170,8 +168,13 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
         );
         z-index: 5;
         overflow: hidden;
-        filter: url(#water-filter);
         transform: translateZ(0);
+    }
+
+    @media (min-width: 769px) {
+        .enable-caustics .hero__water {
+            filter: url(#water-filter);
+        }
     }
 
     .caustics {
@@ -184,9 +187,24 @@ import HeroWinterSceneFuzzy from "../../assets/images/winter-hero-fuzzy.png";
         background-size: 600px auto;
         background-repeat: repeat;
         transform-origin: center center;
-        opacity: 0.4;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        mix-blend-mode: overlay;
         animation: move-water 30s linear infinite;
+        animation-play-state: paused;
         will-change: transform;
+    }
+
+    .enable-caustics .caustics {
+        opacity: 0.6;
+        animation-play-state: running;
+    }
+
+    @media (min-width: 769px) {
+        .enable-caustics .caustics {
+            opacity: 0.4;
+            mix-blend-mode: normal;
+        }
     }
 
     @media (max-width: 769px) {
