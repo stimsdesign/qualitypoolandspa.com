@@ -16,7 +16,7 @@ const { background, color = "dark", fuzzy } = Astro.props;
         <img src={`${background}`} alt="" />
         <h1 class={color}><slot /></h1>
     </div>
-    <a href="/">
+    <a href="/" aria-label="Return to Quality Pool and Spa home">
         <svg id="page-logo" viewBox="0 0 1006.15 468.32"><use href="#quality-pool-and-spa-logo" /></svg>
     </a>
 </div>
@@ -94,7 +94,7 @@ const { background, color = "dark", fuzzy } = Astro.props;
         }
 
         #page-heading__text h1 {
-            color: var(--color-secondary);
+            color: var(--color-primary);
         }
         #page-heading__text h1.dark,
         #page-heading__text h1.light {

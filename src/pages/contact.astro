@@ -12,7 +12,7 @@ import Button from "../components/elements/Button.astro";
         <p>We’d love to hear from you! Whether you need to schedule a routine routine pool cleaning, request an emergency hot tub repair, or simply ask a question about upgrading your equipment, the team at Quality Pool & Spa is here to help. As the trusted experts for year-round pool and spa services across Salt Lake City and the greater Wasatch Front, we are dedicated to keeping your backyard oasis running flawlessly in every season. Reach out to us using the contact form below or give us a call today, and let us provide the prompt, professional service your pool or spa deserves.</p>
         <div class="contact-page-content">
             <div class="contact-methods">
-                <h3>Reach Out via</h3>
+                <h2>Reach Out via</h2>
                 <ul class="methods-list">
                     <li>
                         <svg viewBox="0 0 16 16"><use href="#icon-mobilephone" /></svg>
@@ -121,12 +121,17 @@ import Button from "../components/elements/Button.astro";
 		margin-top:0;
 	}
 
-	:global(#contact-page h3) {
+	.contact-methods h2 {
+		font-family: var(--font-roboto-condensed);
+		font-size: var(--size-2xl);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 2rem;
 		color: var(--color-primary);
 	}
 
 	@media (max-width: 769px) {
-		:global(#contact-page h3) {
+		.contact-methods h2 {
 			text-align: center;
 		}
 	}

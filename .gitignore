@@ -46,3 +46,13 @@ src/utils/templates/custom.ejs
 src/pages/sendmail.astro
 src/pages/success.astro
 src/utils/dev/email-ethereal.ts
+
+# Pagespeed results
+pagespeed-desktop-raw.json
+pagespeed-mobile-raw.json
+pagespeed_results.md
+inner_pages_results.md
+run_pagespeed.cjs
+run_pagespeed_inner.cjs
+extract_details.cjs
+replace_h4.cjs

@@ -27,7 +27,7 @@ const extras = [
             </div>
         </div>
         <div class="footer-col link-col">
-            <h5>{linksTitle}</h5>
+            <h3 class="footer-heading">{linksTitle}</h3>
             <ul class="footer-links">
                 {links.map((link) => (
                     <li><a href={link.href}>{link.name}{link.icon && <link.icon />}</a></li>
@@ -35,7 +35,7 @@ const extras = [
             </ul>
         </div>
         <div class="footer-col link-col">
-            <h5>{extrasTitle}</h5>
+            <h3 class="footer-heading">{extrasTitle}</h3>
             <ul class="footer-links">
                 {extras.map((link) => (
                     <li><a href={link.href} target="_blank" rel="noopener noreferrer">{link.name}{link.icon && <link.icon />}</a></li>
@@ -43,7 +43,7 @@ const extras = [
             </ul>
         </div>
         <div class="footer-col extras-col">
-            <h5>Quick Info</h5>
+            <h3 class="footer-heading">Quick Info</h3>
             <p><strong>Quality Pool & Spa</strong><br>{siteConfig.addressLine1} {siteConfig.addressLine2}<br>{siteConfig.city}, {siteConfig.state} {siteConfig.postalCode}</p>
             <p><strong>Operating Hours</strong><br>{siteConfig.hoursOfOperation}<br>{siteConfig.hoursOfOperationWeekend}</p>
             <p><strong>Phone</strong><br>{siteConfig.prettyTelephone}</p>
@@ -112,6 +112,13 @@ const extras = [
         transform: translateY(-3px);
     }
 
+    /* Headings */
+    .footer-heading {
+        font-size: var(--size-xl);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 1rem;
+    }
 
     /* Links */
     .footer-links {
@@ -181,6 +188,11 @@ const extras = [
 
         .footer-col {
             margin-bottom: 2rem;
+        }
+
+        .footer-col strong {
+            color: var(--color-secondary-light);
+            text-shadow: 1px 1px 0 var(--color-secondary-dark);
         }
 
         .logo-area {

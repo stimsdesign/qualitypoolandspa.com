@@ -12,7 +12,7 @@ import Button from "../components/elements/Button.astro";
 		<p>Ready to build a rewarding career where no two days are exactly the same? At Quality Pool & Spa, we are looking for driven, detail-oriented individuals to join our elite team of pool and hot tub technicians. Serving the beautiful Wasatch Front—from Salt Lake City to Park City—our technicians are the trusted experts who keep our community swimming all summer and soaking safely all winter. Whether you are an experienced pool professional or a hands-on problem solver eager to learn a highly specialized trade, we offer year-round stability, ongoing training, and the opportunity to work outdoors in some of Utah's most stunning backyards. Dive into a dynamic new career and fill out the application below to join our growing crew!</p>
 		<div class="jobs-page-content">
 			<div class="why-us-wrapper">
-				<h3>Why Work With Us?&hellip;</h3>
+				<h2>Why Work With Us?&hellip;</h2>
 				<ul class="why-us-list">
 					<li>Competitive Pay</li>
 					<li>Year-Round Stability</li>
@@ -84,9 +84,9 @@ import Button from "../components/elements/Button.astro";
 					<h2>Job Applicant Privacy Policy</h2>
 				</a>
 				<small>Last updated: March 18, 2025</small>
-				<h4>About Us</h4>
+				<h3>About Us</h3>
 				<p>Quality Pool & Spa gathers and handles the details provided by candidates via our digital employment application.</p>
-				<h4>Information We Gather</h4>
+				<h3>Information We Gather</h3>
 				<p>During the application process, we might obtain:</p>
 				<ul>
 					<li>Personal identifiers and contact details: your name, email address, phone number, and physical address.</li>
@@ -95,14 +95,14 @@ import Button from "../components/elements/Button.astro";
 					<li>System data: automatically logged information like your IP address, browser type, and device details when accessing our application portal.</li>
 				</ul>
 				<p>Please note that we absolutely do not ask for sensitive details like Social Security numbers, bank account information, or medical and genetic records during the initial hiring phases.</p>
-				<h4>How We Use Your Data</h4>
+				<h3>How We Use Your Data</h3>
 				<ul>
 					<li>To assess your skills and fit for the role.</li>
 					<li>To reach out to you concerning your candidacy.</li>
 					<li>To fulfill our legal documentation obligations.</li>
 					<li>To ensure our application systems remain secure and operational.</li>
 				</ul>
-				<h4>Data Sharing</h4>
+				<h3>Data Sharing</h3>
 				<p>Your application details may be shared with:</p>
 				<ul>
 					<li>Designated personnel at Quality Pool & Spa who participate in hiring decisions.</li>
@@ -110,24 +110,24 @@ import Button from "../components/elements/Button.astro";
 					<li>Law enforcement or regulatory bodies, if legally mandated.</li>
 				</ul>
 				<p>We strictly do not sell the personal information of our applicants.</p>
-				<h4>Privacy Rights for Utah Residents</h4>
+				<h3>Privacy Rights for Utah Residents</h3>
 				<ul>
 					<li>The Utah Consumer Privacy Act (UCPA) typically affects companies exceeding $25 million in revenue alongside specific data processing volumes. As a small enterprise, Quality Pool & Spa falls below these UCPA requirements.</li>
 					<li>Nevertheless, we respect legitimate requests to view, modify, or erase your application information. Reach out to us at info@qualitypoolandspa.com.</li>
 				</ul>
-				<h4>Information Retention</h4>
+				<h3>Information Retention</h3>
 				<p>We keep candidate submissions and associated documents for a minimum of one year following a hiring choice to align with federal EEO record-keeping guidelines. Afterward, this data is securely destroyed unless extended preservation is necessary (for instance, due to an ongoing legal dispute).</p>
-				<h4>Data Protection</h4>
+				<h3>Data Protection</h3>
 				<p>We implement standard security protocols to shield candidate data against unauthorized viewing or leaks.</p>
-				<h4>Minors</h4>
+				<h3>Minors</h3>
 				<p>Our hiring portal is not meant for children under the age of 13. Should a minor submit their details, please let us know immediately so we can remove the data.</p>
-				<h4>Get in Touch</h4>
+				<h3>Get in Touch</h3>
 				<p>
 					For any privacy inquiries or to assert your data rights, please contact:<br />
 					Email: office@qualitypoolandspa.com<br />
 					Mail: Quality Pool & Spa, 5209 S Commerce Dr Murray, UT 84107
 				</p>
-				<h4>Policy Changes</h4>
+				<h3>Policy Changes</h3>
 				<p>We reserve the right to amend this privacy notice from time to time, and we will refresh the "last updated" timestamp whenever changes occur.</p>
 			</div>
 		</div>
@@ -175,12 +175,17 @@ import Button from "../components/elements/Button.astro";
 		margin-top:0;
 	}
 
-	:global(#jobs-page h3) {
+	.why-us-wrapper h2 {
+		font-family: var(--font-roboto-condensed);
+		font-size: var(--size-2xl);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 2rem;
 		color: var(--color-primary);
 	}
 
 	@media (max-width: 769px) {
-		:global(#jobs-page h3) {
+		.why-us-wrapper h2 {
 			text-align: center;
 		}
 	}
@@ -248,7 +253,7 @@ import Button from "../components/elements/Button.astro";
 		margin-bottom: 2rem;
 	}
 
-	#privacy-policy-copy h4 {
+	#privacy-policy-copy h3 {
 		margin-top: 2rem;
 		margin-bottom: .5rem;
 		font-size: var(--size-xl);

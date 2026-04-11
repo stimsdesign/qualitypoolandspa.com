@@ -129,7 +129,7 @@ import Button from '../components/elements/Button.astro';
 				</ul>
 			</div>
 			<div class="additional-services">
-				<h6>Additional Services</h6>
+				<h3>Additional Services</h3>
 				<ul>
 					<li>Fiberglass Gel Coat Restoration</li>
 					<li>Pool Cover Repair and Replacement</li>
@@ -187,7 +187,7 @@ import Button from '../components/elements/Button.astro';
 				</ul>
 			</div>
 			<div class="additional-services">
-				<h6>Additional Services</h6>
+				<h3>Additional Services</h3>
 				<ul>
 					<li>Pump diagnosis</li>
 					<li>Pump repair</li>
@@ -558,11 +558,19 @@ import Button from '../components/elements/Button.astro';
 		margin-bottom: 1rem;
 	}
 
-	section#pool-services .additional-services h6 {
+	section .additional-services h3 {
+		font-family: var(--font-roboto-condensed);
+		font-size: var(--size-lg);
+		font-weight: 900;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+	}
+
+	section#pool-services .additional-services h3 {
 		color: var(--color-primary-light);
 	}
 
-	section#spa-services .additional-services h6 {
+	section#spa-services .additional-services h3 {
 		color: var(--color-accent-light);
 	}
 

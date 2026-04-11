@@ -12,7 +12,7 @@ import Button from "../components/elements/Button.astro";
 		<p>Get your backyard oasis ready for the Utah summer with our professional pool opening services. At Quality Pool & Spa, we help homeowners across Salt Lake City and the Wasatch Front transition seamlessly into swim season. Simply fill out the request form below with your pool's details, and our expert technicians will handle the heavy lifting, precise water balancing, and thorough equipment checks. Let us do the hard work so your water is crystal clear, safe, and ready to enjoy the moment the warm weather arrives.</p>
 		<div class="opening-page-content">
 			<div class="service-wrapper">
-				<h3>Our Base Service Includes&hellip;</h3>
+				<h2>Our Base Service Includes&hellip;</h2>
 				<ul class="service-list">
 					<li>Cover Removal</li>
 					<li>Plug Removal & Reassembly</li>
@@ -295,12 +295,17 @@ import Button from "../components/elements/Button.astro";
 		margin-top:0;
 	}
 
-	:global(#opening-page h3) {
+	.service-wrapper h2 {
+		font-family: var(--font-roboto-condensed);
+		font-size: var(--size-2xl);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 2rem;
 		color: var(--color-primary);
 	}
 
 	@media (max-width: 769px) {
-		:global(#opening-page h3) {
+		.service-wrapper h2 {
 			text-align: center;
 		}
 	}

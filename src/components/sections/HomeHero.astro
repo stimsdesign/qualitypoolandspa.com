@@ -7,17 +7,21 @@ import Button from "../elements/Button.astro";
 import Slider from "../elements/Slider.astro";
 // Images
 import HeroSummerScene from "../../assets/images/summer-hero.webp";
+import HeroSummerFuzzy from "../../assets/images/summer-hero-fuzzy.png";
 import HeroWinterScene from "../../assets/images/winter-hero.webp";
+import HeroWinterFuzzy from "../../assets/images/winter-hero-fuzzy.png";
 ---
 
 <section id="hero-wrapper">
     <div id="hero" class="summer">
         <div id="hero__image">
-            <div class="hero__aspect-wrapper summer-season active" style={`background-image: none;`}>
+            <div class="hero__aspect-wrapper summer-season active">
+                <div class="hero-fuzzy-bg" style={`background-image: url(${HeroSummerFuzzy.src});`}></div>
                 <Image src={HeroSummerScene} alt="Summer Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div class="hero__water"><div class="caustics"></div></div>
             </div>
-            <div class="hero__aspect-wrapper winter-season" style={`background-image: none;`}>
+            <div class="hero__aspect-wrapper winter-season">
+                <div class="hero-fuzzy-bg" style={`background-image: url(${HeroWinterFuzzy.src});`}></div>
                 <Image src={HeroWinterScene} alt="Winter Hero" loading="eager" fetchpriority="high" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div class="hero__water"><div class="caustics"></div></div>
             </div>
@@ -50,8 +54,8 @@ import HeroWinterScene from "../../assets/images/winter-hero.webp";
                 <h2><span>New Customers</span> <span>Receive</span> <span class="fire">20% Off</span> <span>First Service</span></h2>
                 <Button class="wave request-form-trigger">Schedule Now</Button>
                 <div id="hero__trust-badges">
-                    <a href="#why-choose"><svg viewBox="0 0 813.09 813.09"><use href="#google-reviews-badge" /></svg></a>
-                    <a href="https://www.bbb.org/us/ut/south-salt-lake/profile/pool-maintenance/quality-pool-spa-1166-2007823" target="_blank"><svg viewBox="0 0 612.09 741.88"><use href="#bbb-badge" /></svg></a>
+                    <a href="#why-choose" aria-label="Read our Google Reviews"><svg viewBox="0 0 813.09 813.09"><use href="#google-reviews-badge" /></svg></a>
+                    <a href="https://www.bbb.org/us/ut/south-salt-lake/profile/pool-maintenance/quality-pool-spa-1166-2007823" target="_blank" aria-label="View our BBB Profile"><svg viewBox="0 0 612.09 741.88"><use href="#bbb-badge" /></svg></a>
                     <svg viewBox="0 0 615.36 597.8"><use href="#utah-local-business-badge" /></svg>
                 </div>
                 <a id="hero__phone" href={`tel:${siteConfig.telephone}`} aria-label={`Call Today ${siteConfig.prettyTelephone}`}>{siteConfig.prettyTelephone}</a>
@@ -150,6 +154,19 @@ import HeroWinterScene from "../../assets/images/winter-hero.webp";
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    .hero-fuzzy-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        filter: blur(15px);
+        transform: scale(1.05);
+        z-index: -1;
     }
 
     .hero__water {
