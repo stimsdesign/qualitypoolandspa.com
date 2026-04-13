@@ -180,7 +180,7 @@
 
     strong {
         font-weight: 900;
-        color: var(--color-primary);
+        color: var(--color-foreground-darker);
     }
 
     figure > figcaption {

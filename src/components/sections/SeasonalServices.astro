@@ -108,7 +108,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
                     </div>
                     <div class="card-context">
                         <h3>Buy with confidence using our comprehensive pool inspections for home buyers.</h3>
-                        <p>Don't let a backyard feature become a hidden liability. We provide detailed pool inspections for home buyers in the SLC area, evaluating equipment, structural integrity, and safety compliance before you close on your new home.</p>
+                        <p>We provide detailed pool inspections for home buyers in the SLC area, evaluating equipment, structural integrity, and safety compliance before you close on your new home.</p>
                     </div>
                     <h2 class="card-text">Pool Inspections</h2>
                 </a>
@@ -121,7 +121,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
                         <Image class="card-image" src={PoolClosing} alt="" />
                     </div>
                     <div class="card-context">
-                        <h3>Protect your investment against freezing temperatures with professional pool closing and winterization.</h3>
+                        <h3>Protect your investment with professional pool closing and winterization.</h3>
                         <p>Utah winters can be brutal on plumbing and equipment. Our thorough pool closing and winterization services safeguard your system against freeze damage, saving you from costly repairs come spring.</p>
                     </div>
                     <h2 class="card-text">Pool Closing</h2>
@@ -131,7 +131,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
                         <Image class="card-image" src={SpaClosing} alt="" />
                     </div>
                     <div class="card-context">
-                        <h3>Secure your hot tub for the off-season with our spa winterization and seasonal closing.</h3>
+                        <h3>Secure your hot tub with our spa winterization and seasonal closing.</h3>
                         <p>When the temperatures drop, ensure your spa's delicate plumbing and pumps are protected. Our spa winterization services fully drain and blow out your system to prevent cracked pipes during the coldest months.</p>
                     </div>
                     <h2 class="card-text">Spa Closing</h2>
@@ -304,7 +304,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
         color: white;
         overflow: hidden;
         box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
-        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        transition: transform 0.1s ease, box-shadow 0.3s ease;
         border:solid 1px var(--color-dark-gray);
         aspect-ratio: 4 / 3;
     }
@@ -369,7 +369,6 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
 
     .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
     }
 
     .card-image {
@@ -392,7 +391,8 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
         padding: 2rem;
         z-index: 1;
         transform: scale(0.8);
-        transition: opacity 0.1s ease, transform 0.1s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
         background: color-mix(in srgb, var(--color-primary) 80%, transparent); 
         will-change: transform, opacity;
@@ -428,7 +428,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
         font-size: 2cqi;
         white-space: nowrap;
         text-transform: uppercase;
-        transition: transform 0.1s ease;
+        transition: transform 0.3s ease;
         margin: 0;
         font-family: var(--font-roboto-condensed);
         font-weight: 500;
@@ -446,7 +446,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
         }
 
         .card-context p {
-            font-size: 4cqi;
+            font-size: 1.25cqi;
         }
     }
     @media (max-width: 769px) {

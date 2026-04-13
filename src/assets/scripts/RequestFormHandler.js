@@ -7,6 +7,10 @@ export class RequestFormHandler {
         this.closeBtn = this.wrapper.querySelector('#request-form-close');
         this.paragraphs = Array.from(this.wrapper.querySelectorAll('p')); // 0: intro, 1: thank you
         this.phoneField = this.form?.querySelector('input[type="tel"]');
+        const selectBox = this.form?.querySelector('#request-service');
+        if (selectBox) {
+            this.originalOptGroups = Array.from(selectBox.querySelectorAll('optgroup'));
+        }
         
         this.init();
     }
@@ -54,6 +58,7 @@ export class RequestFormHandler {
 
     showForm(serviceGroup) {
         this.wrapper.classList.add('active');
+        document.body.style.overflow = 'hidden';
         // Reset message/form states just in case
         this.paragraphs[0].classList.add('active');
         this.paragraphs[0].classList.remove('hidden');
@@ -65,7 +70,6 @@ export class RequestFormHandler {
         // Filter service drop down options
         const selectBox = this.form.querySelector('#request-service');
         const defaultOption = selectBox?.querySelector('option[value=""]');
-        const optGroups = selectBox?.querySelectorAll('optgroup');
         
         if (defaultOption) {
             if (serviceGroup) {
@@ -77,22 +81,24 @@ export class RequestFormHandler {
             }
         }
 
-        if (optGroups) {
-            optGroups.forEach(group => {
+        if (this.originalOptGroups && selectBox) {
+            // First detach all currently attached optgroups and standalone options (except default)
+            selectBox.querySelectorAll('optgroup').forEach(group => group.remove());
+            selectBox.querySelectorAll('option').forEach(opt => {
+                if (opt.value !== "") opt.remove();
+            });
+            
+            // Then append only the requisite ones back
+            this.originalOptGroups.forEach(group => {
                 if (serviceGroup) {
                     if (group.classList.contains(`${serviceGroup}-opts`)) {
-                        group.classList.remove('hidden');
-                        group.style.display = '';
-                        group.disabled = false;
-                    } else {
-                        group.classList.add('hidden');
-                        group.style.display = 'none';
-                        group.disabled = true;
+                        // Unpack the optgroup and append options flatly
+                        Array.from(group.querySelectorAll('option')).forEach(opt => {
+                            selectBox.appendChild(opt.cloneNode(true));
+                        });
                     }
                 } else {
-                    group.classList.remove('hidden');
-                    group.style.display = '';
-                    group.disabled = false;
+                    selectBox.appendChild(group);
                 }
             });
         }
@@ -101,18 +107,20 @@ export class RequestFormHandler {
 
     hideForm() {
         this.wrapper.classList.remove('active');
+        document.body.style.overflow = '';
 
         // Reset service drop down options
         const selectBox = this.form?.querySelector('#request-service');
         const defaultOption = selectBox?.querySelector('option[value=""]');
         if (defaultOption) defaultOption.textContent = 'Select a Service';
 
-        const optGroups = selectBox?.querySelectorAll('optgroup');
-        if (optGroups) {
-            optGroups.forEach(group => {
-                group.classList.remove('hidden');
-                group.style.display = '';
-                group.disabled = false;
+        if (this.originalOptGroups && selectBox) {
+            selectBox.querySelectorAll('optgroup').forEach(group => group.remove());
+            selectBox.querySelectorAll('option').forEach(opt => {
+                if (opt.value !== "") opt.remove();
+            });
+            this.originalOptGroups.forEach(group => {
+                selectBox.appendChild(group);
             });
         }
     }

@@ -1,10 +1,16 @@
 ---
+// Assets
+import { Image } from "astro:assets";
 import { siteConfig } from "../siteConfig";
+// Components
 import Template from "../layouts/ContentPage.astro";
 import Main from '../components/layout/Main.astro';
 import PageHeading from '../components/elements/PageHeading.astro';
 import GoogleReviews from "../components/elements/GoogleReviews.astro";
 import Button from "../components/elements/Button.astro";
+import RequestForm from "../components/sections/RequestForm.astro";
+// Images
+import RMGAcert from "../assets/images/rmga-logo.png";
 ---
 
 <Template title={`Our Services | ${siteConfig.title}`} description={`Quality Pool and Spa is a family-owned and operated business serving Salt Lake City, Utah, and the surrounding areas. We are dedicated to providing our customers with the highest quality pool and spa services.`}>
@@ -12,8 +18,11 @@ import Button from "../components/elements/Button.astro";
 		<PageHeading background="/images/caustics-banner.webp" fuzzy="/images/caustics-banner-fuzzy.webp">About Us</PageHeading>
 		<div class="content-wrapper">
 			<div class="content-story">
-				<h2>Our Story</h2>
-				<p>For 30 years, <strong>Quality Pool & Spa</strong> has been the trusted name in aquatic care across the Wasatch Front. Led by President Derek Mortensen and Partner Jeremy Porter, we believe your backyard should be a sanctuary, not a source of stress. Based in South Salt Lake, we are a dedicated team of <strong>pool and spa professionals</strong> passionate about keeping Utah swimming. We understand the unique challenges that our local climate presents—from the scorching summer sun to the deep freezes of a mountain winter. That’s why we’ve built our three-decade legacy on providing specialized, year-round care that protects your investment and maximizes your relaxation.</p>
+				<Image src={RMGAcert} alt="RMGA Certified" />
+				<div>
+					<h2>Our Story</h2>
+					<p>For 30 years, <strong>Quality Pool & Spa</strong> has been the trusted name in aquatic care across the Wasatch Front. We believe your backyard should be a sanctuary, not a source of stress. Based in South Salt Lake, we are a dedicated team of <strong>pool and spa professionals</strong> passionate about keeping Utah swimming. We understand the unique challenges that our local climate presents—from the scorching summer sun to the deep freezes of a mountain winter. That’s why we’ve built our three-decade legacy on providing specialized, year-round care that protects your investment and maximizes your relaxation.</p>
+				</div>
 			</div>
 			<div class="content-expertise">
 				<h2><span class="electric">30 Years</span> of Local Expertise</h2>
@@ -42,6 +51,9 @@ import Button from "../components/elements/Button.astro";
 		</div>
 	</Main>
 </Template>
+
+<RequestForm />
+
 
 <style>
 
@@ -74,6 +86,35 @@ import Button from "../components/elements/Button.astro";
 	@media (max-width: 769px) {
 		.content-reviews {
 			margin-bottom: 2em;
+		}
+	}
+
+	.content-story {
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		align-items: top;
+		margin: 0 auto;
+		gap: 2cqi;
+	}
+
+	.content-story img {
+		width: 100%;
+		height: auto;
+	}
+
+	@media (max-width: 769px) {
+		.content-story {
+			grid-template-columns: 1fr;
+		}
+
+		.content-story img {
+			width: 50%;
+			height: auto;
+			margin: 0 auto 2cqi;
+		}
+
+		.content-story h2 {
+			display: none;
 		}
 	}
 
