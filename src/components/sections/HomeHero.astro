@@ -1,6 +1,6 @@
 ---
 // Assets
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import { siteConfig } from "../../siteConfig";
 // Components
 import Button from "../elements/Button.astro";
@@ -17,12 +17,12 @@ import HeroWinterFuzzy from "../../assets/images/winter-hero-fuzzy.png";
         <div id="hero__image">
             <div class="hero__aspect-wrapper summer-season active">
                 <div class="hero-fuzzy-bg" style={`background-image: url(${HeroSummerFuzzy.src});`}></div>
-                <Picture src={HeroSummerScene} alt="Summer Hero" loading="eager" fetchpriority="high" widths={[480, 800, 1200, 2000]} sizes="(max-width: 768px) 480px, (max-width: 1024px) 800px, 100vw" formats={['avif', 'webp']} quality={60} style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                <Image src={HeroSummerScene} alt="Summer Hero" loading="eager" fetchpriority="high" widths={[480, 800, 1200, 2000]} sizes="(max-width: 768px) 480px, (max-width: 1024px) 800px, 100vw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div class="hero__water"><div class="caustics"></div></div>
             </div>
             <div class="hero__aspect-wrapper winter-season">
                 <div class="hero-fuzzy-bg" style={`background-image: url(${HeroWinterFuzzy.src});`}></div>
-                <Picture src={HeroWinterScene} alt="Winter Hero" loading="eager" fetchpriority="high" widths={[480, 800, 1200, 2000]} sizes="(max-width: 768px) 480px, (max-width: 1024px) 800px, 100vw" formats={['avif', 'webp']} quality={60} style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                <Image src={HeroWinterScene} alt="Winter Hero" loading="eager" fetchpriority="high" widths={[480, 800, 1200, 2000]} sizes="(max-width: 768px) 480px, (max-width: 1024px) 800px, 100vw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div class="hero__water"><div class="caustics"></div></div>
             </div>
         </div>

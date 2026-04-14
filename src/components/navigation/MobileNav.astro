@@ -383,9 +383,9 @@ const links = [
             visibility 0.4s ease;
     }
 </style>
-<script>
+<script is:inline>
     function initMobileNav() {
-        const toggle = document.getElementById("mobile-toggle") as HTMLInputElement | null;
+        const toggle = document.getElementById("mobile-toggle");
         const hamburger = document.getElementById("mobile-hamburger");
         const drawer = document.getElementById("mobile-menu-drawer");
 

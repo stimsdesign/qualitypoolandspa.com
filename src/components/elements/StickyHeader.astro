@@ -1,16 +1,9 @@
 ---
 
 ---
-<script>
+<script is:inline astro:page-load>
     class StickyHeader {
-        header: HTMLElement;
-        headerHeight: number;
-        headerBottom: number;
-        spacer: HTMLElement | null;
-        isSticky: boolean;
-        ticking: boolean;
-
-        constructor(header: HTMLElement) {
+        constructor(header) {
             this.header = header;
             this.headerHeight = this.header.offsetHeight;
             this.spacer = null;
