@@ -21,7 +21,7 @@ const links = [
     </label>
     <div id="mobile-menu-drawer" class="menu-drawer">
         <div class="drawer-header">
-            <a href="/">
+            <a href="/" aria-label="Home">
                 <svg class="drawer-logo" viewBox="0 0 1184.82 543.66"><use href="#quality-pool-and-spa-light-logo" /></svg>
             </a>
             <label for="mobile-toggle" id="mobile-menu-close" aria-label="Close Menu">
@@ -383,10 +383,9 @@ const links = [
             visibility 0.4s ease;
     }
 </style>
-
-<script is:inline>
+<script>
     function initMobileNav() {
-        const toggle = document.getElementById("mobile-toggle");
+        const toggle = document.getElementById("mobile-toggle") as HTMLInputElement | null;
         const hamburger = document.getElementById("mobile-hamburger");
         const drawer = document.getElementById("mobile-menu-drawer");
 

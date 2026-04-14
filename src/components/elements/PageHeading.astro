@@ -70,7 +70,11 @@ const { background, color = "dark", fuzzy } = Astro.props;
             var(--color-primary),
             var(--color-primary-dark));
         background-clip: text;
-        -webkit-text-stroke: 1px white;
+        filter: 
+            drop-shadow(1px 1px 0px white) 
+            drop-shadow(-1px -1px 0px white) 
+            drop-shadow(1px -1px 0px white) 
+            drop-shadow(-1px 1px 0px white);
     }
 
     #page-heading__text h1.light {

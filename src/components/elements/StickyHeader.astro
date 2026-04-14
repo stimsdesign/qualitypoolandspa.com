@@ -1,10 +1,16 @@
 ---
 
 ---
-
-<script is:inline astro:page-load>
+<script>
     class StickyHeader {
-        constructor(header) {
+        header: HTMLElement;
+        headerHeight: number;
+        headerBottom: number;
+        spacer: HTMLElement | null;
+        isSticky: boolean;
+        ticking: boolean;
+
+        constructor(header: HTMLElement) {
             this.header = header;
             this.headerHeight = this.header.offsetHeight;
             this.spacer = null;
@@ -54,9 +60,9 @@
             }
         }
 
-        apply(initial = false) {
-            const shouldStick = window.scrollY >= this.headerBottom;
-            const shouldRemoveSticky = window.scrollY === 0;
+        apply(initial = false, currentScrollY = window.scrollY) {
+            const shouldStick = currentScrollY >= this.headerBottom;
+            const shouldRemoveSticky = currentScrollY === 0;
 
             if (shouldStick) {
                 this.makeSticky();
@@ -71,10 +77,11 @@
         }
 
         onScroll() {
+            const latestScrollY = window.scrollY;
             if (this.ticking) return;
             this.ticking = true;
             requestAnimationFrame(() => {
-                this.apply();
+                this.apply(false, latestScrollY);
                 this.ticking = false;
             });
         }

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import Button from "../elements/Button.astro";
 import SeasonalCheckbox from "../elements/SeasonalCheckbox.astro";
 import Sun from "../../assets/images/sun.svg";
@@ -54,63 +54,63 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
             <div class="card-layout">
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${PoolOpeningFuzzy.src}')`}>
-                        <Image class="card-image" src={PoolOpening} alt="" />
+                        <Picture class="card-image" src={PoolOpening} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Pool Openings</h2>
                     <div class="card-context">
                         <h3>Start your swim season right with our expert pool opening services.</h3>
                         <p>Ensure a seamless transition into the warmer months with our comprehensive pool opening solutions. We handle the heavy lifting so your pool is safe, clear, and swim-ready the moment the Utah summer arrives.</p>
                     </div>
-                    <h2 class="card-text">Pool Openings</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${RoutineCleaningFuzzy.src}')`}>
-                        <Image class="card-image" src={RoutineCleaning} alt="" />
+                        <Picture class="card-image" src={RoutineCleaning} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Routine Cleaning</h2>
                     <div class="card-context">
                         <h3>Enjoy a pristine swim anytime with dependable routine pool cleaning in Salt Lake City.</h3>
                         <p>Take the hassle out of pool ownership with our reliable routine cleaning. We skim, brush, vacuum, and monitor your water quality year-round so your pool or spa is always ready when you are.</p>
                     </div>
-                    <h2 class="card-text">Routine Cleaning</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${EquipmentRepairFuzzy.src}')`}>
-                        <Image class="card-image" src={EquipmentRepair} alt="" />
+                        <Picture class="card-image" src={EquipmentRepair} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Equipment Repair</h2>
                     <div class="card-context">
                         <h3>Fast and accurate equipment diagnosis and repair to keep your pool running efficiently.</h3>
                         <p>When your system fails, you need rapid solutions. Our expert technicians provide comprehensive equipment diagnosis and repair, resolving issues quickly to minimize downtime.</p>
                     </div>
-                    <h2 class="card-text">Equipment Repair</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${PoolWaterBalancingFuzzy.src}')`}>
-                        <Image class="card-image" src={PoolWaterBalancing} alt="" />
+                        <Picture class="card-image" src={PoolWaterBalancing} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Water Balancing</h2>
                     <div class="card-context">
                         <h3>Achieve crystal-clear perfection with precise pool water balancing in SLC.</h3>
                         <p>Proper chemistry is the key to a safe and comfortable swimming environment. Our pool water balancing services ensure your water levels are perfectly calibrated to prevent scaling, algae growth, and skin irritation.</p>
                     </div>
-                    <h2 class="card-text">Water Balancing</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${LeakDetectionFuzzy.src}')`}>
-                        <Image class="card-image" src={LeakDetection} alt="" />
+                        <Picture class="card-image" src={LeakDetection} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Leak Detection</h2>
                     <div class="card-context">
                         <h3>Stop water loss in its tracks with pinpoint accurate leak detection.</h3>
                         <p>Even a minor leak can lead to major water bills and structural damage. Our advanced leak detection technology finds hidden breaches in your shell or plumbing so we can stop the water loss immediately.</p>
                     </div>
-                    <h2 class="card-text">Leak Detection</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${PoolInspectionFuzzy.src}')`}>
-                        <Image class="card-image" src={PoolInspection} alt="" />
+                        <Picture class="card-image" src={PoolInspection} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Pool Inspections</h2>
                     <div class="card-context">
                         <h3>Buy with confidence using our comprehensive pool inspections for home buyers.</h3>
                         <p>We provide detailed pool inspections for home buyers in the SLC area, evaluating equipment, structural integrity, and safety compliance before you close on your new home.</p>
                     </div>
-                    <h2 class="card-text">Pool Inspections</h2>
                 </a>
             </div>
         </div>
@@ -118,63 +118,63 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
             <div class="card-layout">
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${PoolClosingFuzzy.src}')`}>
-                        <Image class="card-image" src={PoolClosing} alt="" />
+                        <Picture class="card-image" src={PoolClosing} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Pool Closing</h2>
                     <div class="card-context">
                         <h3>Protect your investment with professional pool closing and winterization.</h3>
                         <p>Utah winters can be brutal on plumbing and equipment. Our thorough pool closing and winterization services safeguard your system against freeze damage, saving you from costly repairs come spring.</p>
                     </div>
-                    <h2 class="card-text">Pool Closing</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${SpaClosingFuzzy.src}')`}>
-                        <Image class="card-image" src={SpaClosing} alt="" />
+                        <Picture class="card-image" src={SpaClosing} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Spa Closing</h2>
                     <div class="card-context">
                         <h3>Secure your hot tub with our spa winterization and seasonal closing.</h3>
                         <p>When the temperatures drop, ensure your spa's delicate plumbing and pumps are protected. Our spa winterization services fully drain and blow out your system to prevent cracked pipes during the coldest months.</p>
                     </div>
-                    <h2 class="card-text">Spa Closing</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${PoolCoversFuzzy.src}')`}>
-                        <Image class="card-image" src={PoolCovers} alt="" />
+                        <Picture class="card-image" src={PoolCovers} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Pool Covers</h2>
                     <div class="card-context">
                         <h3>Keep debris out and safety high with expert pool cover repair and replacement.</h3>
                         <p>A compromised cover leaves your pool vulnerable to winter weather and safety hazards. We offer fast pool cover repair and replacement to ensure your pool remains tightly sealed and secure all winter long.</p>
                     </div>
-                    <h2 class="card-text">Pool Covers</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${SpaElectricalFuzzy.src}')`}>
-                        <Image class="card-image" src={SpaElectrical} alt="" />
+                        <Picture class="card-image" src={SpaElectrical} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Spa Electrical</h2>
                     <div class="card-context">
                         <h3>Resolve hot tub power issues safely with professional spa electrical diagnosis.</h3>
                         <p>Tripping breakers or unresponsive controls can be dangerous. Our technicians provide safe, accurate spa electrical diagnosis to isolate shorts and restore safe power to your hot tub.</p>
                     </div>
-                    <h2 class="card-text">Spa Electrical</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${SpaLeakFuzzy.src}')`}>
-                        <Image class="card-image" src={SpaLeak} alt="" />
+                        <Picture class="card-image" src={SpaLeak} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Spa Leak Detection</h2>
                     <div class="card-context">
                         <h3>Find hidden hot tub water loss quickly with expert spa leak diagnosis.</h3>
                         <p>Spas have intricate, foam-insulated plumbing that makes finding leaks notoriously difficult. Our spa leak diagnosis isolates the exact source of the drip to prevent cabinet rot and water waste.</p>
                     </div>
-                    <h2 class="card-text">Spa Leak Detection</h2>
                 </a>
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${SpaPumpFuzzy.src}')`}>
-                        <Image class="card-image" src={SpaPump} alt="" />
+                        <Picture class="card-image" src={SpaPump} alt="" widths={[400, 800]} sizes="(max-width: 500px) 400px, 800px" formats={['avif', 'webp']} loading="lazy" />
                     </div>
+                    <h2 class="card-text">Spa Pump Repair</h2>
                     <div class="card-context">
                         <h3>Cost-effective solutions through professional spa pump repair.</h3>
                         <p>Don't replace the entire unit if it just needs a fix. We offer dedicated spa pump repair, swapping out bad seals and bearings to extend the life of your current equipment.</p>
                     </div>
-                    <h2 class="card-text">Spa Pump Repair</h2>
                 </a>
             </div>
         </div>
