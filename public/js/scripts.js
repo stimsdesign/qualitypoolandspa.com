@@ -8,7 +8,7 @@ console.log('');
     function setIsMobile() {
         const viewportWidth = window.visualViewport
             ? window.visualViewport.width
-            : document.documentElement.clientWidth;
+            : window.innerWidth;
         window.IS_MOBILE = viewportWidth <= 768;
         document.documentElement.dataset.isMobile = window.IS_MOBILE; // optional hook for CSS html[data-is-mobile="true"]
     }
