@@ -391,20 +391,22 @@ const links = [
 
         if (!hamburger) return;
 
-        // Body scroll lock
-        toggle?.addEventListener("change", () => {
-            if (toggle.checked) {
-                document.body.style.overflow = "hidden";
-            } else {
-                document.body.style.overflow = "";
-            }
-        });
+        if (toggle instanceof HTMLInputElement) {
+            // Body scroll lock
+            toggle.addEventListener("change", () => {
+                if (toggle.checked) {
+                    document.body.style.overflow = "hidden";
+                } else {
+                    document.body.style.overflow = "";
+                }
+            });
 
-        // Close on swipeLeft (custom event)
-        drawer?.addEventListener("swipeLeft", () => {
-            if (toggle) toggle.checked = false;
-            document.body.style.overflow = "";
-        });
+            // Close on swipeLeft (custom event)
+            drawer?.addEventListener("swipeLeft", () => {
+                toggle.checked = false;
+                document.body.style.overflow = "";
+            });
+        }
 
         // Interaction Observer for Desktop Sticky Hamburger
         const mainNav =

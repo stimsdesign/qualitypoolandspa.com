@@ -28,7 +28,7 @@ export const siteConfig = {
     country: "USA",
     hoursOfOperation: "Mon-Fri: 9:00AM - 6:00PM",
     hoursOfOperationWeekend: "Sat-Sun: 8:00AM - 4:00PM",
-    ogImage: `${baseUrl}/og-image.jpg`, /* Path relative to the public directory */
+    ogImage: `${baseUrl}/ogimage.png`,
     socialLinks: [
         { name: 'Facebook', url: 'https://www.facebook.com/Qualitypoolandspaslc/', icon: FacebookIcon },
         { name: 'Instagram', url: 'https://www.instagram.com/qualitypoolandspa/', icon: InstagramIcon },

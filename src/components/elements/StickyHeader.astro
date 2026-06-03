@@ -3,7 +3,14 @@
 ---
 <script is:inline astro:page-load>
     class StickyHeader {
-        constructor(header) {
+        header;
+        headerHeight;
+        spacer = null;
+        isSticky = false;
+        ticking = false;
+        headerBottom;
+
+        constructor(header = document.createElement("div")) {
             this.header = header;
             this.headerHeight = this.header.offsetHeight;
             this.spacer = null;
