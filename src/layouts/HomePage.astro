@@ -85,12 +85,23 @@ const {
         <script>
             document.addEventListener("astro:page-load", () => {
                 const globalWindow = window as any;
+                
+                // Track page view in GTM
                 globalWindow.dataLayer = globalWindow.dataLayer || [];
                 globalWindow.dataLayer.push({
                     event: "gtm.pageview",
                     pagePath: window.location.pathname,
                     pageTitle: document.title
                 });
+
+                // Trigger CallTrackingMetrics number swapping on dynamic transitions
+                if (globalWindow.__ctm) {
+                    if (globalWindow.__ctm.main && typeof globalWindow.__ctm.main.runNow === "function") {
+                        globalWindow.__ctm.main.runNow();
+                    } else if (typeof globalWindow.__ctm.run === "function") {
+                        globalWindow.__ctm.run();
+                    }
+                }
             });
         </script>
     </head>
