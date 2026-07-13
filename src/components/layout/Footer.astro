@@ -32,6 +32,7 @@ const extras = [
                 {links.map((link) => (
                     <li><a href={link.href}>{link.name}{link.icon && <link.icon />}</a></li>
                 ))}
+                ))}
             </ul>
         </div>
         <div class="footer-col link-col">
@@ -45,7 +46,7 @@ const extras = [
         <div class="footer-col extras-col">
             <h3 class="footer-heading">Quick Info</h3>
             <p><strong>Quality Pool & Spa</strong><br>{siteConfig.addressLine1} {siteConfig.addressLine2}<br>{siteConfig.city}, {siteConfig.state} {siteConfig.postalCode}</p>
-            <p><strong>Operating Hours</strong><br>{siteConfig.hoursOfOperation}<br>{siteConfig.hoursOfOperationWeekend}</p>
+            <p><strong>Operating Hours</strong><br>{siteConfig.hoursOfOperation}<br>Sat-Sun: Scheduling Only</p>
             <p><strong>Phone</strong><br>{siteConfig.prettyTelephone}</p>
             <p><strong>Email</strong><br>{siteConfig.email}</p>
         </div>

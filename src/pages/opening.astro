@@ -9,19 +9,20 @@ import Button from "../components/elements/Button.astro";
 <Template title={`Pool Openings | ${siteConfig.title}`} description={`Schedule your Pool Opening with ${siteConfig.brand}.`}>
 	<Main id="opening-page">
 		<PageHeading background="/images/ladder-banner.webp" fuzzy="/images/ladder-banner-fuzzy.webp">Pool Openings</PageHeading>
-		<p>Get your backyard oasis ready for the Utah summer with our professional pool opening services. At Quality Pool & Spa, we help homeowners across Salt Lake City and the Wasatch Front transition seamlessly into swim season. Simply fill out the request form below with your pool's details, and our expert technicians will handle the heavy lifting, precise water balancing, and thorough equipment checks. Let us do the hard work so your water is crystal clear, safe, and ready to enjoy the moment the warm weather arrives.</p>
+		<p>Get your backyard oasis ready for the Utah summer with our professional pool opening services. At Quality Pool & Spa, we help homeowners across Salt Lake City and the Wasatch Front transition seamlessly into swim season. Simply fill out the request form below with your pool's details, and our expert technicians will handle the heavy lifting, balanced water chemistry, and thorough equipment checks. Let us do the hard work so your water is crystal clear, safe, and ready to enjoy the moment the warm weather arrives.</p>
 		<div class="opening-page-content">
 			<div class="service-wrapper">
 				<h2>Our Base Service Includes&hellip;</h2>
 				<ul class="service-list">
-					<li>Cover Removal</li>
-					<li>Plug Removal & Reassembly</li>
-					<li>Fitting Installation</li>
-					<li>Accessory Installation</li>
+					<li>Plug Removal from <span class="nowrap">Skimmers and Returns</span><br><small>* if applicable</small></li>
+					<li>Plumbing Connections</li>
 					<li>System Start-Up & Priming</li>
-					<li>Visual Leak & Equipment Check</li>
-					<li>Initial Water Testing</li>
-					<li>Start-Up Chemicals</li>
+					<li>Equipment Check</li>
+					<li>Visual Leak Detection of <span class="nowrap"></span>Above Ground Equipment</li>
+					<li>Water Chemistry Testing and Recommendations</li>
+					<li>Mesh Winter Cover Removal</li>
+					<li>Initial Water Balancing and Chemical Adjustments, including <span class="nowrap">Calcium Hardness</span>, <span class="nowrap">Salt Level</span>, <span class="nowrap">pH & Chlorine</span>.</li>
+					<li><small>* To open a pool, the water level must be above the skimmer inlets</small></li>
 				</ul>
 			</div>
 			<div class="form-wrapper" id="opening-form-anchor">
@@ -332,18 +333,36 @@ import Button from "../components/elements/Button.astro";
 		text-decoration: none;
 		font-family: var(--font-roboto-condensed);
 		font-weight: 500;
-		text-transform: capitalize;
 		font-size: var(--size-xl);
 		transform: translateY(0);
 		transition: transform .1s ease-in-out;
 		word-spacing: -.25ch;
-		margin-bottom: .75rem;
+		margin-bottom: 1rem;
+	}
+
+
+	.service-list li:first-child small {
+		display: block;
+	}
+	.service-list li small {
+		display: block;
+		text-transform: none;
+		word-spacing: 0;
+		text-box-trim: trim-both;
+		color: var(--color-accent);
+		font-style: italic;
 	}
 
 	@media (max-width: 769px) {
 		.service-list li {
-			white-space: nowrap;
+			white-space: normal;
 			margin-bottom: 0;
+			padding: 0.25rem 0.75rem;
+			text-align: center;
+		}
+
+		.service-list li:first-child small {
+			text-align: center;
 		}
 	}
 
