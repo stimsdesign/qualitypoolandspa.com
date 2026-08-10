@@ -14,15 +14,18 @@ import Button from "../components/elements/Button.astro";
 			<div class="service-wrapper">
 				<h2>Our Base Service Includes&hellip;</h2>
 				<ul class="service-list">
-					<li>Plug Removal from <span class="nowrap">Skimmers and Returns</span><br><small>* if applicable</small></li>
+					<li>Plug Removal from <span class="nowrap">Skimmers and Returns</span></li>
 					<li>Plumbing Connections</li>
 					<li>System Start-Up & Priming</li>
 					<li>Equipment Check</li>
 					<li>Visual Leak Detection of <span class="nowrap"></span>Above Ground Equipment</li>
 					<li>Water Chemistry Testing and Recommendations</li>
+					<li><small>* To open a pool, the water level must be above the skimmer inlets</small></li>
+				</ul>
+				<h2>Additional Services</h2>
+				<ul class="service-list">
 					<li>Mesh Winter Cover Removal</li>
 					<li>Initial Water Balancing and Chemical Adjustments, including <span class="nowrap">Calcium Hardness</span>, <span class="nowrap">Salt Level</span>, <span class="nowrap">pH & Chlorine</span>.</li>
-					<li><small>* To open a pool, the water level must be above the skimmer inlets</small></li>
 				</ul>
 			</div>
 			<div class="form-wrapper" id="opening-form-anchor">
@@ -304,6 +307,10 @@ import Button from "../components/elements/Button.astro";
 		text-transform: uppercase;
 		margin-bottom: 2rem;
 		color: var(--color-primary);
+	}
+
+	.service-wrapper h2:last-of-type {
+		margin-top:3rem;
 	}
 
 	@media (max-width: 769px) {
