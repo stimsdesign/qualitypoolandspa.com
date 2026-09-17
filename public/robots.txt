@@ -1,6 +1,6 @@
 User-agent: *
 # Block API routes from being crawled
 # Disallow: /api/
+Allow: /
 
-# Point crawlers to your sitemap
-# Sitemap: https://qualitypoolandspa.com/sitemap.xml
+Sitemap: https://qualitypoolandspa.com/sitemap-index.xml
