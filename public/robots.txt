@@ -1,6 +1,24 @@
 User-agent: *
-# Block API routes from being crawled
-# Disallow: /api/
+Allow: /
+
+# Explicitly welcome AI Browsing & Search Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 Sitemap: https://qualitypoolandspa.com/sitemap-index.xml
+LLMs-txt: https://qualitypoolandspa.com/llms.txt

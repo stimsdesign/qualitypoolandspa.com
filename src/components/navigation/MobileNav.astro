@@ -16,7 +16,7 @@ const links = [
         {siteConfig.prettyTelephone} <svg viewBox="0 0 16 16"><use href="#icon-mobilephone" /></svg>
     </a>
     <input type="checkbox" id="mobile-toggle" hidden aria-hidden="true" />
-    <label for="mobile-toggle" id="mobile-hamburger" aria-label="Open Menu">
+    <label for="mobile-toggle" id="mobile-hamburger" role="button" tabindex="0" aria-label="Open Menu">
         <svg viewBox="0 0 24 24"><use href="#icon-hamburger" /></svg>
     </label>
     <div id="mobile-menu-drawer" class="menu-drawer">
@@ -24,7 +24,7 @@ const links = [
             <a href="/" aria-label="Home">
                 <svg class="drawer-logo" viewBox="0 0 1184.82 543.66"><use href="#quality-pool-and-spa-light-logo" /></svg>
             </a>
-            <label for="mobile-toggle" id="mobile-menu-close" aria-label="Close Menu">
+            <label for="mobile-toggle" id="mobile-menu-close" role="button" tabindex="0" aria-label="Close Menu">
                 <svg viewBox="0 0 95.939 95.939"><use href="#icon-cross" /></svg>
             </label>
         </div>
