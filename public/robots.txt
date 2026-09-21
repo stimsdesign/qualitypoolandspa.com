@@ -21,4 +21,4 @@ User-agent: OAI-SearchBot
 Allow: /
 
 Sitemap: https://qualitypoolandspa.com/sitemap-index.xml
-LLMs-txt: https://qualitypoolandspa.com/llms.txt
+# LLMs-txt: https://qualitypoolandspa.com/llms.txt

@@ -42,6 +42,8 @@ const {
     ogImage = siteConfig.ogImage,
     favicon = "/favicon.svg",
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname.replace(/\/index\.html$/, '/'), siteConfig.url).href;
 ---
 <!doctype html>
 <html lang="en">
@@ -65,13 +67,18 @@ const {
             document.head.appendChild(j);
           }
 
-          var gtmEvents = ['pointerdown', 'scroll', 'keydown', 'touchstart'];
+          var gtmEvents = ['pointerdown', 'mousemove', 'scroll', 'keydown', 'touchstart'];
           function triggerGTM() {
             loadGTM();
             gtmEvents.forEach(function(e) { window.removeEventListener(e, triggerGTM, {passive: true}); });
           }
           gtmEvents.forEach(function(e) { window.addEventListener(e, triggerGTM, {passive: true}); });
-          setTimeout(loadGTM, 2500);
+          
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() { setTimeout(loadGTM, 3500); }, { timeout: 5000 });
+          } else {
+            setTimeout(loadGTM, 4000);
+          }
         </script>
         <!-- End Google Tag Manager -->
         <meta charset="UTF-8" />
@@ -84,8 +91,8 @@ const {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.qualitypoolandspa.com" />
-        <link rel="canonical" href={Astro.url.href} />
+        <meta property="og:url" content={canonicalURL} />
+        <link rel="canonical" href={canonicalURL} />
         <title>{title}</title>
         <link rel="icon" href={favicon} type="image/x-icon" />
         <Font cssVariable="--font-raleway" preload />
