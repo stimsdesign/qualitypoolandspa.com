@@ -39,7 +39,6 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
     </div>
     <div class="seasonal-services__container">
         <div class="seasonal-service__content">
-            
             <div class="summer-season">
                 <h1><Sun />Services</h1>
                 <p>When the Utah summer heat arrives, your backyard should be an oasis, not a chore. As Salt Lake City's trusted pool and spa experts, we provide comprehensive summer pool services designed to keep your water crystal clear and your equipment running flawlessly all season long. From seamless pool openings and balanced chemistry to dependable routine cleaning and rapid equipment repairs, our local team ensures you spend less time maintaining and more time swimming. Discover our top-rated summer services and get your pool ready for endless sunshine.</p>
@@ -51,7 +50,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
                 <Button href="/services.html" class="wave">View All Services</Button>
             </div>
         </div>
-        <div class="seasonal-service__display summer-season active">
+        <div class="seasonal-service__display summer-season">
             <div class="card-layout">
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${PoolOpeningFuzzy.src}')`}>
@@ -115,7 +114,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
                 </a>
             </div>
         </div>
-        <div class="seasonal-service__display winter-season">
+        <div class="seasonal-service__display winter-season active">
             <div class="card-layout">
                 <a href="/services" class="card touch">
                     <div class="fuzzy-load" style={`--background: url('${PoolClosingFuzzy.src}')`}>
@@ -216,8 +215,14 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
         align-items: center;
         justify-content: center;
         gap: 0;
-        padding: 0 2cqi 3cqi;   
+        padding: 0 2cqi 3cqi 0;   
         font-weight: 700;
+    }
+
+    .seasonal-service__content > div {
+        background-color: var(--color-primary);
+        padding: 1cqi;
+        border-radius: 25px;
     }
 
     .seasonal-service__content .button {
@@ -255,6 +260,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
         }
         #seasonal-services .seasonal-service__content {
             margin-bottom: 5cqi;
+            padding-right: 0;
         }
 
         #seasonal-services .seasonal-service__content p {
@@ -263,7 +269,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
     }
 
     #seasonal-services .seasonal-services__container h1 {
-        color: var(--color-primary-darker);
+        color: var(--color-foreground-lighter);
         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
         margin-bottom: .25em;
         display: flex;
@@ -274,7 +280,7 @@ import SpaPumpFuzzy from "../../assets/images/spa-pump.png";
 
     #seasonal-services .seasonal-service__content p {
         max-width: 80ch;
-        color: var(--color-primary-darker);
+        color: var(--color-foreground-lighter);
         font-size: var(--size-md);
         text-indent: 2ch;
     }

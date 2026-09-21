@@ -17,7 +17,7 @@ import HeroWinterFuzzy from "../../assets/images/winter-hero-fuzzy.webp";
         <div id="hero__image">
             <div class="hero__aspect-wrapper summer-season">
                 <div class="hero-fuzzy-bg" style={`background-image: url(${HeroSummerFuzzy.src});`}></div>
-                <Image src={HeroSummerScene} alt="Summer Hero" loading="eager" fetchpriority="high" widths={[480, 800, 1200, 2000]} sizes="(max-width: 768px) 480px, (max-width: 1024px) 800px, 100vw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                <Image src={HeroSummerScene} alt="Summer Hero" loading="lazy" widths={[480, 800, 1200, 2000]} sizes="(max-width: 768px) 480px, (max-width: 1024px) 800px, 100vw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
                 <div class="hero__water"><div class="caustics"></div></div>
             </div>
             <div class="hero__aspect-wrapper winter-season active">
@@ -409,8 +409,7 @@ import HeroWinterFuzzy from "../../assets/images/winter-hero-fuzzy.webp";
         white-space: nowrap;
         line-height: .875em;
         margin-bottom: 0;
-        opacity: 0;
-        transform: translateX(110%);
+        opacity: 1;
     }
 
     @media (max-width: 769px) {
@@ -429,13 +428,13 @@ import HeroWinterFuzzy from "../../assets/images/winter-hero-fuzzy.webp";
     }
     
     @media (prefers-reduced-motion: no-preference) {
-        .fonts-loaded #hero__side-panel h2 span {
+        #hero__side-panel h2 span {
             animation: slide-in-bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
-        .fonts-loaded #hero__side-panel h2 span:nth-child(1) { animation-delay: 0.1s; }
-        .fonts-loaded #hero__side-panel h2 span:nth-child(2) { animation-delay: 0.2s; }
-        .fonts-loaded #hero__side-panel h2 span:nth-child(3) { animation-delay: 0.1s; }
-        .fonts-loaded #hero__side-panel h2 span:nth-child(4) { animation-delay: 0.4s; }
+        #hero__side-panel h2 span:nth-child(1) { animation-delay: 0.05s; }
+        #hero__side-panel h2 span:nth-child(2) { animation-delay: 0.1s; }
+        #hero__side-panel h2 span:nth-child(3) { animation-delay: 0.15s; }
+        #hero__side-panel h2 span:nth-child(4) { animation-delay: 0.2s; }
     }
 
     @media (prefers-reduced-motion: reduce) {

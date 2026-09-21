@@ -6,10 +6,7 @@ console.log('');
 // Global flag for mobile breakpoint
 (function () {
     function setIsMobile() {
-        const viewportWidth = window.visualViewport
-            ? window.visualViewport.width
-            : window.innerWidth;
-        window.IS_MOBILE = viewportWidth <= 768;
+        window.IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
         document.documentElement.dataset.isMobile = window.IS_MOBILE; // optional hook for CSS html[data-is-mobile="true"]
     }
     let resizeTimer;

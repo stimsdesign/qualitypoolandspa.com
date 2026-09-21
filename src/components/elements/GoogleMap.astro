@@ -14,6 +14,7 @@ const mapUrl = `https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=
 
 <div class="google-map-container" id="google-map-wrapper">
     <iframe 
+        src={mapUrl}
         data-src={mapUrl}
         width="100%" 
         height="100%" 
@@ -26,31 +27,32 @@ const mapUrl = `https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=
     ></iframe>
 </div>
 
-<script is:inline>
-    (function() {
+<script>
+    function initGoogleMap() {
         const wrapper = document.getElementById('google-map-wrapper');
-        const iframe = document.getElementById('google-map-iframe');
-        
-        function loadMap() {
-            if (window.innerWidth > 768) {
-                if (iframe && iframe.dataset.src && !iframe.src) {
-                    iframe.src = iframe.dataset.src;
-                }
-            } else {
-                // On mobile, we might want to hide it or keep it as a placeholder
-                // For now, let's just not load the heavy iframe
-                if (wrapper) {
-                     wrapper.style.display = 'none';
-                     // Notify parent to hide the container if needed
-                     const parent = wrapper.closest('#service-area__map');
-                     if (parent) parent.style.display = 'none';
-                }
+        const iframe = document.getElementById('google-map-iframe') as HTMLIFrameElement | null;
+        if (!iframe) return;
+
+        if (window.innerWidth > 768) {
+            if (wrapper) wrapper.style.display = '';
+            const parent = wrapper?.closest('#service-area__map') as HTMLElement | null;
+            if (parent) parent.style.display = '';
+
+            const targetSrc = iframe.getAttribute('data-src') || iframe.src;
+            if (targetSrc && (!iframe.src || iframe.src === 'about:blank' || iframe.src === window.location.href)) {
+                iframe.src = targetSrc;
+            }
+        } else {
+            if (wrapper) {
+                wrapper.style.display = 'none';
+                const parent = wrapper.closest('#service-area__map') as HTMLElement | null;
+                if (parent) parent.style.display = 'none';
             }
         }
+    }
 
-        loadMap();
-        // Optional: reload on resize if needed, but usually once is enough for perf
-    })();
+    document.addEventListener("DOMContentLoaded", initGoogleMap);
+    document.addEventListener("astro:page-load", initGoogleMap);
 </script>
 
 <style>

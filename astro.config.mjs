@@ -24,21 +24,22 @@ export default defineConfig({
           provider: fontProviders.google(),
           name: 'Raleway',
           cssVariable: '--font-raleway',
-          // weights: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
-          weights: ['900']
+          weights: ['900'],
+          display: 'swap'
       },
       {
           provider: fontProviders.google(),
           name: 'Quicksand',
           cssVariable: '--font-quicksand',
-          // weights: ['300', '400', '500', '600', '700']
-          weights: ['400', '700']
+          weights: ['400', '700'],
+          display: 'swap'
       },
       {
           provider: fontProviders.google(),
           name: 'Roboto Condensed',
           cssVariable: '--font-roboto-condensed',
-          weights: ['500','900']
+          weights: ['500','900'],
+          display: 'swap'
       },
   ],
 
