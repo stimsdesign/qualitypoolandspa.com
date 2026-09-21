@@ -504,6 +504,10 @@
     line-height: 1.6;
 }
 
+.form-modal-inner strong {
+    color: var(--color-accent-light);
+}
+
 /* Request Form Styles */
 
 #request-form-wrapper {
