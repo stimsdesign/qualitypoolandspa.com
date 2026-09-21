@@ -58,15 +58,16 @@ const {
 <html lang="en">
     <head>
         <!-- Preconnect Critical Third-Party Origins -->
-        <link rel="preconnect" href="https://518512.tctm.co" />
+        <link rel="preconnect" href="https://518512.tctm.co" crossorigin />
         <link rel="dns-prefetch" href="https://518512.tctm.co" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://elfsightcdn.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+        <link rel="preconnect" href="https://elfsightcdn.com" crossorigin />
         <!-- Google Tag Manager -->
         <script is:inline>
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-          function initGTM() {
+          
+          function loadGTM() {
             if (window.__gtm_loaded) return;
             window.__gtm_loaded = true;
             var j = document.createElement('script');
@@ -74,11 +75,14 @@ const {
             j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-58ZZ7XB2';
             document.head.appendChild(j);
           }
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(initGTM, { timeout: 1500 });
-          } else {
-            setTimeout(initGTM, 150);
+
+          var gtmEvents = ['pointerdown', 'scroll', 'keydown', 'touchstart'];
+          function triggerGTM() {
+            loadGTM();
+            gtmEvents.forEach(function(e) { window.removeEventListener(e, triggerGTM, {passive: true}); });
           }
+          gtmEvents.forEach(function(e) { window.addEventListener(e, triggerGTM, {passive: true}); });
+          setTimeout(loadGTM, 2500);
         </script>
         <!-- End Google Tag Manager -->
         <meta charset="UTF-8" />
