@@ -40,7 +40,7 @@ import Button from "../elements/Button.astro";
                 <div class="form-card">
                     <form id="intake-form" class="contact-form" name="Footer Contact Form" data-netlify="true" netlify-honeypot="question-field">
                         <input type="hidden" name="form-name" value="Footer Contact Form" />
-                        <input type="hidden" name="subject" value="Footer Contact Submission from stimsdesign.com" />
+                        <input type="hidden" name="subject" value={`Footer Contact - ${siteConfig.brand}`} />
                         <input type="text" id="question-field" name="question-field" />
                         <div class="form-row">
                             <div class="input-group">
@@ -412,8 +412,9 @@ import Button from "../elements/Button.astro";
 <script>
     import { ContactFormHandler } from "../../assets/scripts/ContactFormHandler.js";
     document.addEventListener("astro:page-load", () => {
-        document.querySelectorAll(".contact-form").forEach((formEl) => {
+        const formEl = document.getElementById("intake-form");
+        if (formEl) {
             new ContactFormHandler(formEl);
-        });
+        }
     });
 </script>

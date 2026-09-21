@@ -1,5 +1,8 @@
 export class ContactFormHandler {
     constructor(root) {
+        if (!root || root.dataset.contactFormBound === "true") return;
+        root.dataset.contactFormBound = "true";
+
         this.root = root;
         this.telephoneFields = Array.from(this.root.querySelectorAll('input[type="tel"]'));
         this.formModalOverlay = document.querySelector('.form-modal-overlay');
@@ -38,20 +41,28 @@ export class ContactFormHandler {
         event.preventDefault();
 
         const myForm = event.currentTarget;
+        if (myForm.dataset.submitting === "true") return;
+        myForm.dataset.submitting = "true";
 
-        const submitBtn = myForm.querySelector('.submit-btn');
+        const submitBtn = myForm.querySelector('.submit-btn, button[type="submit"]');
         const btnText = submitBtn?.querySelector('.btn-text');
-        const originalText = btnText?.textContent;
+        const originalText = btnText ? btnText.textContent : (submitBtn ? submitBtn.textContent : "");
         if (btnText) btnText.textContent = "Sending...";
         if (submitBtn) submitBtn.disabled = true;
 
+        // Dynamically format subject line with user name if present
+        const subjectInput = myForm.querySelector('input[name="subject"]');
+        const firstName = myForm.querySelector('input[name="first_name"], input[name="first-name"], input[name="name"]')?.value?.trim();
+        const lastName = myForm.querySelector('input[name="last_name"], input[name="last-name"]')?.value?.trim();
+        const fullName = [firstName, lastName].filter(Boolean).join(' ');
+
+        if (subjectInput && fullName) {
+            const formName = myForm.getAttribute('name') || 'Contact Form';
+            subjectInput.value = `${formName}: ${fullName}`;
+        }
 
         const formData = new FormData(myForm);
-
-        // Encode the form data for x-www-form-urlencoded
-        // const body = new URLSearchParams(Array.from(formData.entries())).toString();
         const body = new URLSearchParams(formData).toString();
-
 
         try {
             const res = await fetch(window.location.pathname, {
@@ -65,10 +76,13 @@ export class ContactFormHandler {
                 myForm.reset();
             } else {
                 console.error('Form failed', res.status);
+                alert("There was an error submitting your form. Please try again or call us directly.");
             }
         } catch (e) {
             console.error('Form error', e);
+            alert("There was a network error submitting your form. Please check your connection.");
         } finally {
+            myForm.dataset.submitting = "false";
             if (btnText) btnText.textContent = originalText || "Send Message";
             if (submitBtn) submitBtn.disabled = false;
         }
@@ -84,15 +98,22 @@ export class ContactFormHandler {
         });
 
         // Handle Modal Close (click)
-        if (this.closeModalBtn) {
+        if (this.closeModalBtn && !this.closeModalBtn.dataset.modalCloseBound) {
+            this.closeModalBtn.dataset.modalCloseBound = "true";
             this.closeModalBtn.addEventListener('click', this.closeModal);
         }
 
         // Close modal on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.formModalOverlay?.classList.contains('active')) {
-                this.closeModal();
-            }
-        });
+        if (!window.formEscapeBound) {
+            window.formEscapeBound = true;
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const activeOverlay = document.querySelector('.form-modal-overlay.active');
+                    if (activeOverlay) {
+                        activeOverlay.classList.remove('active');
+                    }
+                }
+            });
+        }
     }
 }

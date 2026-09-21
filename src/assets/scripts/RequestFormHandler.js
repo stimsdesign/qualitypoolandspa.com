@@ -1,7 +1,8 @@
 export class RequestFormHandler {
     constructor() {
         this.wrapper = document.getElementById('request-form-wrapper');
-        if (!this.wrapper) return;
+        if (!this.wrapper || this.wrapper.dataset.requestFormBound === "true") return;
+        this.wrapper.dataset.requestFormBound = "true";
 
         this.form = this.wrapper.querySelector('#request-form');
         this.closeBtn = this.wrapper.querySelector('#request-form-close');
@@ -21,6 +22,9 @@ export class RequestFormHandler {
     }
 
     bindTriggers() {
+        if (document.documentElement.dataset.requestTriggersBound === "true") return;
+        document.documentElement.dataset.requestTriggersBound = "true";
+
         // We use event delegation on document to handle triggers that might be added dynamically or across page transitions
         document.addEventListener('click', (e) => {
             const trigger = e.target.closest('.request-form-trigger');
@@ -49,11 +53,14 @@ export class RequestFormHandler {
         }
         
         // Escape key to close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.wrapper.classList.contains('active')) {
-                this.hideForm();
-            }
-        });
+        if (!window.requestEscapeBound) {
+            window.requestEscapeBound = true;
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.wrapper?.classList.contains('active')) {
+                    this.hideForm();
+                }
+            });
+        }
     }
 
     showForm(serviceGroup) {
@@ -150,11 +157,29 @@ export class RequestFormHandler {
         event.preventDefault();
 
         const myForm = event.currentTarget;
+        if (myForm.dataset.submitting === "true") return;
+        myForm.dataset.submitting = "true";
+
         const submitBtn = myForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.textContent;
+        const originalBtnText = submitBtn ? submitBtn.textContent : "";
         
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+        }
+
+        // Dynamically update subject with name and service if selected
+        const subjectInput = myForm.querySelector('input[name="subject"]');
+        const firstName = myForm.querySelector('#request-first-name')?.value?.trim();
+        const lastName = myForm.querySelector('#request-last-name')?.value?.trim();
+        const serviceSelect = myForm.querySelector('#request-service');
+        const selectedOpt = serviceSelect?.options[serviceSelect.selectedIndex]?.text;
+
+        if (subjectInput && (firstName || lastName)) {
+            const clientName = [firstName, lastName].filter(Boolean).join(' ');
+            const serviceStr = (selectedOpt && serviceSelect.value) ? ` (${selectedOpt})` : '';
+            subjectInput.value = `Quote Request${serviceStr}: ${clientName}`;
+        }
 
         const formData = new FormData(myForm);
         const body = new URLSearchParams(formData).toString();
@@ -191,8 +216,11 @@ export class RequestFormHandler {
             console.error('Form error', e);
             alert("There was an error submitting your request. Please check your connection.");
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
+            myForm.dataset.submitting = "false";
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         }
     }
 }

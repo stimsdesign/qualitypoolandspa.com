@@ -30,7 +30,7 @@ import Button from "../components/elements/Button.astro";
 				</div>
 				<form id="main-contact-form" class="contact-form" name="Jobs Page Form" data-netlify="true" netlify-honeypot="question-field">
 					<input type="hidden" name="form-name" value="Jobs Page Form" />
-					<input type="hidden" name="subject" value=`{Jobs Page Submisstion from ${siteConfig.prettyUrl}}` />
+					<input type="hidden" name="subject" value={`Job Application - ${siteConfig.brand}`} />
 					<input type="text" id="question-field" name="question-field" />
 					<h3>Your Information</h3>
 					<div class="form-row">
@@ -320,9 +320,10 @@ import Button from "../components/elements/Button.astro";
 
     import { ContactFormHandler } from "../assets/scripts/ContactFormHandler.js";
     document.addEventListener("astro:page-load", () => {
-        document.querySelectorAll(".contact-form").forEach((formEl) => {
+        const formEl = document.getElementById("main-contact-form");
+        if (formEl) {
             new ContactFormHandler(formEl);
-        });
+        }
     });
 	
 </script>

@@ -39,7 +39,7 @@ import Button from "../components/elements/Button.astro";
 					</div>
 					<form id="opening-form" class="contact-form" name="Opening Form" data-netlify="true" netlify-honeypot="question-field">
 						<input type="hidden" name="form-name" value="Opening Form" />
-						<input type="hidden" name="subject" value=`{Opening Form Submisstion from ${siteConfig.prettyUrl}}` />
+						<input type="hidden" name="subject" value={`Pool Opening Request - ${siteConfig.brand}`} />
 						<input type="text" id="question-field" name="question-field" style="display:none" />
 						<!-- Step 1: Customer Information -->
 						<div class="form-step active" id="step-1">
@@ -465,9 +465,10 @@ import Button from "../components/elements/Button.astro";
 <script>
     import { ContactFormHandler } from "../assets/scripts/ContactFormHandler.js";
     document.addEventListener("astro:page-load", () => {
-        document.querySelectorAll(".contact-form").forEach((formEl) => {
-            new ContactFormHandler(formEl);
-        });
+        const openingForm = document.getElementById("opening-form");
+        if (openingForm) {
+            new ContactFormHandler(openingForm);
+        }
 
         // Multi-step logic
         const form = document.getElementById("opening-form");
