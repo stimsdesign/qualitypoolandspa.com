@@ -61,15 +61,40 @@ export class ContactFormHandler {
             subjectInput.value = `${formName}: ${fullName}`;
         }
 
-        const formData = new FormData(myForm);
-        const body = new URLSearchParams(formData).toString();
+        const fileInput = myForm.querySelector('input[type="file"]');
+        if (fileInput && fileInput.files && fileInput.files[0]) {
+            const file = fileInput.files[0];
+            const maxBytes = 8 * 1024 * 1024; // 8MB limit
+            if (file.size > maxBytes) {
+                alert("The attached file exceeds the 8MB size limit. Please choose a smaller file.");
+                myForm.dataset.submitting = "false";
+                if (btnText) btnText.textContent = originalText || "Send Message";
+                if (submitBtn) submitBtn.disabled = false;
+                return;
+            }
+        }
 
-        try {
-            const res = await fetch(window.location.pathname, {
+        const formData = new FormData(myForm);
+        const hasFileInput = myForm.querySelector('input[type="file"]') !== null;
+
+        let fetchOptions = {};
+        if (hasFileInput) {
+            // For forms with file uploads (like resumes), send FormData directly.
+            // Do NOT set Content-Type header so browser automatically sets multipart/form-data boundary.
+            fetchOptions = {
+                method: 'POST',
+                body: formData
+            };
+        } else {
+            fetchOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body
-            });
+                body: new URLSearchParams(formData).toString()
+            };
+        }
+
+        try {
+            const res = await fetch(window.location.pathname, fetchOptions);
             if (res.ok) {
                 // show the thank you modal
                 if (this.formModalOverlay) this.formModalOverlay.classList.add('active');
